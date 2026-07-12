@@ -1,9 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./router/AppRouter";
 
 function App() {
   return (
     <BrowserRouter>
-      <h1>Portfolio Setup Completed 🚀</h1>
+      <AppRouter />
     </BrowserRouter>
   );
 }
