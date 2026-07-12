@@ -1,0 +1,11 @@
+.heading {
+  margin-bottom: 60px;
+}
+
+.subtitle {
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
