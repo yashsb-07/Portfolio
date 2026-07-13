@@ -1,56 +1,61 @@
 import Container from "../../common/Container/Container";
 import Button from "../../ui/Button/Button";
+import heroData from "../../../data/hero";
 import styles from "./Hero.module.css";
 
-const technologies = [
-  "React",
-  "Python",
-  "Django",
-  "PostgreSQL",
-  "AWS",
-];
-
 const Hero = () => {
+  const {
+    badge,
+    title,
+    subtitle,
+    description,
+    profile,
+    technologies,
+    cta,
+  } = heroData;
+
   return (
     <section className={styles.hero}>
       <Container>
         <div className={styles.wrapper}>
           <div className={styles.left}>
             <span className={styles.badge}>
-              👋 Welcome to my portfolio
+              {badge}
             </span>
 
             <h1 className={styles.title}>
-              Building Modern
+              {title.first}
+
               <span className={styles.highlight}>
                 {" "}
-                Web Experiences
+                {title.highlight}
               </span>
             </h1>
 
             <h2 className={styles.subtitle}>
-              Python Full Stack Developer • Cloud Learner
+              {subtitle}
             </h2>
 
             <p className={styles.description}>
-              I'm Yash, an MCA student passionate about building
-              scalable web applications using React, Django and
-              PostgreSQL while continuously improving my skills in
-              AWS Cloud Engineering and Data Structures &
-              Algorithms.
+              {description}
             </p>
 
             <div className={styles.buttonGroup}>
-              <Button>View Projects</Button>
+              <Button>
+                {cta.primary.text}
+              </Button>
 
               <Button variant="secondary">
-                Download Resume
+                {cta.secondary.text}
               </Button>
             </div>
 
             <div className={styles.techStack}>
               {technologies.map((tech) => (
-                <span key={tech} className={styles.techChip}>
+                <span
+                  key={tech}
+                  className={styles.techChip}
+                >
                   {tech}
                 </span>
               ))}
@@ -63,14 +68,14 @@ const Hero = () => {
                 Your Photo
               </div>
 
-              <h3>Yash</h3>
+              <h3>{profile.name}</h3>
 
-              <p>MCA Student</p>
+              <p>{profile.role}</p>
 
               <div className={styles.status}>
                 <span className={styles.dot}></span>
 
-                Open to Opportunities
+                {profile.status}
               </div>
             </div>
           </div>
