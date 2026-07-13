@@ -52,6 +52,8 @@ const heroData = {
       url: "mailto:yashsbansode07@email.com",
     },
   ],
+
+  scrollTarget: "mission",
 };
 
 export default heroData;

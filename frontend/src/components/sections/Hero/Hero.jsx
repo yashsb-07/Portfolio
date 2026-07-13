@@ -4,6 +4,7 @@ import heroData from "../../../data/hero";
 
 import HeroContent from "./HeroContent";
 import HeroProfileCard from "./HeroProfileCard";
+import HeroScrollIndicator from "./HeroScrollIndicator";
 
 import styles from "./Hero.module.css";
 
@@ -49,6 +50,8 @@ const profileVariants = {
 };
 
 const Hero = () => {
+  const { scrollTarget } = heroData;
+
   return (
     <section className={styles.hero}>
       <Container>
@@ -64,6 +67,10 @@ const Hero = () => {
             profileVariants={profileVariants}
           />
         </div>
+
+        <HeroScrollIndicator
+          targetId={scrollTarget}
+        />
       </Container>
     </section>
   );
