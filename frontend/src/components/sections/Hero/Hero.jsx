@@ -1,81 +1,76 @@
-import { FiArrowRight, FiDownload } from "react-icons/fi";
-import { FaReact, FaPython, FaAws } from "react-icons/fa";
-
 import Container from "../../common/Container/Container";
 import Button from "../../ui/Button/Button";
-
 import styles from "./Hero.module.css";
+
+const technologies = [
+  "React",
+  "Python",
+  "Django",
+  "PostgreSQL",
+  "AWS",
+];
 
 const Hero = () => {
   return (
     <section className={styles.hero}>
       <Container>
-        <div className={styles.content}>
-          {/* Left Content */}
+        <div className={styles.wrapper}>
           <div className={styles.left}>
-            <div className={styles.badge}>
-              <span className={styles.badgeDot}></span>
-              Available for Opportunities
-            </div>
+            <span className={styles.badge}>
+              👋 Welcome to my portfolio
+            </span>
 
-            <p className={styles.greeting}>Hello, I'm</p>
-
-            <h1 className={styles.name}>
-              Yash <span>Bansode</span>
+            <h1 className={styles.title}>
+              Building Modern
+              <span className={styles.highlight}>
+                {" "}
+                Web Experiences
+              </span>
             </h1>
 
-            <h2 className={styles.role}>
-              Python Full Stack Developer
+            <h2 className={styles.subtitle}>
+              Python Full Stack Developer • Cloud Learner
             </h2>
 
             <p className={styles.description}>
-              I'm an MCA student passionate about creating modern,
+              I'm Yash, an MCA student passionate about building
               scalable web applications using React, Django and
-              PostgreSQL while continuously growing my expertise in
-              AWS Cloud Engineering and Data Structures.
+              PostgreSQL while continuously improving my skills in
+              AWS Cloud Engineering and Data Structures &
+              Algorithms.
             </p>
 
-            <div className={styles.actions}>
-              <Button>
-                View Projects
-                <FiArrowRight />
-              </Button>
+            <div className={styles.buttonGroup}>
+              <Button>View Projects</Button>
 
               <Button variant="secondary">
                 Download Resume
-                <FiDownload />
               </Button>
             </div>
 
-            <div className={styles.techRow}>
-              <div className={styles.techItem}>
-                <FaReact />
-                React
-              </div>
-
-              <div className={styles.techItem}>
-                <FaPython />
-                Python
-              </div>
-
-              <div className={styles.techItem}>
-                <FaAws />
-                AWS
-              </div>
+            <div className={styles.techStack}>
+              {technologies.map((tech) => (
+                <span key={tech} className={styles.techChip}>
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Right Content */}
           <div className={styles.right}>
             <div className={styles.profileCard}>
-              <div className={styles.imageCircle}>
+              <div className={styles.avatar}>
                 Your Photo
               </div>
 
-              <div className={styles.profileInfo}>
-                <h3>Always Building.</h3>
+              <h3>Yash</h3>
 
-                <p>Always Learning.</p>
+              <p>MCA Student</p>
+
+              <div className={styles.status}>
+                <span className={styles.dot}></span>
+
+                Open to Opportunities
               </div>
             </div>
           </div>
