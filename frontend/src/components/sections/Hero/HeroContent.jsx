@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 
 import Button from "../../ui/Button/Button";
 import HeroTechStack from "./HeroTechStack";
+import HeroSocialLinks from "./HeroSocialLinks";
 
 import styles from "./Hero.module.css";
 
@@ -17,6 +18,7 @@ const HeroContent = ({
     description,
     cta,
     technologies,
+    socialLinks,
   } = heroData;
 
   return (
@@ -69,6 +71,11 @@ const HeroContent = ({
           {cta.secondary.text}
         </Button>
       </motion.div>
+
+      <HeroSocialLinks
+        socialLinks={socialLinks}
+        itemVariants={itemVariants}
+      />
 
       <HeroTechStack
         technologies={technologies}

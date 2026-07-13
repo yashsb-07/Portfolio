@@ -41,15 +41,15 @@ const heroData = {
   socialLinks: [
     {
       name: "GitHub",
-      url: "",
+      url: "https://github.com/yashsb-07",
     },
     {
       name: "LinkedIn",
-      url: "",
+      url: "https://www.linkedin.com/in/yashsb07/",
     },
     {
       name: "Email",
-      url: "",
+      url: "mailto:yashsbansode07@email.com",
     },
   ],
 };
