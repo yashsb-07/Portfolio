@@ -1,7 +1,51 @@
+import { motion } from "framer-motion";
+
 import Container from "../../common/Container/Container";
 import Button from "../../ui/Button/Button";
 import heroData from "../../../data/hero";
+
 import styles from "./Hero.module.css";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const profileVariants = {
+  hidden: {
+    opacity: 0,
+    x: 60,
+    scale: 0.95,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Hero = () => {
   const {
@@ -18,29 +62,49 @@ const Hero = () => {
     <section className={styles.hero}>
       <Container>
         <div className={styles.wrapper}>
-          <div className={styles.left}>
-            <span className={styles.badge}>
+          <motion.div
+            className={styles.left}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.span
+              className={styles.badge}
+              variants={itemVariants}
+            >
               {badge}
-            </span>
+            </motion.span>
 
-            <h1 className={styles.title}>
+            <motion.h1
+              className={styles.title}
+              variants={itemVariants}
+            >
               {title.first}
 
               <span className={styles.highlight}>
                 {" "}
                 {title.highlight}
               </span>
-            </h1>
+            </motion.h1>
 
-            <h2 className={styles.subtitle}>
+            <motion.h2
+              className={styles.subtitle}
+              variants={itemVariants}
+            >
               {subtitle}
-            </h2>
+            </motion.h2>
 
-            <p className={styles.description}>
+            <motion.p
+              className={styles.description}
+              variants={itemVariants}
+            >
               {description}
-            </p>
+            </motion.p>
 
-            <div className={styles.buttonGroup}>
+            <motion.div
+              className={styles.buttonGroup}
+              variants={itemVariants}
+            >
               <Button>
                 {cta.primary.text}
               </Button>
@@ -48,21 +112,30 @@ const Hero = () => {
               <Button variant="secondary">
                 {cta.secondary.text}
               </Button>
-            </div>
+            </motion.div>
 
-            <div className={styles.techStack}>
+            <motion.div
+              className={styles.techStack}
+              variants={containerVariants}
+            >
               {technologies.map((tech) => (
-                <span
+                <motion.span
                   key={tech}
                   className={styles.techChip}
+                  variants={itemVariants}
                 >
                   {tech}
-                </span>
+                </motion.span>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className={styles.right}>
+          <motion.div
+            className={styles.right}
+            variants={profileVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <div className={styles.profileCard}>
               <div className={styles.avatar}>
                 Your Photo
@@ -78,7 +151,7 @@ const Hero = () => {
                 {profile.status}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </Container>
     </section>
