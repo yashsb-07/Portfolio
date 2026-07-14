@@ -7,64 +7,72 @@ import HeroProfileCard from "./HeroProfileCard";
 import HeroScrollIndicator from "./HeroScrollIndicator";
 
 import styles from "./Hero.module.css";
+import HeroBackground from "./HeroBackground";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
+import {
+  staggerContainer,
+  fadeUp,
+  slideInRight,
+} from "../../animations/variants";
 
-const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
+// const containerVariants = {
+//   hidden: {},
+//   visible: {
+//     transition: {
+//       staggerChildren: 0.15,
+//     },
+//   },
+// };
 
-const profileVariants = {
-  hidden: {
-    opacity: 0,
-    x: 60,
-    scale: 0.95,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
+// const itemVariants = {
+//   hidden: {
+//     opacity: 0,
+//     y: 30,
+//   },
+//   visible: {
+//     opacity: 1,
+//     y: 0,
+//     transition: {
+//       duration: 0.6,
+//       ease: "easeOut",
+//     },
+//   },
+// };
+
+// const profileVariants = {
+//   hidden: {
+//     opacity: 0,
+//     x: 60,
+//     scale: 0.95,
+//   },
+//   visible: {
+//     opacity: 1,
+//     x: 0,
+//     scale: 1,
+//     transition: {
+//       duration: 0.8,
+//       ease: "easeOut",
+//     },
+//   },
+// };
 
 const Hero = () => {
   const { scrollTarget } = heroData;
 
   return (
     <section className={styles.hero}>
+      <HeroBackground />
       <Container>
         <div className={styles.wrapper}>
           <HeroContent
             heroData={heroData}
-            containerVariants={containerVariants}
-            itemVariants={itemVariants}
+            containerVariants={staggerContainer}
+            itemVariants={fadeUp} 
           />
 
           <HeroProfileCard
             profile={heroData.profile}
-            profileVariants={profileVariants}
+            profileVariants={slideInRight}
           />
         </div>
 
