@@ -1,3 +1,6 @@
+import profileImage from "../assets/images/profile-placeholder.png";
+import resumeFile from "../assets/documents/resume.pdf";
+
 const heroData = {
   badge: "👋 Welcome to my portfolio",
 
@@ -15,6 +18,7 @@ const heroData = {
     name: "Yash",
     role: "MCA Student",
     status: "Open to Opportunities",
+    image: profileImage,
   },
 
   cta: {
@@ -25,7 +29,7 @@ const heroData = {
 
     secondary: {
       text: "Download Resume",
-      href: "/resume",
+      href: resumeFile,
     },
   },
 

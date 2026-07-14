@@ -65,9 +65,24 @@ const HeroContent = ({
         className={styles.buttonGroup}
         variants={itemVariants}
       >
-        <Button>{cta.primary.text}</Button>
+        <Button
+          onClick={() => {
+            const section = document.getElementById("projects");
 
-        <Button variant="secondary">
+            if (section) {
+              section.scrollIntoView({
+                behavior: "smooth",
+              });
+            }
+          }}
+        >
+          {cta.primary.text}
+        </Button>
+
+        <Button
+          variant="secondary"
+          onClick={() => window.open(cta.secondary.href, "_blank")}
+        >
           {cta.secondary.text}
         </Button>
       </motion.div>

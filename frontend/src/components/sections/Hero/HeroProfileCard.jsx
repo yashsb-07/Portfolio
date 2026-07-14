@@ -15,7 +15,11 @@ const HeroProfileCard = ({
     >
       <div className={styles.profileCard}>
         <div className={styles.avatar}>
-          Your Photo
+          <img
+            src={profile.image}
+            alt={`${profile.name} profile`}
+            className={styles.avatarImage}
+          />
         </div>
 
         <h3>{profile.name}</h3>
