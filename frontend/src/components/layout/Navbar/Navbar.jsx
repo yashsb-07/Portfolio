@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import Container from "../../common/Container/Container";
 import Button from "../../ui/Button/Button";
 
@@ -8,18 +6,16 @@ import DesktopNavigation from "./DesktopNavigation";
 import HamburgerButton from "./HamburgerButton";
 import MobileNavigation from "./MobileNavigation";
 
+import useMobileMenu from "../../../hooks/useMobileMenu";
+
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen((previous) => !previous);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const {
+    isMenuOpen,
+    toggleMenu,
+    closeMenu,
+  } = useMobileMenu();
 
   return (
     <header className={styles.header}>

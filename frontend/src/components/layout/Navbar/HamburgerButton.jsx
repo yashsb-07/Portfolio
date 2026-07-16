@@ -7,15 +7,30 @@ const HamburgerButton = ({ isOpen, onToggle }) => {
       type="button"
       className={styles.menuButton}
       onClick={onToggle}
-      aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+      aria-label={
+        isOpen
+          ? "Close navigation menu"
+          : "Open navigation menu"
+      }
       aria-expanded={isOpen}
       aria-controls="mobile-navigation"
     >
-      {isOpen ? (
-        <HiOutlineX size={28} />
-      ) : (
-        <HiOutlineMenu size={28} />
-      )}
+      <span
+        style={{
+          display: "flex",
+          alignItems: "center",
+          transition: "transform 0.25s ease",
+          transform: isOpen
+            ? "rotate(180deg)"
+            : "rotate(0deg)",
+        }}
+      >
+        {isOpen ? (
+          <HiOutlineX size={28} />
+        ) : (
+          <HiOutlineMenu size={28} />
+        )}
+      </span>
     </button>
   );
 };

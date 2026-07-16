@@ -31,6 +31,7 @@ const MobileNavigation = ({ isOpen, onClose }) => {
         <div
           className={styles.overlay}
           onClick={onClose}
+          aria-hidden="true"
         />
       )}
 
@@ -39,6 +40,7 @@ const MobileNavigation = ({ isOpen, onClose }) => {
         className={`${styles.mobileMenu} ${
           isOpen ? styles.mobileMenuOpen : ""
         }`}
+        aria-hidden={!isOpen}
       >
         <ul className={styles.mobileNavLinks}>
           {navigation.map((item) => (
