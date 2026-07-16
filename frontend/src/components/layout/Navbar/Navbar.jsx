@@ -1,48 +1,48 @@
-import Container from "../../common/Container/Container";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
+
+import navigation from "../../../data/navigation";
+
 import Button from "../../ui/Button/Button";
-
-import Logo from "./Logo";
-import DesktopNavigation from "./DesktopNavigation";
-import HamburgerButton from "./HamburgerButton";
-import MobileNavigation from "./MobileNavigation";
-
-import useMobileMenu from "../../../hooks/useMobileMenu";
 
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  const {
-    isMenuOpen,
-    toggleMenu,
-    closeMenu,
-  } = useMobileMenu();
-
   return (
     <header className={styles.header}>
-      <Container>
-        <nav
-          className={styles.nav}
-          aria-label="Main Navigation"
+      <nav
+        className={styles.navbar}
+        aria-label="Primary Navigation"
+      >
+        <a
+          href="/"
+          className={styles.logo}
         >
-          <Logo />
+          Yash
+        </a>
 
-          <DesktopNavigation />
+        <ul className={styles.navLinks}>
+          {navigation.map((item) => (
+            <li key={item.id}>
+              <a href={item.href}>
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-          <div className={styles.desktopButton}>
-            <Button>Resume</Button>
-          </div>
+        <div className={styles.actions}>
+          <Button variant="secondary">
+            Resume
+          </Button>
 
-          <HamburgerButton
-            isOpen={isMenuOpen}
-            onToggle={toggleMenu}
-          />
-        </nav>
-      </Container>
-
-      <MobileNavigation
-        isOpen={isMenuOpen}
-        onClose={closeMenu}
-      />
+          <button
+            className={styles.menuButton}
+            aria-label="Open navigation menu"
+          >
+            <HiOutlineMenuAlt3 />
+          </button>
+        </div>
+      </nav>
     </header>
   );
 };
