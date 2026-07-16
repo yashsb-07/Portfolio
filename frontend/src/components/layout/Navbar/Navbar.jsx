@@ -1,6 +1,9 @@
 import Button from "../../ui/Button/Button";
 
 import useMobileMenu from "../../../hooks/useMobileMenu";
+import useActiveSection from "../../../hooks/useActiveSection";
+
+import navigation from "../../../data/navigation";
 
 import NavbarLogo from "./NavbarLogo";
 import DesktopNavigation from "./DesktopNavigation";
@@ -16,6 +19,9 @@ const Navbar = () => {
     closeMenu,
   } = useMobileMenu();
 
+  const activeSection =
+    useActiveSection(navigation);
+
   return (
     <>
       <header className={styles.header}>
@@ -25,7 +31,9 @@ const Navbar = () => {
         >
           <NavbarLogo />
 
-          <DesktopNavigation />
+          <DesktopNavigation
+            activeSection={activeSection}
+          />
 
           <div className={styles.actions}>
             <Button variant="secondary">
@@ -43,6 +51,7 @@ const Navbar = () => {
       <MobileNavigation
         isOpen={isOpen}
         closeMenu={closeMenu}
+        activeSection={activeSection}
       />
     </>
   );

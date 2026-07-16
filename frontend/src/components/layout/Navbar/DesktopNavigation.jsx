@@ -1,21 +1,31 @@
 import navigation from "../../../data/navigation";
-import useActiveSection from "../../../hooks/useActiveSection";
 
 import styles from "./Navbar.module.css";
 
-const DesktopNavigation = () => {
-  const activeSection = useActiveSection(navigation);
-
-  const handleNavigation = (event, targetId) => {
+const DesktopNavigation = ({
+  activeSection,
+}) => {
+  const handleNavigationClick = (
+    event,
+    targetId
+  ) => {
     event.preventDefault();
 
-    const section = document.getElementById(targetId);
+    const section =
+      document.getElementById(targetId);
 
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
+    if (!section) return;
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    window.history.replaceState(
+      null,
+      "",
+      `#${targetId}`
+    );
   };
 
   return (
@@ -25,12 +35,20 @@ const DesktopNavigation = () => {
           <a
             href={item.href}
             onClick={(event) =>
-              handleNavigation(event, item.id)
+              handleNavigationClick(
+                event,
+                item.id
+              )
             }
             className={
               activeSection === item.id
                 ? styles.activeLink
                 : ""
+            }
+            aria-current={
+              activeSection === item.id
+                ? "page"
+                : undefined
             }
           >
             {item.label}

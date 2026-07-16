@@ -5,15 +5,40 @@ import navigation from "../../../data/navigation";
 
 import styles from "./Navbar.module.css";
 import animationStyles from "./NavbarAnimations.module.css";
-import useActiveSection from "../../../hooks/useActiveSection";
 
 const MobileNavigation = ({
   isOpen,
   closeMenu,
+  activeSection,
 }) => {
 
-  const activeSection = useActiveSection(navigation);
-  
+  const handleNavigationClick = (
+    event,
+    targetId
+  ) => {
+    event.preventDefault();
+
+    const section =
+      document.getElementById(targetId);
+
+    if (!section) return;
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    window.history.replaceState(
+      null,
+      "",
+      `#${targetId}`
+    );
+
+    requestAnimationFrame(() => {
+      closeMenu();
+    });
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -53,23 +78,21 @@ const MobileNavigation = ({
                 <li key={item.id}>
                   <a
                     href={item.href}
-                    onClick={(event) => {
-                      event.preventDefault();
-
-                      const section = document.getElementById(item.id);
-
-                      if (section) {
-                        section.scrollIntoView({
-                          behavior: "smooth",
-                        });
-                      }
-
-                      closeMenu();
-                    }}
+                    onClick={(event) =>
+                      handleNavigationClick(
+                        event,
+                        item.id
+                      )
+                    }
                     className={
                       activeSection === item.id
                         ? styles.activeLink
                         : ""
+                    }
+                    aria-current={
+                      activeSection === item.id
+                        ? "page"
+                        : undefined
                     }
                   >
                     {item.label}

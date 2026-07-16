@@ -1,13 +1,12 @@
-import CurrentFocus from "../../components/sections/CurrentFocus/CurrentFocus";
 import Hero from "../../components/sections/Hero/Hero";
+import CurrentFocus from "../../components/sections/CurrentFocus/CurrentFocus";
 
 const Home = () => {
   return (
     <>
-      <div id="home">
-        <Hero />
-        <CurrentFocus />
-      </div>
+      <Hero />
+
+      <CurrentFocus />
     </>
   );
 };
