@@ -3,10 +3,10 @@ import { useState } from "react";
 import Container from "../../common/Container/Container";
 import Button from "../../ui/Button/Button";
 
+import Logo from "./Logo";
 import DesktopNavigation from "./DesktopNavigation";
 import HamburgerButton from "./HamburgerButton";
 import MobileNavigation from "./MobileNavigation";
-import Logo from "./Logo";
 
 import styles from "./Navbar.module.css";
 
@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
+    setIsMenuOpen((previous) => !previous);
   };
 
   const closeMenu = () => {
@@ -24,7 +24,10 @@ const Navbar = () => {
   return (
     <header className={styles.header}>
       <Container>
-        <nav className={styles.nav}>
+        <nav
+          className={styles.nav}
+          aria-label="Main Navigation"
+        >
           <Logo />
 
           <DesktopNavigation />

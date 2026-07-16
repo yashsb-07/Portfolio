@@ -7,10 +7,15 @@ const HamburgerButton = ({ isOpen, onToggle }) => {
       type="button"
       className={styles.menuButton}
       onClick={onToggle}
-      aria-label="Toggle navigation menu"
+      aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
       aria-expanded={isOpen}
+      aria-controls="mobile-navigation"
     >
-      {isOpen ? <HiOutlineX /> : <HiOutlineMenu />}
+      {isOpen ? (
+        <HiOutlineX size={28} />
+      ) : (
+        <HiOutlineMenu size={28} />
+      )}
     </button>
   );
 };

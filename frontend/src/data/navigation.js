@@ -1,27 +1,27 @@
 const navigation = [
   {
+    id: "home",
     label: "Home",
-    href: "/",
   },
   {
+    id: "journey",
     label: "Journey",
-    href: "#journey",
   },
   {
+    id: "skills",
     label: "Skills",
-    href: "#skills",
   },
   {
+    id: "projects",
     label: "Projects",
-    href: "#projects",
   },
   {
+    id: "experience",
     label: "Experience",
-    href: "#experience",
   },
   {
+    id: "contact",
     label: "Contact",
-    href: "#contact",
   },
 ];
 

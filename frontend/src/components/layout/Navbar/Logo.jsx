@@ -3,7 +3,11 @@ import styles from "./Navbar.module.css";
 
 const Logo = () => {
   return (
-    <NavLink to="/" className={styles.logo}>
+    <NavLink
+      to="/"
+      className={styles.logo}
+      aria-label="Go to homepage"
+    >
       Yash<span>.</span>
     </NavLink>
   );
