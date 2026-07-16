@@ -1,26 +1,23 @@
-import navigation from "../../../data/navigation";
 import styles from "./Navbar.module.css";
 
-const MobileMenu = ({ isOpen, onClose }) => {
+const MobileMenu = ({ isOpen }) => {
+  if (!isOpen) return null;
+
   return (
     <div
-      className={`${styles.mobileMenu} ${
-        isOpen ? styles.mobileMenuOpen : ""
-      }`}
+      style={{
+        position: "fixed",
+        inset: 0,
+        background: "red",
+        zIndex: 9999,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        color: "white",
+        fontSize: "32px",
+      }}
     >
-      <ul className={styles.mobileNavLinks}>
-        {navigation.map((item) => (
-          <li key={item.label}>
-            <a
-              href={item.href}
-              className={styles.mobileNavLink}
-              onClick={onClose}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+      MOBILE MENU WORKING
     </div>
   );
 };
