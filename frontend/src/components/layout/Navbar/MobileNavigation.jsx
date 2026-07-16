@@ -1,64 +1,61 @@
+import { motion, AnimatePresence } from "framer-motion";
+import { HiOutlineX } from "react-icons/hi";
+
 import navigation from "../../../data/navigation";
 
 import styles from "./Navbar.module.css";
+import animationStyles from "./NavbarAnimations.module.css";
 
-const MobileNavigation = ({ isOpen, onClose }) => {
-  const handleNavigation = (id) => {
-    onClose();
-
-    if (id === "home") {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-
-      return;
-    }
-
-    const section = document.getElementById(id);
-
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
-
+const MobileNavigation = ({
+  isOpen,
+  closeMenu,
+}) => {
   return (
-    <>
+    <AnimatePresence>
       {isOpen && (
-        <div
-          className={styles.overlay}
-          onClick={onClose}
-          aria-hidden="true"
-        />
-      )}
+        <>
+          <motion.div
+            className={animationStyles.overlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeMenu}
+          />
 
-      <aside
-        id="mobile-navigation"
-        className={`${styles.mobileMenu} ${
-          isOpen ? styles.mobileMenuOpen : ""
-        }`}
-        aria-hidden={!isOpen}
-      >
-        <ul className={styles.mobileNavLinks}>
-          {navigation.map((item) => (
-            <li key={item.id}>
-              <button
-                type="button"
-                className={styles.mobileNavLink}
-                onClick={() =>
-                  handleNavigation(item.id)
-                }
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </aside>
-    </>
+          <motion.aside
+            className={animationStyles.drawer}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{
+              duration: 0.35,
+              ease: "easeOut",
+            }}
+          >
+            <button
+              className={styles.closeButton}
+              onClick={closeMenu}
+              aria-label="Close navigation"
+            >
+              <HiOutlineX />
+            </button>
+
+            <ul className={styles.mobileLinks}>
+              {navigation.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={item.href}
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.aside>
+        </>
+      )}
+    </AnimatePresence>
   );
 };
 
