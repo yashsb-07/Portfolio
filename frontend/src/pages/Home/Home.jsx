@@ -1,3 +1,4 @@
+import CurrentFocus from "../../components/sections/CurrentFocus/CurrentFocus";
 import Hero from "../../components/sections/Hero/Hero";
 
 const Home = () => {
@@ -5,6 +6,7 @@ const Home = () => {
     <>
       <div id="home">
         <Hero />
+        <CurrentFocus />
       </div>
     </>
   );
