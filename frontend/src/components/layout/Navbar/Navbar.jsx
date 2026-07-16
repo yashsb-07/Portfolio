@@ -34,6 +34,7 @@ const Navbar = () => {
 
             <MobileMenuButton
               onClick={toggleMenu}
+              isOpen={isOpen}
             />
           </div>
         </nav>

@@ -16,6 +16,7 @@ const MobileNavigation = ({
         <>
           <motion.div
             className={animationStyles.overlay}
+            aria-hidden="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -23,6 +24,9 @@ const MobileNavigation = ({
           />
 
           <motion.aside
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile Navigation"
             className={animationStyles.drawer}
             initial={{ x: "100%" }}
             animate={{ x: 0 }}

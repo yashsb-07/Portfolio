@@ -3,13 +3,14 @@ import styles from "./Navbar.module.css";
 
 const MobileMenuButton = ({
   onClick,
+  isOpen,
 }) => {
   return (
     <button
       type="button"
       className={styles.menuButton}
       aria-label="Open navigation menu"
-      aria-expanded="false"
+      aria-expanded={isOpen}
       onClick={onClick}
     >
       <HiOutlineMenuAlt3 />
