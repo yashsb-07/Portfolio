@@ -5,11 +5,15 @@ import navigation from "../../../data/navigation";
 
 import styles from "./Navbar.module.css";
 import animationStyles from "./NavbarAnimations.module.css";
+import useActiveSection from "../../../hooks/useActiveSection";
 
 const MobileNavigation = ({
   isOpen,
   closeMenu,
 }) => {
+
+  const activeSection = useActiveSection(navigation);
+  
   return (
     <AnimatePresence>
       {isOpen && (
@@ -49,7 +53,24 @@ const MobileNavigation = ({
                 <li key={item.id}>
                   <a
                     href={item.href}
-                    onClick={closeMenu}
+                    onClick={(event) => {
+                      event.preventDefault();
+
+                      const section = document.getElementById(item.id);
+
+                      if (section) {
+                        section.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }
+
+                      closeMenu();
+                    }}
+                    className={
+                      activeSection === item.id
+                        ? styles.activeLink
+                        : ""
+                    }
                   >
                     {item.label}
                   </a>
