@@ -1,6 +1,9 @@
-import AboutContent from "./AboutContent";
+import AboutHero from "./AboutHero";
 import AboutImage from "./AboutImage";
+import AboutJourney from "./AboutJourney";
+import AboutHighlights from "./AboutHighlights";
 import AboutStats from "./AboutStats";
+import AboutCTA from "./AboutCTA";
 
 import styles from "./About.module.css";
 
@@ -10,21 +13,27 @@ const About = () => {
       id="about"
       className={styles.about}
     >
+      <div className={styles.backgroundGlow}></div>
+
       <div className={styles.container}>
-        <div className={styles.left}>
+        <AboutHero />
+
+        <div className={styles.content}>
           <AboutImage />
-        </div>
 
-        <div className={styles.right}>
-          <AboutContent />
+          <div className={styles.right}>
+            <AboutJourney />
 
-          <div className={styles.stats}>
-            <AboutStats />
+            <AboutHighlights />
           </div>
         </div>
+
+        <AboutStats />
+
+        <AboutCTA />
       </div>
     </section>
   );
 };
 
-export default About;   
+export default About;

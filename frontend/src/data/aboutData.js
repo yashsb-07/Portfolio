@@ -1,30 +1,72 @@
 const aboutData = {
-  heading: "About Me",
+  hero: {
+    tag: "ABOUT ME",
 
-  subHeading: "Building practical software with clean architecture and continuous learning.",
+    title:
+      "Building software that solves real-world problems.",
 
-  description: `I'm a passionate Full Stack Developer focused on creating scalable, user-friendly applications while continuously expanding my knowledge in modern web technologies, cloud computing, and software engineering.`,
+    subtitle:
+      "Passionate Full Stack Developer focused on scalable applications, clean architecture, and continuous learning.",
+  },
 
-  buttonText: "Download Resume",
+  journey: {
+    heading: "My Journey",
+
+    description:
+      "Started with curiosity, grew through continuous learning, and today I'm focused on building production-ready full stack applications while expanding my knowledge in cloud technologies and software engineering.",
+  },
+
+  highlights: [
+    {
+      icon: "🚀",
+      title: "Current Role",
+      value: "Full Stack Developer",
+    },
+
+    {
+      icon: "🎓",
+      title: "Education",
+      value: "MCA Student",
+    },
+
+    {
+      icon: "☁",
+      title: "Learning",
+      value: "AWS Cloud",
+    },
+
+    {
+      icon: "💻",
+      title: "Focus",
+      value: "Modern Web Apps",
+    },
+  ],
 
   stats: [
     {
-      number: "10+",
-      label: "Projects"
+      number: 10,
+      suffix: "+",
+      label: "Projects",
     },
+
     {
-      number: "15+",
-      label: "Technologies"
+      number: 15,
+      suffix: "+",
+      label: "Technologies",
     },
+
     {
-      number: "100%",
-      label: "Learning Mindset"
+      number: 100,
+      suffix: "%",
+      label: "Learning Mindset",
     },
+
     {
-      number: "∞",
-      label: "Curiosity"
-    }
-  ]
+      number: 1,
+      suffix: "",
+      label: "Mission",
+    },
+  ],
 };
 
 export default aboutData;
