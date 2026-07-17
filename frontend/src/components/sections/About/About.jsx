@@ -13,7 +13,8 @@ const About = () => {
       id="about"
       className={styles.about}
     >
-      <div className={styles.backgroundGlow}></div>
+      <div className={styles.blurOne}></div>
+      <div className={styles.blurTwo}></div>
 
       <div className={styles.container}>
         <AboutHero />

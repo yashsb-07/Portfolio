@@ -1,44 +1,69 @@
+import {
+  FaReact,
+  FaPython,
+  FaAws,
+} from "react-icons/fa";
+
+import {
+  LuGraduationCap,
+  LuBriefcase,
+} from "react-icons/lu";
+
 const aboutData = {
   hero: {
     tag: "ABOUT ME",
 
-    title:
-      "Building software that solves real-world problems.",
+    title: "Building software that solves real-world problems.",
 
     subtitle:
-      "Passionate Full Stack Developer focused on scalable applications, clean architecture, and continuous learning.",
+      "I'm Yash, a Full Stack Developer passionate about building scalable web applications, learning modern technologies, and creating software that delivers real value.",
   },
 
   journey: {
     heading: "My Journey",
 
     description:
-      "Started with curiosity, grew through continuous learning, and today I'm focused on building production-ready full stack applications while expanding my knowledge in cloud technologies and software engineering.",
+      "My journey into software development started with curiosity and has grown into a passion for solving real-world problems through technology. Every project I build strengthens my understanding of clean architecture, modern development practices, and cloud technologies.",
   },
 
   highlights: [
     {
-      icon: "🚀",
+      icon: LuBriefcase,
       title: "Current Role",
       value: "Full Stack Developer",
     },
 
     {
-      icon: "🎓",
+      icon: LuGraduationCap,
       title: "Education",
       value: "MCA Student",
     },
 
     {
-      icon: "☁",
+      icon: FaAws,
       title: "Learning",
       value: "AWS Cloud",
     },
 
     {
-      icon: "💻",
-      title: "Focus",
-      value: "Modern Web Apps",
+      icon: FaReact,
+      title: "Frontend",
+      value: "React Ecosystem",
+    },
+  ],
+
+  technologies: [
+    {
+      name: "React",
+      icon: FaReact,
+    },
+    {
+      name: "Python",
+      icon: FaPython,
+    },
+    {
+      name: "AWS",
+      icon: FaAws,
     },
   ],
 
