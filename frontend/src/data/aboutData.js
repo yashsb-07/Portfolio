@@ -69,28 +69,36 @@ const aboutData = {
 
   stats: [
     {
+      id: 1,
       number: 10,
       suffix: "+",
-      label: "Projects",
+      label: "Projects Built",
+      description: "Production-ready applications"
     },
 
     {
+      id: 2,
       number: 15,
       suffix: "+",
       label: "Technologies",
+      description: "Frontend, Backend & Cloud"
     },
 
     {
+      id: 3,
       number: 100,
       suffix: "%",
-      label: "Learning Mindset",
+      label: "Commitment",
+      description: "Continuous learning mindset"
     },
 
     {
+      id: 4,
       number: 1,
       suffix: "",
       label: "Mission",
-    },
+      description: "Become an exceptional engineer"
+    }
   ],
 };
 
