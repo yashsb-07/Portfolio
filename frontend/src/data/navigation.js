@@ -5,6 +5,11 @@ const navigation = [
     href: "#home",
   },
   {
+    id: "about",
+    label: "About",
+    href: "#about",
+  },
+  {
     id: "mission",
     label: "Mission",
     href: "#mission",
