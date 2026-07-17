@@ -8,11 +8,14 @@ const AboutStatsCard = ({
 }) => {
   return (
     <div className={styles.statCard}>
-      <AnimatedCounter
-        start={50}
-        end={150}
-        duration={3000}
-      />
+      <h3 className={styles.statNumber}>
+        <AnimatedCounter
+          start={0}
+          end={number}
+          duration={2000}
+          suffix={suffix}
+        />
+      </h3>
 
       <p className={styles.statLabel}>
         {label}
