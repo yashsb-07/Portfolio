@@ -1,21 +1,31 @@
 import Button from "../../ui/Button/Button";
 import aboutData from "../../../data/aboutData";
 
+import styles from "./About.module.css";
+
 const AboutContent = () => {
   return (
-    <>
-      <span>WHO I AM</span>
+    <div className={styles.content}>
+      <span className={styles.sectionTag}>
+        WHO I AM
+      </span>
 
-      <h2>{aboutData.heading}</h2>
+      <h2 className={styles.heading}>
+        {aboutData.heading}
+      </h2>
 
-      <h3>{aboutData.subHeading}</h3>
+      <h3 className={styles.subHeading}>
+        {aboutData.subHeading}
+      </h3>
 
-      <p>{aboutData.description}</p>
+      <p className={styles.description}>
+        {aboutData.description}
+      </p>
 
       <Button>
         {aboutData.buttonText}
       </Button>
-    </>
+    </div>
   );
 };
 
