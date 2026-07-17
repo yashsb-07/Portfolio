@@ -4,18 +4,25 @@ import styles from "./About.module.css";
 const AboutHighlights = () => {
   return (
     <div className={styles.highlights}>
-      {aboutData.highlights.map((item) => (
-        <div
-          className={styles.highlightCard}
-          key={item.title}
-        >
-          <span>{item.icon}</span>
+      {aboutData.highlights.map((item) => {
+        const Icon = item.icon;
 
-          <h4>{item.title}</h4>
+        return (
+          <div
+            className={styles.highlightCard}
+            key={item.title}
+          >
+            <div className={styles.highlightIcon}>
+              <Icon />
+            </div>
 
-          <p>{item.value}</p>
-        </div>
-      ))}
+            <div className={styles.highlightContent}>
+              <h4>{item.title}</h4>
+              <p>{item.value}</p>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

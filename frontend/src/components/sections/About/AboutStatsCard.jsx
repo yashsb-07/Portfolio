@@ -1,3 +1,4 @@
+import AnimatedCounter from "../../ui/AnimatedCounter/AnimatedCounter";
 import styles from "./About.module.css";
 
 const AboutStatsCard = ({
@@ -7,12 +8,15 @@ const AboutStatsCard = ({
 }) => {
   return (
     <div className={styles.statCard}>
-      <h3>
-        {number}
-        {suffix}
-      </h3>
+      <AnimatedCounter
+        start={50}
+        end={150}
+        duration={3000}
+      />
 
-      <p>{label}</p>
+      <p className={styles.statLabel}>
+        {label}
+      </p>
     </div>
   );
 };
