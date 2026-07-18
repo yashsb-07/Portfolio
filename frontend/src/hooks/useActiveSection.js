@@ -1,51 +1,112 @@
 import { useEffect, useState } from "react";
 
+const DEFAULT_SECTION = "home";
+const NAVBAR_OFFSET = 100;
+
 const useActiveSection = (navigationItems) => {
   const [activeSection, setActiveSection] = useState(() => {
-    return window.location.hash.replace("#", "") || "home";
+    const hash = window.location.hash.replace("#", "");
+
+    const isValidSection = navigationItems.some(
+      (item) => item.id === hash
+    );
+
+    return isValidSection
+      ? hash
+      : DEFAULT_SECTION;
   });
 
   useEffect(() => {
     const sections = navigationItems
-      .map((item) => document.getElementById(item.id))
+      .map((item) =>
+        document.getElementById(item.id)
+      )
       .filter(Boolean);
 
-    if (!sections.length) return;
+    if (!sections.length) {
+      return;
+    }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (a, b) =>
-              b.intersectionRatio - a.intersectionRatio
-          );
+    const updateActiveSection = () => {
+      const scrollPosition =
+        window.scrollY + NAVBAR_OFFSET;
 
-        if (!visibleSections.length) return;
+      let currentSection = sections[0];
 
-        const currentSection =
-          visibleSections[0].target.id;
+      sections.forEach((section) => {
+        if (
+          section.offsetTop <= scrollPosition
+        ) {
+          currentSection = section;
+        }
+      });
 
-        setActiveSection(currentSection);
+      const currentSectionId =
+        currentSection.id;
 
+      setActiveSection((previousSection) => {
+        if (
+          previousSection === currentSectionId
+        ) {
+          return previousSection;
+        }
+
+        return currentSectionId;
+      });
+
+      const currentHash =
+        window.location.hash.replace("#", "");
+
+      if (currentHash !== currentSectionId) {
         window.history.replaceState(
           null,
           "",
-          `#${currentSection}`
+          `#${currentSectionId}`
         );
-      },
+      }
+    };
+
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+
+      window.requestAnimationFrame(() => {
+        updateActiveSection();
+
+        ticking = false;
+      });
+    };
+
+    updateActiveSection();
+
+    window.addEventListener(
+      "scroll",
+      handleScroll,
       {
-        rootMargin: "-80px 0px -40% 0px",
-        threshold: [0.2, 0.4, 0.6, 0.8],
+        passive: true,
       }
     );
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+    window.addEventListener(
+      "resize",
+      updateActiveSection
+    );
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+
+      window.removeEventListener(
+        "resize",
+        updateActiveSection
+      );
     };
   }, [navigationItems]);
 
