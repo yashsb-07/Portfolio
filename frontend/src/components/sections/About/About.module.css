@@ -425,3 +425,16 @@ grid-template-columns:1fr;
   padding:.95rem 1.8rem;
 }
 
+.imageMotionWrapper {
+  width: 100%;
+}
+
+.highlightMotionWrapper,
+.statMotionWrapper {
+  height: 100%;
+}
+
+.highlightMotionWrapper > *,
+.statMotionWrapper > * {
+  height: 100%;
+}
