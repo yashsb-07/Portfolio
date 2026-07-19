@@ -40,16 +40,24 @@ const FooterSocials = () => {
                 <Icon />
               </span>
 
-              <span>
+              <span
+                className={styles.socialLabel}
+              >
                 {link.label}
               </span>
 
-              <LuArrowUpRight
+              <span
                 className={
-                  styles.socialArrow
+                  styles.socialArrowWrapper
                 }
                 aria-hidden="true"
-              />
+              >
+                <LuArrowUpRight
+                  className={
+                    styles.socialArrow
+                  }
+                />
+              </span>
             </a>
           );
         })}

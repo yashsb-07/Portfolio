@@ -49,7 +49,16 @@ const FooterNavigation = () => {
                 )
               }
             >
-              {item.label}
+              <span
+                className={
+                  styles.navigationIndicator
+                }
+                aria-hidden="true"
+              />
+
+              <span>
+                {item.label}
+              </span>
             </a>
           </li>
         ))}

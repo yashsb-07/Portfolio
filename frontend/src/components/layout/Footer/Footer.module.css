@@ -529,3 +529,662 @@
     transition: none;
   }
 }
+
+/* ========================================
+   STEP 36 - PREMIUM UI & MOTION POLISH
+======================================== */
+
+
+/* ========================================
+   SECONDARY AMBIENT GLOW
+======================================== */
+
+.backgroundGlowSecondary {
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  top: 10%;
+  right: -220px;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(150px);
+
+  opacity: 0.04;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   AMBIENT GLOW MOTION
+======================================== */
+
+.backgroundGlow,
+.backgroundGlowSecondary {
+  will-change: transform;
+}
+
+.backgroundGlow {
+  animation:
+    footerGlowOne
+    18s
+    ease-in-out
+    infinite;
+}
+
+.backgroundGlowSecondary {
+  animation:
+    footerGlowTwo
+    20s
+    ease-in-out
+    infinite;
+}
+
+@keyframes footerGlowOne {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        45px,
+        -25px,
+        0
+      );
+  }
+}
+
+@keyframes footerGlowTwo {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -35px,
+        25px,
+        0
+      );
+  }
+}
+
+
+/* ========================================
+   MOTION WRAPPERS
+======================================== */
+
+.brandMotionWrapper {
+  min-width: 0;
+}
+
+.columnMotionWrapper {
+  min-width: 0;
+
+  height: 100%;
+}
+
+
+/* ========================================
+   PREMIUM FOOTER TOP BORDER
+======================================== */
+
+.footerMain {
+  position: relative;
+}
+
+.footerMain::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  left: 0;
+
+  width: 120px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary-color),
+      transparent
+    );
+
+  opacity: 0.65;
+}
+
+
+/* ========================================
+   PREMIUM BRAND
+======================================== */
+
+.brand {
+  position: relative;
+
+  overflow: visible;
+}
+
+.brandText,
+.brandDot {
+  display: inline-block;
+
+  transition:
+    transform 0.35s ease,
+    color 0.35s ease;
+}
+
+.brandDot {
+  color:
+    var(--primary-color);
+}
+
+.brand:hover
+.brandText {
+  transform:
+    translateY(-2px);
+}
+
+.brand:hover
+.brandDot {
+  transform:
+    translateY(-4px)
+    scale(1.2);
+}
+
+
+/* ========================================
+   TAGLINE
+======================================== */
+
+.tagline {
+  transition:
+    color 0.3s ease;
+}
+
+
+/* ========================================
+   PREMIUM EMAIL LINK
+======================================== */
+
+.emailLink {
+  position: relative;
+}
+
+.emailIcon {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color:
+    var(--primary-color);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.emailIcon svg {
+  transition:
+    transform 0.3s ease;
+}
+
+.emailValue {
+  position: relative;
+}
+
+.emailValue::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -4px;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    var(--primary-color);
+
+  transform:
+    scaleX(0);
+
+  transform-origin:
+    right;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.emailLink:hover
+.emailIcon {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.13);
+
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+.emailLink:hover
+.emailIcon svg {
+  transform:
+    rotate(-5deg)
+    scale(1.08);
+}
+
+.emailLink:hover
+.emailValue::after {
+  transform:
+    scaleX(1);
+
+  transform-origin:
+    left;
+}
+
+
+/* ========================================
+   COLUMN TITLE ACCENT
+======================================== */
+
+.columnTitle {
+  position: relative;
+
+  width: fit-content;
+}
+
+.columnTitle::after {
+  content: "";
+
+  display: block;
+
+  width: 20px;
+  height: 1px;
+
+  margin-top: 0.5rem;
+
+  background:
+    var(--primary-color);
+
+  opacity: 0.55;
+}
+
+
+/* ========================================
+   PREMIUM NAVIGATION LINKS
+======================================== */
+
+.navigationList a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0;
+
+  overflow: hidden;
+}
+
+.navigationIndicator {
+  width: 0;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  margin-right: 0;
+
+  background:
+    var(--primary-color);
+
+  opacity: 0;
+
+  transition:
+    width 0.3s ease,
+    margin-right 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.navigationList a:hover
+.navigationIndicator {
+  width: 14px;
+
+  margin-right: 0.5rem;
+
+  opacity: 1;
+}
+
+
+/* ========================================
+   PREMIUM SOCIAL LINKS
+======================================== */
+
+.socialLink {
+  position: relative;
+}
+
+.socialIcon {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 9px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.socialIcon svg {
+  transition:
+    transform 0.3s ease;
+}
+
+.socialLabel {
+  transition:
+    transform 0.3s ease;
+}
+
+.socialArrowWrapper {
+  width: 24px;
+  height: 24px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.socialLink:hover
+.socialIcon {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.13);
+
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+.socialLink:hover
+.socialIcon svg {
+  transform:
+    scale(1.1);
+}
+
+.socialLink:hover
+.socialArrowWrapper {
+  transform:
+    translate(
+      2px,
+      -2px
+    );
+
+  background:
+    rgba(255, 255, 255, 0.045);
+}
+
+
+/* ========================================
+   FOOTER BOTTOM PREMIUM DIVIDER
+======================================== */
+
+.footerBottom {
+  position: relative;
+}
+
+.footerBottom::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  right: 0;
+
+  width: 100px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      270deg,
+      var(--primary-color),
+      transparent
+    );
+
+  opacity: 0.45;
+}
+
+
+/* ========================================
+   PREMIUM BACK TO TOP
+======================================== */
+
+.backToTop {
+  gap: 0.65rem;
+}
+
+.backToTopIcon {
+  width: 34px;
+  height: 34px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color:
+    var(--primary-color);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.backToTopIcon svg {
+  transition:
+    transform 0.3s ease;
+}
+
+.backToTop:hover
+.backToTopIcon {
+  transform:
+    translateY(-3px);
+
+  border-color:
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 10px 25px
+    rgba(0, 0, 0, 0.12);
+}
+
+.backToTop:hover
+.backToTopIcon svg {
+  transform:
+    translateY(-2px);
+}
+
+
+/* ========================================
+   REFINED FOCUS STATES
+======================================== */
+
+.brand:focus-visible,
+.emailLink:focus-visible,
+.navigationList a:focus-visible,
+.socialLink:focus-visible,
+.backToTop:focus-visible {
+  outline:
+    2px solid
+    var(--primary-color);
+
+  outline-offset: 5px;
+
+  border-radius: 6px;
+}
+
+
+/* ========================================
+   MOBILE REFINEMENTS
+======================================== */
+
+@media (max-width: 576px) {
+  .footerMain::before {
+    width: 80px;
+  }
+
+  .footerBottom::before {
+    width: 70px;
+  }
+
+  .emailIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .socialIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .backToTop {
+    min-height: 44px;
+  }
+
+  .backToTopIcon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+
+/* ========================================
+   TOUCH DEVICE OPTIMIZATION
+======================================== */
+
+@media (hover: none) {
+  .brand:hover
+  .brandText,
+  .brand:hover
+  .brandDot,
+  .emailLink:hover
+  .emailIcon,
+  .emailLink:hover
+  .emailIcon svg,
+  .navigationList a:hover,
+  .socialLink:hover
+  .socialIcon,
+  .socialLink:hover
+  .socialIcon svg,
+  .socialLink:hover
+  .socialArrowWrapper,
+  .backToTop:hover
+  .backToTopIcon,
+  .backToTop:hover
+  .backToTopIcon svg {
+    transform: none;
+  }
+
+  .navigationList a:hover
+  .navigationIndicator {
+    width: 0;
+
+    margin-right: 0;
+
+    opacity: 0;
+  }
+
+  .emailLink:hover
+  .emailValue::after {
+    transform:
+      scaleX(0);
+  }
+}
+
+
+/* ========================================
+   REDUCED MOTION ACCESSIBILITY
+======================================== */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .backgroundGlow,
+  .backgroundGlowSecondary {
+    animation: none;
+  }
+
+  .brandText,
+  .brandDot,
+  .emailIcon,
+  .emailIcon svg,
+  .emailValue::after,
+  .navigationIndicator,
+  .socialIcon,
+  .socialIcon svg,
+  .socialLabel,
+  .socialArrowWrapper,
+  .socialArrow,
+  .backToTopIcon,
+  .backToTopIcon svg {
+    transition: none;
+  }
+}
