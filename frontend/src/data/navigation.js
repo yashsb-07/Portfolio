@@ -30,6 +30,11 @@ const navigation = [
     href: "#experience",
   },
   {
+    id: "achievements",
+    label: "Achievements",
+    href: "#achievements",
+  },
+  {
     id: "contact",
     label: "Contact",
     href: "#contact",
