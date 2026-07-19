@@ -397,3 +397,500 @@
     transition: none;
   }
 }
+
+/* ========================================
+   STEP 26 - PREMIUM SHOWCASE & MOTION
+======================================== */
+
+
+/* ---------- Secondary Ambient Glow ---------- */
+
+.backgroundGlowSecondary {
+  position: absolute;
+
+  width: 340px;
+  height: 340px;
+
+  top: 5%;
+  right: -200px;
+
+  border-radius: 50%;
+
+  background: var(--primary-color);
+
+  filter: blur(150px);
+
+  opacity: 0.06;
+
+  pointer-events: none;
+}
+
+
+/* ---------- Ambient Motion ---------- */
+
+.backgroundGlow,
+.backgroundGlowSecondary {
+  will-change: transform;
+}
+
+.backgroundGlow {
+  animation:
+    projectsGlowOne
+    15s
+    ease-in-out
+    infinite;
+}
+
+.backgroundGlowSecondary {
+  animation:
+    projectsGlowTwo
+    17s
+    ease-in-out
+    infinite;
+}
+
+@keyframes projectsGlowOne {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        35px,
+        -25px,
+        0
+      );
+  }
+}
+
+@keyframes projectsGlowTwo {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -30px,
+        30px,
+        0
+      );
+  }
+}
+
+
+/* ---------- Motion Wrappers ---------- */
+
+.projectMotionWrapper {
+  height: 100%;
+}
+
+.projectMotionWrapper > * {
+  height: 100%;
+}
+
+.flagshipMotionWrapper {
+  grid-column: 1 / -1;
+}
+
+
+/* ---------- Updated Project Card ---------- */
+
+.projectCard {
+  isolation: isolate;
+
+  padding: 0;
+}
+
+.cardGlow {
+  position: absolute;
+
+  width: 200px;
+  height: 200px;
+
+  top: -130px;
+  right: -130px;
+
+  border-radius: 50%;
+
+  background: var(--primary-color);
+
+  filter: blur(80px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+  z-index: -1;
+}
+
+.projectCard:hover .cardGlow {
+  opacity: 0.14;
+
+  transform: scale(1.2);
+}
+
+
+/* ---------- Project Visual ---------- */
+
+.projectVisual {
+  position: relative;
+
+  min-height: 190px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.065),
+      rgba(255, 255, 255, 0.015)
+    );
+}
+
+.flagshipCard .projectVisual {
+  min-height: 260px;
+}
+
+.visualPattern {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.3;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035)
+      1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035)
+      1px,
+      transparent 1px
+    );
+
+  background-size:
+    32px 32px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent
+    );
+}
+
+.projectIcon {
+  position: relative;
+
+  z-index: 1;
+
+  width: 76px;
+  height: 76px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  color: var(--primary-color);
+
+  font-size: 2rem;
+
+  box-shadow:
+    0 20px 50px
+    rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.4s ease,
+    background 0.4s ease;
+}
+
+.projectCard:hover
+.projectIcon {
+  transform:
+    translateY(-5px)
+    rotate(-3deg)
+    scale(1.05);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+.featuredBadge {
+  position: absolute;
+
+  top: 1.25rem;
+  left: 1.25rem;
+
+  z-index: 2;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  padding:
+    0.5rem 0.8rem;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 999px;
+
+  background:
+    rgba(0, 0, 0, 0.15);
+
+  backdrop-filter:
+    blur(12px);
+
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.featuredBadge svg {
+  color: var(--primary-color);
+}
+
+.visualLabel {
+  position: absolute;
+
+  right: 1.25rem;
+  bottom: 1.25rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* ---------- Card Body ---------- */
+
+.cardBody {
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: 2rem;
+}
+
+
+/* ---------- Status ---------- */
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--primary-color);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(255, 255, 255, 0.05);
+}
+
+
+/* ---------- Technology Interaction ---------- */
+
+.technologies li {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.technologies li:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+
+/* ---------- Featured Project ---------- */
+
+.flagshipCard {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(0, 0.95fr);
+
+  min-height: 440px;
+}
+
+.flagshipCard
+.projectVisual {
+  height: 100%;
+
+  border-bottom: none;
+
+  border-right:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+.flagshipCard
+.cardBody {
+  justify-content: center;
+
+  padding: 2.5rem;
+}
+
+.flagshipCard
+.projectTitle {
+  font-size:
+    clamp(
+      1.8rem,
+      3vw,
+      2.4rem
+    );
+}
+
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 992px) {
+  .flagshipCard {
+    grid-template-columns: 1fr;
+  }
+
+  .flagshipCard
+  .projectVisual {
+    min-height: 240px;
+
+    border-right: none;
+
+    border-bottom:
+      1px solid
+      rgba(255, 255, 255, 0.07);
+  }
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 576px) {
+  .projectVisual,
+  .flagshipCard
+  .projectVisual {
+    min-height: 180px;
+  }
+
+  .cardBody,
+  .flagshipCard
+  .cardBody {
+    padding: 1.5rem;
+  }
+
+  .projectIcon {
+    width: 64px;
+    height: 64px;
+
+    border-radius: 18px;
+
+    font-size: 1.7rem;
+  }
+
+  .featuredBadge {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .visualLabel {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+
+/* ---------- Touch Devices ---------- */
+
+@media (hover: none) {
+  .projectCard:hover
+  .cardGlow {
+    opacity: 0;
+
+    transform: none;
+  }
+
+  .projectCard:hover
+  .projectIcon,
+  .technologies li:hover {
+    transform: none;
+  }
+}
+
+
+/* ---------- Reduced Motion ---------- */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .backgroundGlow,
+  .backgroundGlowSecondary {
+    animation: none;
+  }
+
+  .projectCard,
+  .cardGlow,
+  .projectIcon,
+  .technologies li,
+  .projectLinks a {
+    transition: none;
+  }
+}

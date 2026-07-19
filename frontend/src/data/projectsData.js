@@ -1,3 +1,12 @@
+import {
+  LuActivity,
+  LuBuilding2,
+  LuLayoutDashboard,
+  LuShoppingBag,
+  LuSparkles,
+  LuStethoscope,
+} from "react-icons/lu";
+
 const projectsData = {
   header: {
     eyebrow: "SELECTED WORK",
@@ -27,7 +36,11 @@ const projectsData = {
         "OpenCV",
       ],
 
+      icon: LuActivity,
+
       featured: true,
+
+      flagship: true,
 
       status: "In Development",
 
@@ -53,7 +66,11 @@ const projectsData = {
         "Vite",
       ],
 
+      icon: LuShoppingBag,
+
       featured: true,
+
+      flagship: false,
 
       status: "Completed",
 
@@ -78,7 +95,11 @@ const projectsData = {
         "JavaScript",
       ],
 
+      icon: LuLayoutDashboard,
+
       featured: false,
+
+      flagship: false,
 
       status: "Completed",
 
@@ -103,7 +124,11 @@ const projectsData = {
         "JavaScript",
       ],
 
+      icon: LuSparkles,
+
       featured: false,
+
+      flagship: false,
 
       status: "Completed",
 
@@ -128,7 +153,11 @@ const projectsData = {
         "JavaScript",
       ],
 
+      icon: LuStethoscope,
+
       featured: false,
+
+      flagship: false,
 
       status: "Completed",
 
@@ -153,7 +182,11 @@ const projectsData = {
         "JavaScript",
       ],
 
+      icon: LuBuilding2,
+
       featured: false,
+
+      flagship: false,
 
       status: "Completed",
 
