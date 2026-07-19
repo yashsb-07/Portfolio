@@ -5,6 +5,13 @@ const SkillItem = ({
   icon: Icon,
   level,
 }) => {
+  const levelClass =
+    level === "Learning"
+      ? styles.levelLearning
+      : level === "Working Knowledge"
+        ? styles.levelWorking
+        : styles.levelComfortable;
+
   return (
     <li className={styles.skillItem}>
       <div
@@ -19,8 +26,15 @@ const SkillItem = ({
           {name}
         </span>
 
-        <span className={styles.skillLevel}>
-          {level}
+        <span
+          className={`${styles.skillLevel} ${levelClass}`}
+        >
+          <span
+            className={styles.levelDot}
+            aria-hidden="true"
+          />
+
+          <span>{level}</span>
         </span>
       </div>
     </li>

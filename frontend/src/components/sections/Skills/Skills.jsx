@@ -1,6 +1,8 @@
 import SkillsHeader from "./SkillsHeader";
 import SkillsGrid from "./SkillsGrid";
 
+import { MotionFade } from "../../ui/Motion";
+
 import styles from "./Skills.module.css";
 
 const Skills = () => {
@@ -14,8 +16,19 @@ const Skills = () => {
         aria-hidden="true"
       />
 
+      <div
+        className={styles.backgroundGlowSecondary}
+        aria-hidden="true"
+      />
+
       <div className={styles.container}>
-        <SkillsHeader />
+        <MotionFade
+          direction="up"
+          distance={30}
+          duration={0.7}
+        >
+          <SkillsHeader />
+        </MotionFade>
 
         <SkillsGrid />
       </div>

@@ -413,3 +413,484 @@
     transition: none;
   }
 }
+
+/* ========================================
+   STEP 28 - PREMIUM UI & MOTION
+======================================== */
+
+
+/* ---------- Secondary Ambient Glow ---------- */
+
+.backgroundGlowSecondary {
+  position: absolute;
+
+  width: 340px;
+  height: 340px;
+
+  top: 8%;
+  left: -200px;
+
+  border-radius: 50%;
+
+  background: var(--primary-color);
+
+  filter: blur(150px);
+
+  opacity: 0.06;
+
+  pointer-events: none;
+}
+
+
+/* ---------- Ambient Background Motion ---------- */
+
+.backgroundGlow,
+.backgroundGlowSecondary {
+  will-change: transform;
+}
+
+.backgroundGlow {
+  animation:
+    skillsGlowOne
+    15s
+    ease-in-out
+    infinite;
+}
+
+.backgroundGlowSecondary {
+  animation:
+    skillsGlowTwo
+    17s
+    ease-in-out
+    infinite;
+}
+
+@keyframes skillsGlowOne {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -35px,
+        30px,
+        0
+      );
+  }
+}
+
+@keyframes skillsGlowTwo {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        35px,
+        -25px,
+        0
+      );
+  }
+}
+
+
+/* ---------- Motion Wrapper ---------- */
+
+.skillMotionWrapper {
+  height: 100%;
+}
+
+.skillMotionWrapper > * {
+  height: 100%;
+}
+
+
+/* ---------- Premium Skill Card ---------- */
+
+.skillCard {
+  position: relative;
+
+  isolation: isolate;
+
+  overflow: hidden;
+}
+
+.cardGlow {
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -120px;
+  right: -120px;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(75px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+  z-index: -1;
+}
+
+.skillCard:hover
+.cardGlow {
+  opacity: 0.14;
+
+  transform:
+    scale(1.2);
+}
+
+
+/* ---------- Category Icon ---------- */
+
+.categoryIcon {
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.categoryIcon svg {
+  transition:
+    transform 0.35s ease;
+}
+
+.skillCard:hover
+.categoryIcon {
+  transform:
+    translateY(-3px)
+    rotate(-2deg);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.12);
+}
+
+.skillCard:hover
+.categoryIcon svg {
+  transform:
+    scale(1.1);
+}
+
+
+/* ---------- Card Title Row ---------- */
+
+.titleRow {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+}
+
+
+/* ---------- Currently Learning Card ---------- */
+
+.learningCard {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.065),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  border-color:
+    rgba(255, 255, 255, 0.12);
+}
+
+.learningCard::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--primary-color),
+      transparent
+    );
+
+  opacity: 0.65;
+}
+
+.learningBadge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding:
+    0.35rem 0.65rem;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  color:
+    var(--primary-color);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* ---------- Premium Skill Item ---------- */
+
+.skillItem {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.skillItem::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 2px;
+  height: 100%;
+
+  background:
+    var(--primary-color);
+
+  opacity: 0;
+
+  transform:
+    scaleY(0);
+
+  transform-origin:
+    center;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.skillItem:hover::before {
+  opacity: 0.65;
+
+  transform:
+    scaleY(1);
+}
+
+
+/* ---------- Technology Icon Interaction ---------- */
+
+.skillIcon {
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.skillIcon svg {
+  transition:
+    transform 0.3s ease;
+}
+
+.skillItem:hover
+.skillIcon {
+  transform:
+    scale(1.05);
+
+  background:
+    rgba(255, 255, 255, 0.09);
+
+  box-shadow:
+    0 8px 20px
+    rgba(0, 0, 0, 0.1);
+}
+
+.skillItem:hover
+.skillIcon svg {
+  transform:
+    scale(1.12)
+    rotate(-3deg);
+}
+
+
+/* ---------- Skill Level Indicator ---------- */
+
+.skillLevel {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+}
+
+.levelDot {
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+    currentColor;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(255, 255, 255, 0.04);
+}
+
+.levelComfortable {
+  color:
+    var(--primary-color);
+}
+
+.levelWorking {
+  color:
+    var(--text-secondary);
+}
+
+.levelLearning {
+  color:
+    var(--primary-color);
+}
+
+
+/* ---------- Skill Name ---------- */
+
+.skillName {
+  transition:
+    color 0.3s ease;
+}
+
+.skillItem:hover
+.skillName {
+  color:
+    var(--primary-color);
+}
+
+
+/* ---------- Tablet Refinements ---------- */
+
+@media (max-width: 992px) {
+  .skillsGrid {
+    gap: 1.25rem;
+  }
+}
+
+
+/* ---------- Mobile Refinements ---------- */
+
+@media (max-width: 576px) {
+  .titleRow {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 0.5rem;
+  }
+
+  .learningBadge {
+    font-size: 0.66rem;
+  }
+
+  .skillItem {
+    padding: 0.8rem;
+  }
+
+  .skillIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .skillLevel {
+    font-size: 0.72rem;
+  }
+}
+
+
+/* ---------- Touch Devices ---------- */
+
+@media (hover: none) {
+  .skillCard:hover
+  .cardGlow {
+    opacity: 0;
+
+    transform: none;
+  }
+
+  .skillCard:hover
+  .categoryIcon,
+  .skillCard:hover
+  .categoryIcon svg,
+  .skillItem:hover,
+  .skillItem:hover
+  .skillIcon,
+  .skillItem:hover
+  .skillIcon svg {
+    transform: none;
+  }
+
+  .skillItem:hover::before {
+    opacity: 0;
+
+    transform:
+      scaleY(0);
+  }
+}
+
+
+/* ---------- Reduced Motion ---------- */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .backgroundGlow,
+  .backgroundGlowSecondary {
+    animation: none;
+  }
+
+  .skillCard,
+  .cardGlow,
+  .categoryIcon,
+  .categoryIcon svg,
+  .skillItem,
+  .skillItem::before,
+  .skillIcon,
+  .skillIcon svg,
+  .skillName {
+    transition: none;
+  }
+}

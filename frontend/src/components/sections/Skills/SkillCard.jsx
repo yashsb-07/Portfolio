@@ -1,15 +1,31 @@
 import SkillItem from "./SkillItem";
 
+import { MotionFade } from "../../ui/Motion";
+
 import styles from "./Skills.module.css";
 
 const SkillCard = ({
+  id,
   title,
   description,
   icon: Icon,
   skills,
 }) => {
+  const isLearning = id === "learning";
+
   return (
-    <article className={styles.skillCard}>
+    <article
+      className={`${styles.skillCard} ${
+        isLearning
+          ? styles.learningCard
+          : ""
+      }`}
+    >
+      <div
+        className={styles.cardGlow}
+        aria-hidden="true"
+      />
+
       <div className={styles.cardHeader}>
         <div
           className={styles.categoryIcon}
@@ -19,9 +35,21 @@ const SkillCard = ({
         </div>
 
         <div className={styles.cardHeading}>
-          <h3 className={styles.cardTitle}>
-            {title}
-          </h3>
+          <div className={styles.titleRow}>
+            <h3 className={styles.cardTitle}>
+              {title}
+            </h3>
+
+            {isLearning && (
+              <span
+                className={
+                  styles.learningBadge
+                }
+              >
+                In Progress
+              </span>
+            )}
+          </div>
 
           <p className={styles.cardDescription}>
             {description}
@@ -33,13 +61,20 @@ const SkillCard = ({
         className={styles.skillList}
         aria-label={`${title} skills`}
       >
-        {skills.map((skill) => (
-          <SkillItem
+        {skills.map((skill, index) => (
+          <MotionFade
             key={skill.name}
-            name={skill.name}
-            icon={skill.icon}
-            level={skill.level}
-          />
+            direction="left"
+            distance={15}
+            delay={index * 0.06}
+            duration={0.45}
+          >
+            <SkillItem
+              name={skill.name}
+              icon={skill.icon}
+              level={skill.level}
+            />
+          </MotionFade>
         ))}
       </ul>
     </article>
