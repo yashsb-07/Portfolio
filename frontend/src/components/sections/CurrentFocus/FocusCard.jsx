@@ -10,6 +10,11 @@ const FocusCard = ({
 }) => {
   return (
     <article className={styles.focusCard}>
+      <div
+        className={styles.cardGlow}
+        aria-hidden="true"
+      />
+
       <div className={styles.cardTop}>
         <div
           className={styles.iconWrapper}
@@ -18,22 +23,29 @@ const FocusCard = ({
           <Icon />
         </div>
 
-        <span className={styles.status}>
-          {status}
-        </span>
+        <div className={styles.status}>
+          <span
+            className={styles.statusDot}
+            aria-hidden="true"
+          />
+
+          <span>{status}</span>
+        </div>
       </div>
 
-      <span className={styles.category}>
-        {category}
-      </span>
+      <div className={styles.cardContent}>
+        <span className={styles.category}>
+          {category}
+        </span>
 
-      <h3 className={styles.cardTitle}>
-        {title}
-      </h3>
+        <h3 className={styles.cardTitle}>
+          {title}
+        </h3>
 
-      <p className={styles.cardDescription}>
-        {description}
-      </p>
+        <p className={styles.cardDescription}>
+          {description}
+        </p>
+      </div>
 
       <div
         className={styles.technologyIcon}

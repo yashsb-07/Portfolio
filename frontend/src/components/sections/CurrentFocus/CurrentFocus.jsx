@@ -3,6 +3,8 @@ import FocusJourney from "./FocusJourney";
 import FocusGrid from "./FocusGrid";
 import FocusVision from "./FocusVision";
 
+import { MotionFade } from "../../ui/Motion";
+
 import styles from "./CurrentFocus.module.css";
 
 const CurrentFocus = () => {
@@ -16,8 +18,19 @@ const CurrentFocus = () => {
         aria-hidden="true"
       />
 
+      <div
+        className={styles.backgroundGlowSecondary}
+        aria-hidden="true"
+      />
+
       <div className={styles.container}>
-        <CurrentFocusHeader />
+        <MotionFade
+          direction="up"
+          distance={30}
+          duration={0.7}
+        >
+          <CurrentFocusHeader />
+        </MotionFade>
 
         <FocusJourney />
 

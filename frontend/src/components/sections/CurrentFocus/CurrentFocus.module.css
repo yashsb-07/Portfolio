@@ -466,3 +466,491 @@
     transition: none;
   }
 }
+
+/* ========================================
+   STEP 24 - PREMIUM UI & MOTION POLISH
+======================================== */
+
+
+/* ---------- Secondary Ambient Glow ---------- */
+
+.backgroundGlowSecondary {
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  top: 5%;
+  left: -180px;
+
+  border-radius: 50%;
+
+  background: var(--primary-color);
+
+  filter: blur(140px);
+
+  opacity: 0.06;
+
+  pointer-events: none;
+}
+
+
+/* ---------- Ambient Background Motion ---------- */
+
+.backgroundGlow,
+.backgroundGlowSecondary {
+  will-change: transform;
+}
+
+.backgroundGlow {
+  animation:
+    focusGlowOne
+    14s
+    ease-in-out
+    infinite;
+}
+
+.backgroundGlowSecondary {
+  animation:
+    focusGlowTwo
+    16s
+    ease-in-out
+    infinite;
+}
+
+@keyframes focusGlowOne {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -30px,
+        35px,
+        0
+      );
+  }
+}
+
+@keyframes focusGlowTwo {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        35px,
+        -25px,
+        0
+      );
+  }
+}
+
+
+/* ---------- Journey Premium Panel ---------- */
+
+.journey {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    auto minmax(0, 1fr);
+
+  gap: 1.5rem;
+
+  max-width: 900px;
+
+  padding: 2rem;
+
+  overflow: hidden;
+
+  border-left: none;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 24px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+}
+
+.journeyIcon {
+  width: 56px;
+  height: 56px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  color: var(--primary-color);
+
+  font-size: 1.4rem;
+}
+
+.journeyContent {
+  min-width: 0;
+}
+
+.journeyAccent {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 35%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary-color),
+      transparent
+    );
+
+  opacity: 0.8;
+
+  transition:
+    width 0.5s ease;
+}
+
+.journey:hover .journeyAccent {
+  width: 70%;
+}
+
+
+/* ---------- Motion Grid Wrappers ---------- */
+
+.focusMotionWrapper {
+  height: 100%;
+}
+
+.focusMotionWrapper > * {
+  height: 100%;
+}
+
+
+/* ---------- Focus Card Premium Layer ---------- */
+
+.focusCard {
+  isolation: isolate;
+}
+
+.cardGlow {
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  top: -100px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(70px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+  z-index: -1;
+}
+
+.focusCard:hover .cardGlow {
+  opacity: 0.15;
+
+  transform: scale(1.2);
+}
+
+.cardContent {
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* ---------- Focus Icon Interaction ---------- */
+
+.iconWrapper {
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.iconWrapper svg {
+  transition:
+    transform 0.35s ease;
+}
+
+.focusCard:hover .iconWrapper {
+  transform:
+    translateY(-3px)
+    scale(1.04);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+.focusCard:hover .iconWrapper svg {
+  transform: scale(1.1);
+}
+
+
+/* ---------- Status Indicator ---------- */
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  box-shadow:
+    0 0 0 4px
+    color-mix(
+      in srgb,
+      var(--primary-color) 12%,
+      transparent
+    );
+}
+
+
+/* ---------- Technology Watermark ---------- */
+
+.technologyIcon {
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.focusCard:hover .technologyIcon {
+  opacity: 0.11;
+
+  transform:
+    rotate(-3deg)
+    scale(1.08);
+}
+
+
+/* ---------- Vision Premium Layer ---------- */
+
+.vision {
+  position: relative;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.visionGlow {
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  left: -180px;
+  bottom: -180px;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(100px);
+
+  opacity: 0.08;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+.vision:hover {
+  border-color:
+    rgba(255, 255, 255, 0.14);
+
+  box-shadow:
+    0 24px 60px
+    rgba(0, 0, 0, 0.14);
+}
+
+.visionHighlights li {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.visionIcon {
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.visionHighlights li:hover {
+  color: inherit;
+
+  transform:
+    translateX(4px);
+}
+
+.visionHighlights li:hover
+.visionIcon {
+  transform:
+    rotate(8deg)
+    scale(1.05);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+
+/* ---------- Tablet Refinements ---------- */
+
+@media (max-width: 992px) {
+  .journey {
+    max-width: 100%;
+  }
+}
+
+
+/* ---------- Mobile Refinements ---------- */
+
+@media (max-width: 576px) {
+  .journey {
+    grid-template-columns: 1fr;
+
+    gap: 1.25rem;
+
+    padding: 1.5rem;
+
+    border-radius: 20px;
+  }
+
+  .journeyIcon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 14px;
+  }
+
+  .journeyTitle {
+    font-size:
+      clamp(
+        1.4rem,
+        7vw,
+        1.8rem
+      );
+  }
+
+  .journeyAccent {
+    width: 45%;
+  }
+
+  .cardTop {
+    margin-bottom: 1.5rem;
+  }
+
+  .status {
+    font-size: 0.72rem;
+  }
+
+  .visionHighlights li {
+    align-items: flex-start;
+  }
+}
+
+
+/* ---------- Touch Devices ---------- */
+
+@media (hover: none) {
+  .journey:hover
+  .journeyAccent {
+    width: 35%;
+  }
+
+  .focusCard:hover
+  .cardGlow {
+    opacity: 0;
+
+    transform: none;
+  }
+
+  .focusCard:hover
+  .iconWrapper,
+  .focusCard:hover
+  .iconWrapper svg,
+  .focusCard:hover
+  .technologyIcon,
+  .visionHighlights li:hover,
+  .visionHighlights li:hover
+  .visionIcon {
+    transform: none;
+  }
+
+  .vision:hover {
+    box-shadow: none;
+  }
+}
+
+
+/* ---------- Reduced Motion ---------- */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .backgroundGlow,
+  .backgroundGlowSecondary {
+    animation: none;
+  }
+
+  .journeyAccent,
+  .focusCard,
+  .cardGlow,
+  .iconWrapper,
+  .iconWrapper svg,
+  .technologyIcon,
+  .vision,
+  .visionHighlights li,
+  .visionIcon {
+    transition: none;
+  }
+}
