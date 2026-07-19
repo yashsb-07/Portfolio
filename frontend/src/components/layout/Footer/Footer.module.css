@@ -1,0 +1,531 @@
+.footer {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    1rem 1.5rem 2rem;
+
+  overflow: hidden;
+}
+
+.backgroundGlow {
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  bottom: -330px;
+  left: 15%;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(160px);
+
+  opacity: 0.05;
+
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   FOOTER MAIN
+======================================== */
+
+.footerMain {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.2fr)
+    minmax(360px, 0.8fr);
+
+  gap: 5rem;
+
+  padding:
+    4rem 0;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+
+/* ========================================
+   BRAND SECTION
+======================================== */
+
+.brandSection {
+  max-width: 500px;
+}
+
+.brand {
+  display: inline-block;
+
+  color: inherit;
+
+  font-size: 2rem;
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+
+  line-height: 1;
+
+  text-decoration: none;
+}
+
+.brand span {
+  color:
+    var(--primary-color);
+}
+
+.tagline {
+  max-width: 480px;
+
+  margin-top: 1.5rem;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   EMAIL
+======================================== */
+
+.emailLink {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+
+  max-width: 100%;
+
+  margin-top: 1.5rem;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.88rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease;
+}
+
+.emailLink span {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.emailLink svg {
+  flex-shrink: 0;
+
+  color:
+    var(--primary-color);
+}
+
+.emailLink:hover {
+  color:
+    var(--primary-color);
+}
+
+
+/* ========================================
+   FOOTER COLUMNS
+======================================== */
+
+.footerColumns {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 3rem;
+}
+
+.columnTitle {
+  margin-bottom: 1.25rem;
+
+  color: inherit;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.navigationList {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.8rem;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.navigationList a {
+  position: relative;
+
+  display: inline-block;
+
+  width: fit-content;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.88rem;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.navigationList a:hover {
+  color:
+    var(--primary-color);
+
+  transform:
+    translateX(3px);
+}
+
+
+/* ========================================
+   SOCIAL LINKS
+======================================== */
+
+.socialLinks {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.75rem;
+}
+
+.socialLink {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.65rem;
+
+  width: fit-content;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.88rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease;
+}
+
+.socialIcon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color:
+    var(--primary-color);
+
+  font-size: 1rem;
+}
+
+.socialArrow {
+  font-size: 0.85rem;
+
+  opacity: 0.55;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.socialLink:hover {
+  color:
+    var(--primary-color);
+}
+
+.socialLink:hover
+.socialArrow {
+  transform:
+    translate(
+      2px,
+      -2px
+    );
+
+  opacity: 1;
+}
+
+
+/* ========================================
+   FOOTER BOTTOM
+======================================== */
+
+.footerBottom {
+  display: grid;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 2rem;
+
+  padding-top: 2rem;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+.copyright,
+.builtWith {
+  margin: 0;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.78rem;
+}
+
+.builtWith {
+  text-align: center;
+}
+
+
+/* ========================================
+   BACK TO TOP
+======================================== */
+
+.backToTop {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 0.5rem;
+
+  justify-self: end;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color:
+    var(--text-secondary);
+
+  font-family: inherit;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease;
+}
+
+.backToTop svg {
+  transition:
+    transform 0.3s ease;
+}
+
+.backToTop:hover {
+  color:
+    var(--primary-color);
+}
+
+.backToTop:hover svg {
+  transform:
+    translateY(-3px);
+}
+
+
+/* ========================================
+   KEYBOARD ACCESSIBILITY
+======================================== */
+
+.brand:focus-visible,
+.emailLink:focus-visible,
+.navigationList a:focus-visible,
+.socialLink:focus-visible,
+.backToTop:focus-visible {
+  outline:
+    2px solid
+    var(--primary-color);
+
+  outline-offset: 4px;
+
+  border-radius: 4px;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 992px) {
+  .footerMain {
+    grid-template-columns:
+      1fr;
+
+    gap: 3.5rem;
+  }
+
+  .brandSection {
+    max-width: 600px;
+  }
+
+  .footerColumns {
+    max-width: 500px;
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 576px) {
+  .footer {
+    padding:
+      1rem 1rem 1.5rem;
+  }
+
+  .footerMain {
+    gap: 3rem;
+
+    padding:
+      3rem 0;
+  }
+
+  .brand {
+    font-size: 1.75rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+  }
+
+  .footerColumns {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 2rem;
+  }
+
+  .footerBottom {
+    grid-template-columns:
+      1fr;
+
+    gap: 1rem;
+  }
+
+  .builtWith {
+    text-align: left;
+  }
+
+  .backToTop {
+    justify-self: start;
+
+    justify-content:
+      flex-start;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .footerColumns {
+    grid-template-columns:
+      1fr;
+
+    gap: 2.5rem;
+  }
+}
+
+
+/* ========================================
+   TOUCH DEVICES
+======================================== */
+
+@media (hover: none) {
+  .navigationList a:hover,
+  .socialLink:hover
+  .socialArrow,
+  .backToTop:hover svg {
+    transform: none;
+  }
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .emailLink,
+  .navigationList a,
+  .socialLink,
+  .socialArrow,
+  .backToTop,
+  .backToTop svg {
+    transition: none;
+  }
+}
