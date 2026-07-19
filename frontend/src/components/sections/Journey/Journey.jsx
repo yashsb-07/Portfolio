@@ -10,7 +10,7 @@ import styles from "./Journey.module.css";
 const Journey = () => {
   return (
     <section
-      id="journey"
+      id="experience"
       className={styles.journey}
     >
       <div
