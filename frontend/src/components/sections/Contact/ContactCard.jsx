@@ -32,6 +32,11 @@ const ContactCard = ({
       }
     >
       <div
+        className={styles.cardGlow}
+        aria-hidden="true"
+      />
+
+      <div
         className={styles.cardIcon}
         aria-hidden="true"
       >
@@ -48,10 +53,14 @@ const ContactCard = ({
         </span>
       </div>
 
-      <LuArrowUpRight
-        className={styles.cardArrow}
+      <div
+        className={styles.arrowWrapper}
         aria-hidden="true"
-      />
+      >
+        <LuArrowUpRight
+          className={styles.cardArrow}
+        />
+      </div>
     </a>
   );
 };

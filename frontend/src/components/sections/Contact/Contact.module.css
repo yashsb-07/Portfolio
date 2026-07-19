@@ -543,3 +543,742 @@
     transition: none;
   }
 }
+
+/* ========================================
+   STEP 34 - PREMIUM UI & MOTION
+======================================== */
+
+
+/* ---------- Secondary Ambient Glow ---------- */
+
+.backgroundGlowSecondary {
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  top: 5%;
+  right: -220px;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(160px);
+
+  opacity: 0.055;
+
+  pointer-events: none;
+}
+
+
+/* ---------- Ambient Background Motion ---------- */
+
+.backgroundGlow,
+.backgroundGlowSecondary {
+  will-change: transform;
+}
+
+.backgroundGlow {
+  animation:
+    contactGlowOne
+    18s
+    ease-in-out
+    infinite;
+}
+
+.backgroundGlowSecondary {
+  animation:
+    contactGlowTwo
+    20s
+    ease-in-out
+    infinite;
+}
+
+@keyframes contactGlowOne {
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-46%, -54%)
+      scale(1.08);
+  }
+}
+
+@keyframes contactGlowTwo {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -45px,
+        35px,
+        0
+      );
+  }
+}
+
+
+/* ---------- Motion Wrappers ---------- */
+
+.panelMotionWrapper {
+  width: 100%;
+}
+
+.contentMotionWrapper {
+  min-width: 0;
+}
+
+.cardMotionWrapper {
+  width: 100%;
+}
+
+
+/* ---------- Premium Contact Panel ---------- */
+
+.contactPanel {
+  isolation: isolate;
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.contactPanel:hover {
+  border-color:
+    rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 35px 90px
+    rgba(0, 0, 0, 0.16);
+}
+
+
+/* ---------- Internal Panel Glow ---------- */
+
+.panelGlow {
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  top: -280px;
+  left: 15%;
+
+  z-index: -1;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(130px);
+
+  opacity: 0.08;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.contactPanel:hover
+.panelGlow {
+  opacity: 0.12;
+
+  transform:
+    scale(1.1)
+    translateX(20px);
+}
+
+
+/* ---------- Panel Accent ---------- */
+
+.panelAccent {
+  position: absolute;
+
+  top: 0;
+  left: 10%;
+  right: 10%;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--primary-color),
+      transparent
+    );
+
+  opacity: 0.45;
+
+  transform:
+    scaleX(0.65);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.contactPanel:hover
+.panelAccent {
+  opacity: 0.75;
+
+  transform:
+    scaleX(1);
+}
+
+
+/* ---------- Premium Eyebrow ---------- */
+
+.eyebrow {
+  position: relative;
+}
+
+.eyebrow::after {
+  content: "";
+
+  display: inline-block;
+
+  width: 28px;
+  height: 1px;
+
+  margin-left: 0.75rem;
+
+  vertical-align: middle;
+
+  background:
+    var(--primary-color);
+
+  opacity: 0.55;
+}
+
+
+/* ---------- Availability Indicator ---------- */
+
+.availabilityIndicator {
+  position: relative;
+
+  width: 10px;
+  height: 10px;
+
+  flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.availabilityIndicator
+.availabilityDot {
+  width: 7px;
+  height: 7px;
+
+  margin: 0;
+
+  background:
+    var(--primary-color);
+}
+
+.availabilityIndicator::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border:
+    1px solid
+    var(--primary-color);
+
+  border-radius: 50%;
+
+  animation:
+    availabilityPulse
+    2.2s
+    ease-out
+    infinite;
+}
+
+@keyframes availabilityPulse {
+  0% {
+    transform:
+      scale(0.7);
+
+    opacity: 0.75;
+  }
+
+  70%,
+  100% {
+    transform:
+      scale(2);
+
+    opacity: 0;
+  }
+}
+
+
+/* ---------- Availability Hover ---------- */
+
+.availability {
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.availability:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.13);
+
+  background:
+    rgba(255, 255, 255, 0.055);
+}
+
+
+/* ---------- Premium Primary CTA ---------- */
+
+.primaryAction {
+  position: relative;
+
+  isolation: isolate;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+.actionGlow {
+  position: absolute;
+
+  width: 80px;
+  height: 80px;
+
+  top: 50%;
+  left: -100px;
+
+  z-index: -1;
+
+  transform:
+    translateY(-50%);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.3);
+
+  filter: blur(25px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    left 0.5s ease,
+    opacity 0.3s ease;
+}
+
+.primaryAction:hover
+.actionGlow {
+  left: calc(100% + 20px);
+
+  opacity: 0.55;
+}
+
+.primaryAction:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 18px 40px
+    rgba(0, 0, 0, 0.2);
+
+  filter:
+    brightness(1.05);
+}
+
+.actionIcon {
+  transition:
+    transform 0.3s ease;
+}
+
+.primaryAction:hover
+.actionIcon {
+  transform:
+    rotate(-6deg)
+    scale(1.08);
+}
+
+.primaryAction:hover
+.actionArrow {
+  transform:
+    translateX(5px);
+}
+
+
+/* ---------- Contact Card Foundation ---------- */
+
+.contactCard {
+  position: relative;
+
+  isolation: isolate;
+
+  overflow: hidden;
+}
+
+
+/* ---------- Contact Card Glow ---------- */
+
+.cardGlow {
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  top: 50%;
+  left: -100px;
+
+  z-index: -1;
+
+  transform:
+    translateY(-50%);
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(60px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    left 0.5s ease;
+}
+
+.contactCard:hover
+.cardGlow {
+  left: 20%;
+
+  opacity: 0.1;
+}
+
+
+/* ---------- Premium Contact Card Hover ---------- */
+
+.contactCard:hover {
+  transform:
+    translateX(6px);
+
+  border-color:
+    rgba(255, 255, 255, 0.15);
+
+  background:
+    rgba(255, 255, 255, 0.065);
+
+  box-shadow:
+    0 18px 40px
+    rgba(0, 0, 0, 0.13);
+}
+
+
+/* ---------- Contact Icon Interaction ---------- */
+
+.cardIcon {
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.cardIcon::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.12),
+      transparent 70%
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity 0.35s ease;
+}
+
+.cardIcon svg {
+  position: relative;
+
+  z-index: 1;
+
+  transition:
+    transform 0.35s ease;
+}
+
+.contactCard:hover
+.cardIcon {
+  transform:
+    rotate(-3deg)
+    scale(1.04);
+
+  border-color:
+    rgba(255, 255, 255, 0.13);
+
+  background:
+    rgba(255, 255, 255, 0.075);
+
+  box-shadow:
+    0 10px 25px
+    rgba(0, 0, 0, 0.1);
+}
+
+.contactCard:hover
+.cardIcon::before {
+  opacity: 1;
+}
+
+.contactCard:hover
+.cardIcon svg {
+  transform:
+    scale(1.12);
+}
+
+
+/* ---------- Contact Value ---------- */
+
+.cardValue {
+  transition:
+    color 0.3s ease;
+}
+
+.contactCard:hover
+.cardValue {
+  color:
+    var(--primary-color);
+}
+
+
+/* ---------- Arrow Wrapper ---------- */
+
+.arrowWrapper {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    transparent;
+
+  border-radius: 50%;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.contactCard:hover
+.arrowWrapper {
+  transform:
+    translateX(2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.08);
+
+  background:
+    rgba(255, 255, 255, 0.05);
+}
+
+.contactCard:hover
+.cardArrow {
+  transform:
+    translate(
+      2px,
+      -2px
+    );
+
+  color:
+    var(--primary-color);
+}
+
+
+/* ---------- Focus Accessibility ---------- */
+
+.primaryAction:focus-visible,
+.contactCard:focus-visible {
+  outline:
+    2px solid
+    var(--primary-color);
+
+  outline-offset: 4px;
+}
+
+
+/* ---------- Tablet Refinements ---------- */
+
+@media (max-width: 992px) {
+  .panelGlow {
+    left: 50%;
+
+    transform:
+      translateX(-50%);
+  }
+
+  .contactPanel:hover
+  .panelGlow {
+    transform:
+      translateX(-50%)
+      scale(1.08);
+  }
+}
+
+
+/* ---------- Mobile Refinements ---------- */
+
+@media (max-width: 576px) {
+  .panelAccent {
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .eyebrow::after {
+    width: 20px;
+
+    margin-left: 0.5rem;
+  }
+
+  .arrowWrapper {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
+/* ---------- Touch Devices ---------- */
+
+@media (hover: none) {
+  .contactPanel:hover,
+  .availability:hover,
+  .primaryAction:hover,
+  .contactCard:hover,
+  .primaryAction:hover
+  .actionIcon,
+  .primaryAction:hover
+  .actionArrow,
+  .contactCard:hover
+  .cardIcon,
+  .contactCard:hover
+  .cardIcon svg,
+  .contactCard:hover
+  .arrowWrapper,
+  .contactCard:hover
+  .cardArrow {
+    transform: none;
+  }
+
+  .contactPanel:hover
+  .panelGlow {
+    opacity: 0.08;
+
+    transform: none;
+  }
+
+  .contactPanel:hover
+  .panelAccent {
+    opacity: 0.45;
+
+    transform:
+      scaleX(0.65);
+  }
+
+  .primaryAction:hover
+  .actionGlow {
+    left: -100px;
+
+    opacity: 0;
+  }
+
+  .contactCard:hover
+  .cardGlow {
+    left: -100px;
+
+    opacity: 0;
+  }
+
+  .contactCard:hover
+  .cardIcon::before {
+    opacity: 0;
+  }
+}
+
+
+/* ---------- Reduced Motion ---------- */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .backgroundGlow,
+  .backgroundGlowSecondary,
+  .availabilityIndicator::after {
+    animation: none;
+  }
+
+  .contactPanel,
+  .panelGlow,
+  .panelAccent,
+  .availability,
+  .primaryAction,
+  .actionGlow,
+  .actionIcon,
+  .actionArrow,
+  .contactCard,
+  .cardGlow,
+  .cardIcon,
+  .cardIcon::before,
+  .cardIcon svg,
+  .cardValue,
+  .arrowWrapper,
+  .cardArrow {
+    transition: none;
+  }
+}

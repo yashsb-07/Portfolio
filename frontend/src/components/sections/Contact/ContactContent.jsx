@@ -39,10 +39,16 @@ const ContactContent = () => {
         >
           <span
             className={
-              styles.availabilityDot
+              styles.availabilityIndicator
             }
             aria-hidden="true"
-          />
+          >
+            <span
+              className={
+                styles.availabilityDot
+              }
+            />
+          </span>
 
           <span>
             {availability.label}
@@ -54,7 +60,13 @@ const ContactContent = () => {
         href={primaryAction.href}
         className={styles.primaryAction}
       >
+        <span
+          className={styles.actionGlow}
+          aria-hidden="true"
+        />
+
         <PrimaryIcon
+          className={styles.actionIcon}
           aria-hidden="true"
         />
 
