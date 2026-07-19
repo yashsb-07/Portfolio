@@ -1,6 +1,7 @@
 import {
   LuArrowUpRight,
   LuCalendarDays,
+  LuCheck,
 } from "react-icons/lu";
 
 import styles from "./Achievements.module.css";
@@ -24,9 +25,19 @@ const AchievementCard = ({
       className={`${styles.achievementCard} ${
         isInProgress
           ? styles.inProgressCard
-          : ""
+          : styles.completedCard
       }`}
     >
+      <div
+        className={styles.cardGlow}
+        aria-hidden="true"
+      />
+
+      <div
+        className={styles.cardAccent}
+        aria-hidden="true"
+      />
+
       <div className={styles.cardHeader}>
         <div
           className={styles.iconWrapper}
@@ -55,20 +66,24 @@ const AchievementCard = ({
           {title}
         </h3>
 
-        {isInProgress && (
+        {isInProgress ? (
           <span
-            className={
-              styles.progressBadge
-            }
+            className={styles.progressBadge}
           >
             <span
-              className={
-                styles.progressDot
-              }
+              className={styles.progressDot}
               aria-hidden="true"
             />
 
             In Progress
+          </span>
+        ) : (
+          <span
+            className={styles.completedBadge}
+          >
+            <LuCheck aria-hidden="true" />
+
+            Completed
           </span>
         )}
       </div>
@@ -103,7 +118,7 @@ const AchievementCard = ({
           rel="noopener noreferrer"
           className={styles.credentialLink}
         >
-          View Credential
+          <span>View Credential</span>
 
           <LuArrowUpRight
             aria-hidden="true"

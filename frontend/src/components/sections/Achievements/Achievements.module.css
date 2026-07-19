@@ -510,3 +510,626 @@
     transition: none;
   }
 }
+
+/* ========================================
+   STEP 32 - PREMIUM UI & MOTION
+======================================== */
+
+
+/* ---------- Secondary Ambient Glow ---------- */
+
+.backgroundGlowSecondary {
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  top: 8%;
+  left: -220px;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(150px);
+
+  opacity: 0.06;
+
+  pointer-events: none;
+}
+
+
+/* ---------- Ambient Background Motion ---------- */
+
+.backgroundGlow,
+.backgroundGlowSecondary {
+  will-change: transform;
+}
+
+.backgroundGlow {
+  animation:
+    achievementGlowOne
+    16s
+    ease-in-out
+    infinite;
+}
+
+.backgroundGlowSecondary {
+  animation:
+    achievementGlowTwo
+    18s
+    ease-in-out
+    infinite;
+}
+
+@keyframes achievementGlowOne {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -40px,
+        30px,
+        0
+      );
+  }
+}
+
+@keyframes achievementGlowTwo {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        40px,
+        -25px,
+        0
+      );
+  }
+}
+
+
+/* ---------- Motion Wrapper ---------- */
+
+.cardMotionWrapper {
+  height: 100%;
+}
+
+.cardMotionWrapper > * {
+  height: 100%;
+}
+
+
+/* ---------- Premium Card Foundation ---------- */
+
+.achievementCard {
+  position: relative;
+
+  isolation: isolate;
+
+  overflow: hidden;
+}
+
+.cardGlow {
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  top: -125px;
+  right: -125px;
+
+  z-index: -1;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(80px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.achievementCard:hover
+.cardGlow {
+  opacity: 0.14;
+
+  transform:
+    scale(1.25);
+}
+
+
+/* ---------- Top Accent ---------- */
+
+.cardAccent {
+  position: absolute;
+
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--primary-color),
+      transparent
+    );
+
+  opacity: 0;
+
+  transform:
+    scaleX(0.4);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.achievementCard:hover
+.cardAccent {
+  opacity: 0.65;
+
+  transform:
+    scaleX(1);
+}
+
+
+/* ---------- Completed Card ---------- */
+
+.completedCard {
+  background:
+    rgba(255, 255, 255, 0.04);
+}
+
+
+/* ---------- Active Learning Card ---------- */
+
+.inProgressCard {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  border-color:
+    rgba(255, 255, 255, 0.12);
+}
+
+.inProgressCard
+.cardAccent {
+  opacity: 0.55;
+
+  transform:
+    scaleX(1);
+}
+
+
+/* ---------- Premium Icon Interaction ---------- */
+
+.iconWrapper {
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.iconWrapper::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.12),
+      transparent 70%
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity 0.35s ease;
+}
+
+.iconWrapper svg {
+  position: relative;
+
+  z-index: 1;
+
+  transition:
+    transform 0.35s ease;
+}
+
+.achievementCard:hover
+.iconWrapper {
+  transform:
+    translateY(-3px)
+    rotate(-2deg);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.12);
+}
+
+.achievementCard:hover
+.iconWrapper::before {
+  opacity: 1;
+}
+
+.achievementCard:hover
+.iconWrapper svg {
+  transform:
+    scale(1.12);
+}
+
+
+/* ---------- Card Title ---------- */
+
+.cardTitle {
+  transition:
+    color 0.3s ease;
+}
+
+.achievementCard:hover
+.cardTitle {
+  color:
+    var(--primary-color);
+}
+
+
+/* ---------- Date Icon ---------- */
+
+.date svg {
+  transition:
+    transform 0.3s ease;
+}
+
+.achievementCard:hover
+.date svg {
+  transform:
+    rotate(-6deg)
+    scale(1.08);
+}
+
+
+/* ---------- Completed Badge ---------- */
+
+.completedBadge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  padding:
+    0.4rem 0.7rem;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.completedBadge svg {
+  color:
+    var(--primary-color);
+
+  font-size: 0.85rem;
+}
+
+.completedCard:hover
+.completedBadge {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  color:
+    var(--primary-color);
+}
+
+
+/* ---------- In Progress Badge ---------- */
+
+.progressBadge {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.inProgressCard:hover
+.progressBadge {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+
+/* ---------- Animated Progress Dot ---------- */
+
+.progressDot {
+  position: relative;
+}
+
+.progressDot::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -4px;
+
+  border:
+    1px solid
+    currentColor;
+
+  border-radius: 50%;
+
+  opacity: 0;
+
+  animation:
+    achievementProgressPulse
+    2s
+    ease-out
+    infinite;
+}
+
+@keyframes achievementProgressPulse {
+  0% {
+    transform:
+      scale(0.7);
+
+    opacity: 0.7;
+  }
+
+  70%,
+  100% {
+    transform:
+      scale(1.9);
+
+    opacity: 0;
+  }
+}
+
+
+/* ---------- Premium Tags ---------- */
+
+.tags li {
+  position: relative;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.tags li:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color:
+    var(--primary-color);
+}
+
+
+/* ---------- Credential Link ---------- */
+
+.credentialLink {
+  position: relative;
+
+  transition:
+    color 0.3s ease;
+}
+
+.credentialLink::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    currentColor;
+
+  transform:
+    scaleX(0);
+
+  transform-origin:
+    right;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.credentialLink svg {
+  transition:
+    transform 0.3s ease;
+}
+
+.credentialLink:hover::after {
+  transform:
+    scaleX(1);
+
+  transform-origin:
+    left;
+}
+
+.credentialLink:hover svg {
+  transform:
+    translate(
+      3px,
+      -3px
+    );
+}
+
+
+/* ---------- Mobile Refinements ---------- */
+
+@media (max-width: 576px) {
+  .cardAccent {
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .completedBadge,
+  .progressBadge {
+    font-size: 0.68rem;
+  }
+
+  .tags {
+    gap: 0.5rem;
+  }
+
+  .tags li {
+    padding:
+      0.4rem 0.65rem;
+  }
+}
+
+
+/* ---------- Touch Devices ---------- */
+
+@media (hover: none) {
+  .achievementCard:hover
+  .cardGlow {
+    opacity: 0;
+
+    transform: none;
+  }
+
+  .achievementCard:hover
+  .cardAccent {
+    transform:
+      scaleX(0.4);
+  }
+
+  .inProgressCard:hover
+  .cardAccent {
+    opacity: 0.55;
+
+    transform:
+      scaleX(1);
+  }
+
+  .achievementCard:hover
+  .iconWrapper,
+  .achievementCard:hover
+  .iconWrapper svg,
+  .achievementCard:hover
+  .date svg,
+  .completedCard:hover
+  .completedBadge,
+  .inProgressCard:hover
+  .progressBadge,
+  .tags li:hover,
+  .credentialLink:hover svg {
+    transform: none;
+  }
+
+  .achievementCard:hover
+  .iconWrapper::before {
+    opacity: 0;
+  }
+
+  .credentialLink:hover::after {
+    transform:
+      scaleX(0);
+  }
+}
+
+
+/* ---------- Reduced Motion ---------- */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .backgroundGlow,
+  .backgroundGlowSecondary,
+  .progressDot::after {
+    animation: none;
+  }
+
+  .achievementCard,
+  .cardGlow,
+  .cardAccent,
+  .iconWrapper,
+  .iconWrapper::before,
+  .iconWrapper svg,
+  .cardTitle,
+  .date svg,
+  .completedBadge,
+  .progressBadge,
+  .tags li,
+  .credentialLink,
+  .credentialLink::after,
+  .credentialLink svg {
+    transition: none;
+  }
+}
