@@ -541,3 +541,596 @@
     transition: none;
   }
 }
+
+/* ========================================
+   STEP 30 - PREMIUM TIMELINE UI & MOTION
+======================================== */
+
+
+/* ---------- Secondary Ambient Glow ---------- */
+
+.backgroundGlowSecondary {
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  top: 8%;
+  right: -220px;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(150px);
+
+  opacity: 0.06;
+
+  pointer-events: none;
+}
+
+
+/* ---------- Ambient Background Motion ---------- */
+
+.backgroundGlow,
+.backgroundGlowSecondary {
+  will-change: transform;
+}
+
+.backgroundGlow {
+  animation:
+    journeyGlowOne
+    16s
+    ease-in-out
+    infinite;
+}
+
+.backgroundGlowSecondary {
+  animation:
+    journeyGlowTwo
+    18s
+    ease-in-out
+    infinite;
+}
+
+@keyframes journeyGlowOne {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        40px,
+        -30px,
+        0
+      );
+  }
+}
+
+@keyframes journeyGlowTwo {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -35px,
+        35px,
+        0
+      );
+  }
+}
+
+
+/* ---------- Motion Wrappers ---------- */
+
+.timelineMotionWrapper {
+  min-width: 0;
+}
+
+.cardMotionWrapper {
+  position: relative;
+}
+
+
+/* ---------- Premium Group Header ---------- */
+
+.groupHeader {
+  position: relative;
+}
+
+.groupHeadingContent {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.25rem;
+}
+
+.groupEyebrow {
+  color:
+    var(--primary-color);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.groupIcon {
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.groupIcon::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.1),
+      transparent 70%
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity 0.35s ease;
+}
+
+.groupIcon svg {
+  position: relative;
+
+  z-index: 1;
+
+  transition:
+    transform 0.35s ease;
+}
+
+.timelineGroup:hover
+.groupIcon {
+  transform:
+    translateY(-3px)
+    rotate(-2deg);
+
+  border-color:
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 14px 35px
+    rgba(0, 0, 0, 0.14);
+}
+
+.timelineGroup:hover
+.groupIcon::before {
+  opacity: 1;
+}
+
+.timelineGroup:hover
+.groupIcon svg {
+  transform:
+    scale(1.1);
+}
+
+
+/* ---------- Premium Timeline Line ---------- */
+
+.timeline::before {
+  width: 2px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--primary-color) 0%,
+      rgba(255, 255, 255, 0.14) 45%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+
+  box-shadow:
+    0 0 18px
+    rgba(255, 255, 255, 0.04);
+}
+
+
+/* ---------- Premium Journey Card ---------- */
+
+.journeyCard {
+  isolation: isolate;
+
+  overflow: visible;
+}
+
+.cardGlow {
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -120px;
+  right: -120px;
+
+  z-index: -1;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(75px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.journeyCard:hover
+.cardGlow {
+  opacity: 0.13;
+
+  transform:
+    scale(1.25);
+}
+
+
+/* ---------- Current Milestone Card ---------- */
+
+.currentCard {
+  border-color:
+    rgba(255, 255, 255, 0.13);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.065),
+      rgba(255, 255, 255, 0.025)
+    );
+}
+
+.currentCard::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--primary-color),
+      transparent
+    );
+
+  opacity: 0.7;
+}
+
+
+/* ---------- Premium Timeline Dot ---------- */
+
+.timelineDot {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.timelineDot span {
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+}
+
+.journeyCard:hover
+.timelineDot {
+  transform:
+    translateX(-50%)
+    scale(1.15);
+
+  box-shadow:
+    0 0 0 6px
+    rgba(255, 255, 255, 0.05),
+    0 0 20px
+    rgba(255, 255, 255, 0.08);
+}
+
+
+/* ---------- Current Timeline Dot ---------- */
+
+.currentTimelineDot {
+  background:
+    var(--primary-color);
+
+  box-shadow:
+    0 0 0 5px
+    rgba(255, 255, 255, 0.05),
+    0 0 24px
+    rgba(255, 255, 255, 0.1);
+}
+
+.currentTimelineDot span {
+  background:
+    currentColor;
+}
+
+
+/* ---------- Current Status Pulse ---------- */
+
+.currentDot {
+  position: relative;
+}
+
+.currentDot::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -4px;
+
+  border:
+    1px solid
+    currentColor;
+
+  border-radius: 50%;
+
+  opacity: 0;
+
+  animation:
+    currentStatusPulse
+    2s
+    ease-out
+    infinite;
+}
+
+@keyframes currentStatusPulse {
+  0% {
+    transform:
+      scale(0.7);
+
+    opacity: 0.7;
+  }
+
+  70%,
+  100% {
+    transform:
+      scale(1.8);
+
+    opacity: 0;
+  }
+}
+
+
+/* ---------- Current Badge ---------- */
+
+.currentBadge {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.currentCard:hover
+.currentBadge {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+
+/* ---------- Organization ---------- */
+
+.organization {
+  transition:
+    color 0.3s ease;
+}
+
+.journeyCard:hover
+.organization {
+  color:
+    var(--primary-color);
+}
+
+
+/* ---------- Period ---------- */
+
+.period {
+  transition:
+    transform 0.3s ease;
+}
+
+.period svg {
+  transition:
+    transform 0.3s ease;
+}
+
+.journeyCard:hover
+.period svg {
+  transform:
+    rotate(-6deg)
+    scale(1.08);
+}
+
+
+/* ---------- Premium Highlight Tags ---------- */
+
+.highlights li {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.highlights li:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color:
+    var(--primary-color);
+}
+
+
+/* ---------- Experience / Education Variation ---------- */
+
+.experienceGroup
+.timeline::before {
+  background:
+    linear-gradient(
+      to bottom,
+      var(--primary-color),
+      rgba(255, 255, 255, 0.08)
+    );
+}
+
+.educationGroup
+.timeline::before {
+  background:
+    linear-gradient(
+      to bottom,
+      var(--primary-color),
+      rgba(255, 255, 255, 0.08)
+    );
+}
+
+
+/* ---------- Tablet Refinements ---------- */
+
+@media (max-width: 992px) {
+  .timelineMotionWrapper {
+    width: 100%;
+  }
+}
+
+
+/* ---------- Mobile Refinements ---------- */
+
+@media (max-width: 576px) {
+  .groupHeadingContent {
+    gap: 0.2rem;
+  }
+
+  .groupEyebrow {
+    font-size: 0.68rem;
+  }
+
+  .currentCard::before {
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .highlights {
+    gap: 0.5rem;
+  }
+
+  .highlights li {
+    padding:
+      0.4rem 0.65rem;
+  }
+}
+
+
+/* ---------- Touch Devices ---------- */
+
+@media (hover: none) {
+  .timelineGroup:hover
+  .groupIcon,
+  .timelineGroup:hover
+  .groupIcon svg,
+  .journeyCard:hover
+  .timelineDot,
+  .journeyCard:hover
+  .currentBadge,
+  .journeyCard:hover
+  .period svg,
+  .highlights li:hover {
+    transform: none;
+  }
+
+  .timelineGroup:hover
+  .groupIcon::before {
+    opacity: 0;
+  }
+
+  .journeyCard:hover
+  .cardGlow {
+    opacity: 0;
+
+    transform: none;
+  }
+}
+
+
+/* ---------- Reduced Motion ---------- */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .backgroundGlow,
+  .backgroundGlowSecondary,
+  .currentDot::after {
+    animation: none;
+  }
+
+  .journeyCard,
+  .cardGlow,
+  .groupIcon,
+  .groupIcon::before,
+  .groupIcon svg,
+  .timelineDot,
+  .currentBadge,
+  .organization,
+  .period,
+  .period svg,
+  .highlights li {
+    transition: none;
+  }
+}

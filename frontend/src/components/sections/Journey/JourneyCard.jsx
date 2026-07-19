@@ -15,11 +15,28 @@ const JourneyCard = ({
   current,
 }) => {
   return (
-    <article className={styles.journeyCard}>
+    <article
+      className={`${styles.journeyCard} ${
+        current
+          ? styles.currentCard
+          : ""
+      }`}
+    >
       <div
-        className={styles.timelineDot}
+        className={styles.cardGlow}
         aria-hidden="true"
       />
+
+      <div
+        className={`${styles.timelineDot} ${
+          current
+            ? styles.currentTimelineDot
+            : ""
+        }`}
+        aria-hidden="true"
+      >
+        <span />
+      </div>
 
       <div className={styles.cardTop}>
         <div className={styles.period}>
