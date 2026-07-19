@@ -5,6 +5,7 @@ import Projects from "../../components/sections/Projects/Projects";
 import Skills from "../../components/sections/Skills/Skills";
 import Journey from "../../components/sections/Journey/Journey";
 import Achievements from "../../components/sections/Achievements/Achievements";
+import Contact from "../../components/sections/Contact/Contact";
 
 const Home = () => {
   return (
@@ -22,6 +23,8 @@ const Home = () => {
       <Journey />
 
       <Achievements />
+
+      <Contact />
     </>
   );
 };

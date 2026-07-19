@@ -1,0 +1,545 @@
+.contact {
+  position: relative;
+
+  width: 100%;
+
+  padding: 7rem 1.5rem;
+
+  overflow: hidden;
+}
+
+.backgroundGlow {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: 50%;
+  left: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+
+  filter: blur(180px);
+
+  opacity: 0.06;
+
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   CONTACT PANEL
+======================================== */
+
+.contactPanel {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(320px, 0.9fr);
+
+  gap: 4rem;
+
+  align-items: center;
+
+  padding: 4rem;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 32px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  box-shadow:
+    0 30px 80px
+    rgba(0, 0, 0, 0.12);
+}
+
+
+/* ========================================
+   CONTACT CONTENT
+======================================== */
+
+.contactContent {
+  min-width: 0;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  color:
+    var(--primary-color);
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+}
+
+.heading {
+  max-width: 650px;
+
+  margin-top: 1rem;
+
+  font-size:
+    clamp(
+      2.3rem,
+      5vw,
+      4rem
+    );
+
+  line-height: 1.08;
+}
+
+.description {
+  max-width: 620px;
+
+  margin-top: 1.5rem;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 1rem;
+
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   AVAILABILITY
+======================================== */
+
+.availability {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.65rem;
+
+  margin-top: 1.75rem;
+
+  padding:
+    0.55rem 0.85rem;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.availabilityDot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-color);
+}
+
+
+/* ========================================
+   PRIMARY CTA
+======================================== */
+
+.primaryAction {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.7rem;
+
+  width: fit-content;
+
+  margin-top: 2rem;
+
+  padding:
+    0.9rem 1.25rem;
+
+  border:
+    1px solid
+    var(--primary-color);
+
+  border-radius: 999px;
+
+  background:
+    var(--primary-color);
+
+  color:
+    var(--background-color, #0b0b0f);
+
+  font-size: 0.88rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.primaryAction:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 16px 35px
+    rgba(0, 0, 0, 0.18);
+}
+
+.actionArrow {
+  transition:
+    transform 0.3s ease;
+}
+
+.primaryAction:hover
+.actionArrow {
+  transform:
+    translateX(4px);
+}
+
+
+/* ========================================
+   CONTACT LINKS
+======================================== */
+
+.contactLinks {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+
+/* ========================================
+   CONTACT CARD
+======================================== */
+
+.contactCard {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  min-width: 0;
+
+  padding: 1.25rem;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color: inherit;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contactCard:hover {
+  transform:
+    translateX(5px);
+
+  border-color:
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 16px 35px
+    rgba(0, 0, 0, 0.12);
+}
+
+
+/* ========================================
+   CARD ICON
+======================================== */
+
+.cardIcon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  color:
+    var(--primary-color);
+
+  font-size: 1.2rem;
+}
+
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.cardContent {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.25rem;
+}
+
+.cardLabel {
+  color:
+    var(--text-secondary);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+.cardValue {
+  overflow: hidden;
+
+  color: inherit;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.cardArrow {
+  flex-shrink: 0;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 1.1rem;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.contactCard:hover
+.cardArrow {
+  transform:
+    translate(
+      3px,
+      -3px
+    );
+
+  color:
+    var(--primary-color);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 992px) {
+  .contact {
+    padding:
+      6rem 1.5rem;
+  }
+
+  .contactPanel {
+    grid-template-columns:
+      1fr;
+
+    gap: 3rem;
+
+    padding: 3rem;
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 576px) {
+  .contact {
+    padding:
+      5rem 1rem;
+  }
+
+  .contactPanel {
+    gap: 2.5rem;
+
+    padding:
+      2rem 1.5rem;
+
+    border-radius: 24px;
+  }
+
+  .heading {
+    font-size:
+      clamp(
+        2rem,
+        10vw,
+        2.8rem
+      );
+  }
+
+  .description {
+    font-size: 0.92rem;
+  }
+
+  .availability {
+    align-items:
+      flex-start;
+
+    border-radius: 16px;
+
+    line-height: 1.5;
+  }
+
+  .availabilityDot {
+    margin-top: 0.35rem;
+  }
+
+  .primaryAction {
+    width: 100%;
+  }
+
+  .contactCard {
+    padding: 1rem;
+
+    border-radius: 18px;
+  }
+
+  .cardIcon {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 12px;
+  }
+
+  .cardValue {
+    max-width: 100%;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .contactPanel {
+    padding:
+      1.75rem 1.25rem;
+  }
+
+  .contactCard {
+    gap: 0.75rem;
+  }
+
+  .cardIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cardValue {
+    font-size: 0.82rem;
+  }
+}
+
+
+/* ========================================
+   TOUCH DEVICES
+======================================== */
+
+@media (hover: none) {
+  .primaryAction:hover,
+  .contactCard:hover,
+  .primaryAction:hover
+  .actionArrow,
+  .contactCard:hover
+  .cardArrow {
+    transform: none;
+  }
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .primaryAction,
+  .actionArrow,
+  .contactCard,
+  .cardArrow {
+    transition: none;
+  }
+}
