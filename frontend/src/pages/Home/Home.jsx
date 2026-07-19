@@ -3,6 +3,7 @@ import CurrentFocus from "../../components/sections/CurrentFocus/CurrentFocus";
 import About from "../../components/sections/About/About";
 import Projects from "../../components/sections/Projects/Projects";
 import Skills from "../../components/sections/Skills/Skills";
+import Journey from "../../components/sections/Journey/Journey";
 
 const Home = () => {
   return (
@@ -16,6 +17,8 @@ const Home = () => {
       <Projects />
       
       <Skills />
+
+      <Journey />
     </>
   );
 };
