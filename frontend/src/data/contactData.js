@@ -22,7 +22,7 @@ const contactData = {
   primaryAction: {
     label: "Send Me an Email",
 
-    href: "mailto:YOUR_EMAIL_ADDRESS",
+    href: "mailto:yashsbansode07@gmail.com",
 
     icon: LuMail,
   },
@@ -33,9 +33,9 @@ const contactData = {
 
       label: "Email",
 
-      value: "YOUR_EMAIL_ADDRESS",
+      value: "yashsbansode07@gmail.com",
 
-      href: "mailto:YOUR_EMAIL_ADDRESS",
+      href: "mailto:yashsbansode07@gmail.com",
 
       icon: LuMail,
 
@@ -49,7 +49,7 @@ const contactData = {
 
       value: "Connect with me",
 
-      href: "YOUR_LINKEDIN_PROFILE_URL",
+      href: "https://www.linkedin.com/in/yashsb07/",
 
       icon: LuLinkedin,
 
@@ -63,7 +63,7 @@ const contactData = {
 
       value: "Explore my work",
 
-      href: "YOUR_GITHUB_PROFILE_URL",
+      href: "https://github.com/yashsb-07",
 
       icon: LuGithub,
 

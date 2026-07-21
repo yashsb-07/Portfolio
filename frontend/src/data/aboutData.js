@@ -36,7 +36,7 @@ const aboutData = {
     {
       icon: LuGraduationCap,
       title: "Education",
-      value: "MCA Student",
+      value: "BCA Student",
     },
 
     {

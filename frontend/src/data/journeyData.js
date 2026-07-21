@@ -30,7 +30,7 @@ const journeyData = {
           title: "Python Backend Developer Intern",
 
           organization:
-            "Add Your Company Name",
+            "Firewing Technology",
 
           location: "",
 
@@ -68,7 +68,7 @@ const journeyData = {
           organization:
             "Add Your Institution Name",
 
-          location: "",
+          location: "India, Pune",
 
           description:
             "Currently pursuing postgraduate studies in computer applications while continuing to strengthen my software development, problem-solving, and cloud engineering knowledge.",
@@ -91,9 +91,9 @@ const journeyData = {
             "Bachelor of Computer Applications (BCA)",
 
           organization:
-            "Add Your Institution Name",
+            "Jaikranti College of Computer Science and Management Studies, Katraj",
 
-          location: "",
+          location: "India, Pune",
 
           description:
             "Built a foundation in computer applications, programming, software development, and core technical concepts that supported my transition into full-stack development.",

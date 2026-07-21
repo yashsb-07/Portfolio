@@ -12,11 +12,11 @@ const heroData = {
   subtitle: "Python Full Stack Developer • Cloud Learner",
 
   description:
-    "I'm Yash, an MCA student passionate about building scalable web applications using React, Django and PostgreSQL while continuously improving my skills in AWS Cloud Engineering and Data Structures & Algorithms.",
+    "I'm Yash, an BCA student passionate about building scalable web applications using React, Django and PostgreSQL while continuously improving my skills in AWS Cloud Engineering and Data Structures & Algorithms.",
 
   profile: {
-    name: "Yash",
-    role: "MCA Student",
+    name: "Yash Bansode",
+    role: "BCA Student",
     status: "Open to Opportunities",
     image: profileImage,
   },
