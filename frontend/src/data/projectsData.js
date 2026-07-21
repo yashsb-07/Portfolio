@@ -72,7 +72,7 @@ const projectsData = {
 
       flagship: false,
 
-      status: "Completed",
+      status: "In Development",
 
       githubUrl: "",
 
@@ -103,7 +103,7 @@ const projectsData = {
 
       status: "Completed",
 
-      githubUrl: "",
+      githubUrl: "https://github.com/yashsb-07/amazon_clone",
 
       liveUrl: "",
     },
@@ -113,7 +113,7 @@ const projectsData = {
 
       title: "Embroidery Factory Website",
 
-      category: "Client Demo",
+      category: "Frontend Project",
 
       description:
         "A responsive business website concept designed to present embroidery services, company information, and a professional digital presence.",
@@ -132,39 +132,39 @@ const projectsData = {
 
       status: "Completed",
 
-      githubUrl: "",
+      githubUrl: "https://github.com/yashsb-07/embroidery-factory-website",
 
-      liveUrl: "",
+      liveUrl: "https://embroidery-factory-website.vercel.app/",
     },
 
-    {
-      id: "dental-clinic",
+    // {
+    //   id: "dental-clinic",
 
-      title: "Dental Clinic Website",
+    //   title: "Dental Clinic Website",
 
-      category: "Client Demo",
+    //   category: "Client Demo",
 
-      description:
-        "A professional clinic website concept focused on presenting dental services through a clean, accessible, and responsive user experience.",
+    //   description:
+    //     "A professional clinic website concept focused on presenting dental services through a clean, accessible, and responsive user experience.",
 
-      technologies: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-      ],
+    //   technologies: [
+    //     "HTML",
+    //     "CSS",
+    //     "JavaScript",
+    //   ],
 
-      icon: LuStethoscope,
+    //   icon: LuStethoscope,
 
-      featured: false,
+    //   featured: false,
 
-      flagship: false,
+    //   flagship: false,
 
-      status: "Completed",
+    //   status: "Completed",
 
-      githubUrl: "",
+    //   githubUrl: "",
 
-      liveUrl: "",
-    },
+    //   liveUrl: "",
+    // },
 
     {
       id: "saas-landing-page",
@@ -190,9 +190,9 @@ const projectsData = {
 
       status: "Completed",
 
-      githubUrl: "",
+      githubUrl: "https://github.com/yashsb-07/taskflow-landing",
 
-      liveUrl: "",
+      liveUrl: "https://taskflow-landing-alpha.vercel.app/",
     },
   ],
 };
