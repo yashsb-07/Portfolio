@@ -2,6 +2,7 @@ import Button from "../../ui/Button/Button";
 
 import useMobileMenu from "../../../hooks/useMobileMenu";
 import useActiveSection from "../../../hooks/useActiveSection";
+import useNavbarScroll from "../../../hooks/useNavbarScroll";
 
 import navigation from "../../../data/navigation";
 
@@ -22,22 +23,37 @@ const Navbar = () => {
   const activeSection =
     useActiveSection(navigation);
 
+  const isScrolled =
+    useNavbarScroll();
+
   return (
     <>
-      <header className={styles.header}>
+      <header
+        className={`${styles.header} ${
+          isScrolled
+            ? styles.scrolled
+            : ""
+        }`}
+      >
         <nav
           className={styles.navbar}
           aria-label="Primary Navigation"
         >
-          <NavbarLogo />
+          <div className={styles.left}>
+            <NavbarLogo />
+          </div>
 
-          <DesktopNavigation
-            activeSection={activeSection}
-          />
+          <div className={styles.center}>
+            <DesktopNavigation
+              activeSection={activeSection}
+            />
+          </div>
 
-          <div className={styles.actions}>
-            <Button variant="secondary">
-              Resume
+          <div className={styles.right}>
+            <Button variant="navbar">
+              <span>↓</span>
+
+              <span>Resume</span>
             </Button>
 
             <MobileMenuButton

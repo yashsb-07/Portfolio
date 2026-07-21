@@ -1,50 +1,275 @@
+/* =====================================================
+   HEADER
+===================================================== */
+
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: 0 0 auto 0;
+
   z-index: var(--z-navbar);
+
+  padding-top: 1.25rem;
+
+  transition:
+    padding .35s ease;
 }
 
+.scrolled {
+  padding-top: .75rem;
+}
+
+/* =====================================================
+   MAIN NAVBAR
+===================================================== */
+
 .navbar {
-  width: min(90%, var(--container-width));
+  width: min(94%, var(--container-width));
+
   margin-inline: auto;
 
-  height: 80px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
 
+  align-items: center;
+
+  gap: 2rem;
+
+  transition:
+    transform .35s ease,
+    filter .35s ease;
+}
+
+.scrolled .navbar {
+  transform: scale(.985);
+}
+
+/* =====================================================
+   LEFT
+===================================================== */
+
+.left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+
+.logoWrapper {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: .85rem;
+
+  text-decoration: none;
+}
+
+.logoBadge {
+  width: 46px;
+  height: 46px;
+
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+
+  box-shadow:
+    0 10px 25px rgba(59,130,246,.35);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
 }
 
 .logo {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.6rem;
+  display: flex;
+
+  align-items: center;
+
+  gap: .15rem;
+
+  margin: 0;
+
+  font-size: 1.45rem;
+
   font-weight: 700;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.logoBracket {
+  color: var(--color-primary);
+
+  transition: color .3s ease;
+}
+
+.logoName {
   color: var(--color-text);
+
+  transition: color .3s ease;
+}
+
+.logoWrapper:hover .logoBadge {
+  transform: translateY(-2px) scale(1.05);
+
+  box-shadow:
+    0 15px 35px rgba(59,130,246,.45);
+}
+
+.logoWrapper:hover .logoBracket {
+  color: var(--color-secondary);
+}
+
+.logoWrapper:hover .logoName {
+  color: white;
+}
+
+/* =====================================================
+   CENTER GLASS CAPSULE
+===================================================== */
+
+.center {
+  display: flex;
+  justify-content: center;
 }
 
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
+
+  gap: .5rem;
+
+  padding: .65rem;
+
+  border-radius: 999px;
+
+  background:
+    rgba(30, 41, 59, .58);
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.22);
+
+  min-height: 64px;
+}
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+.navItem {
+  list-style: none;
 }
 
 .navLinks a {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    .8rem
+    1.25rem;
+
+  border-radius: 999px;
+
+  overflow: hidden;
+
+  text-decoration: none;
+
   color: var(--color-text-light);
-  transition: var(--transition);
-  font-weight: 500;
+
+  transition:
+    color .3s ease,
+    transform .25s ease;
 }
 
 .navLinks a:hover {
-  color: var(--color-primary);
+  color: white;
+
+  transform: translateY(-1px);
 }
 
-.actions {
+.linkLabel {
+  position: relative;
+
+  z-index: 2;
+
+  font-size: .96rem;
+
+  font-weight: 500;
+
+  transition: color .3s ease;
+}
+
+.activeLink {
+  color: white !important;
+}
+
+/* =====================================================
+   ACTIVE PILL
+===================================================== */
+
+.activePill {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59,130,246,.22),
+      rgba(139,92,246,.22)
+    );
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
+  box-shadow:
+    0 8px 25px
+    rgba(59,130,246,.15);
+
+  z-index: 1;
+}
+
+/* =====================================================
+   RIGHT
+===================================================== */
+
+.right {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+
   gap: 1rem;
 }
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 .menuButton {
   display: none;
@@ -52,22 +277,90 @@
   width: 48px;
   height: 48px;
 
-  border-radius: 12px;
+  border-radius: 14px;
 
-  background: var(--color-surface);
+  background: rgba(30,41,59,.7);
+
+  backdrop-filter: blur(12px);
 
   color: white;
 
   font-size: 1.5rem;
+
+  border: 1px solid rgba(255,255,255,.08);
 }
+
+.closeButton {
+  align-self: flex-end;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 14px;
+
+  background: rgba(30,41,59,.7);
+
+  color: white;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 3rem;
+
+  font-size: 1.5rem;
+}
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.mobileLinks a {
+  display: flex;
+  align-items: center;
+
+  padding: 1rem 1.2rem;
+
+  border-radius: 16px;
+
+  color: var(--color-text);
+
+  text-decoration: none;
+
+  font-size: 1.05rem;
+
+  transition:
+    background .3s ease,
+    color .3s ease;
+}
+
+.mobileLinks a:hover {
+  background:
+    rgba(255,255,255,.05);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
 @media (max-width: 992px) {
 
-  .navLinks {
+  .navbar {
+    grid-template-columns: 1fr auto;
+  }
+
+  .center {
     display: none;
   }
 
-  .actions button:first-child {
+  .right button:first-child {
     display: none;
   }
 
@@ -78,55 +371,87 @@
 
 }
 
-.closeButton {
-  align-self: flex-end;
+/* =====================================================
+   MOBILE DRAWER HEADER
+===================================================== */
 
-  width: 48px;
-  height: 48px;
+.mobileHeader {
+  display: flex;
 
-  border-radius: 12px;
+  align-items: center;
 
-  background: var(--color-surface);
+  justify-content: space-between;
 
-  color: white;
-
-  font-size: 1.5rem;
-
-  display: grid;
-  place-items: center;
-
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
-.mobileLinks {
+.mobileBrand {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+
+  align-items: center;
+
+  gap: .8rem;
+}
+
+.mobileBrandText {
+  font-size: 1.25rem;
+
+  font-weight: 700;
+
+  color: var(--color-text);
+
+  font-family: "Poppins", sans-serif;
+}
+
+/* =====================================================
+   MOBILE LINKS
+===================================================== */
+
+.mobileLinks li {
+  width: 100%;
 }
 
 .mobileLinks a {
-  font-size: 1.2rem;
-  color: var(--color-text);
-}
-
-.activeLink {
-  color: var(--color-primary) !important;
-  font-weight: 600;
-  position: relative;
-}
-
-.activeLink::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -6px;
-
   width: 100%;
-  height: 2px;
 
-  background: var(--color-primary);
+  justify-content: flex-start;
 
-  border-radius: 999px;
+  padding: 1rem 1.25rem;
+
+  border-radius: 18px;
+
+  font-weight: 500;
+}
+
+.mobileLinks a:hover {
+  background:
+    rgba(255,255,255,.06);
+}
+
+.mobileLinks .activeLink {
+  background:
+    rgba(59,130,246,.12);
+
+  color: white !important;
+}
+
+/* =====================================================
+   MOBILE FOOTER
+===================================================== */
+
+.mobileFooter {
+  margin-top: auto;
+
+  padding-top: 2rem;
+
+  border-top:
+    1px solid rgba(255,255,255,.08);
+
+  display: flex;
+
+  justify-content: center;
+}
+
+.mobileFooter button {
+  width: 100%;
 }

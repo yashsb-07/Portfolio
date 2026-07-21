@@ -2,15 +2,19 @@ import styles from "./Button.module.css";
 
 const Button = ({
   children,
-  type = "button",
-  onClick,
   variant = "primary",
+  type = "button",
+  className = "",
+  ...props
 }) => {
+  const variantClass =
+    styles[variant] || styles.primary;
+
   return (
     <button
       type={type}
-      onClick={onClick}
-      className={`${styles.button} ${styles[variant]}`}
+      className={`${styles.button} ${variantClass} ${className}`}
+      {...props}
     >
       {children}
     </button>

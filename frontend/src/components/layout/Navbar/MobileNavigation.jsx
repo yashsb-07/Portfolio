@@ -1,7 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { HiOutlineX } from "react-icons/hi";
 
+import Button from "../../ui/Button/Button";
+
+import useActiveSection from "../../../hooks/useActiveSection";
 import navigation from "../../../data/navigation";
+
+import NavigationLinks from "./NavigationLinks";
 
 import styles from "./Navbar.module.css";
 import animationStyles from "./NavbarAnimations.module.css";
@@ -9,10 +14,11 @@ import animationStyles from "./NavbarAnimations.module.css";
 const MobileNavigation = ({
   isOpen,
   closeMenu,
-  activeSection,
 }) => {
+  const activeSection =
+    useActiveSection(navigation);
 
-  const handleNavigationClick = (
+  const handleNavigation = (
     event,
     targetId
   ) => {
@@ -21,22 +27,13 @@ const MobileNavigation = ({
     const section =
       document.getElementById(targetId);
 
-    if (!section) return;
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
 
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-
-    window.history.replaceState(
-      null,
-      "",
-      `#${targetId}`
-    );
-
-    requestAnimationFrame(() => {
-      closeMenu();
-    });
+    closeMenu();
   };
 
   return (
@@ -45,7 +42,6 @@ const MobileNavigation = ({
         <>
           <motion.div
             className={animationStyles.overlay}
-            aria-hidden="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -53,10 +49,10 @@ const MobileNavigation = ({
           />
 
           <motion.aside
+            className={animationStyles.drawer}
             role="dialog"
             aria-modal="true"
             aria-label="Mobile Navigation"
-            className={animationStyles.drawer}
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -65,41 +61,41 @@ const MobileNavigation = ({
               ease: "easeOut",
             }}
           >
-            <button
-              className={styles.closeButton}
-              onClick={closeMenu}
-              aria-label="Close navigation"
-            >
-              <HiOutlineX />
-            </button>
+            <div className={styles.mobileHeader}>
+              <div className={styles.mobileBrand}>
+                <div className={styles.logoBadge}>
+                  Y
+                </div>
+
+                <span className={styles.mobileBrandText}>
+                  {"<Yash.dev />"}
+                </span>
+              </div>
+
+              <button
+                className={styles.closeButton}
+                onClick={closeMenu}
+                aria-label="Close navigation"
+              >
+                <HiOutlineX />
+              </button>
+            </div>
 
             <ul className={styles.mobileLinks}>
-              {navigation.map((item) => (
-                <li key={item.id}>
-                  <a
-                    href={item.href}
-                    onClick={(event) =>
-                      handleNavigationClick(
-                        event,
-                        item.id
-                      )
-                    }
-                    className={
-                      activeSection === item.id
-                        ? styles.activeLink
-                        : ""
-                    }
-                    aria-current={
-                      activeSection === item.id
-                        ? "page"
-                        : undefined
-                    }
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+              <NavigationLinks
+                mobile
+                activeSection={activeSection}
+                onNavigate={handleNavigation}
+              />
             </ul>
+
+            <div className={styles.mobileFooter}>
+              <Button variant="navbar">
+                <span>↓</span>
+
+                <span>Resume</span>
+              </Button>
+            </div>
           </motion.aside>
         </>
       )}

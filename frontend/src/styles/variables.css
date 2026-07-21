@@ -73,6 +73,12 @@
   --transition:
     all 0.3s ease;
 
+  --transition-fast: .2s ease;
+
+  --transition-medium: .35s ease;
+
+  --transition-slow: .5s ease;
+
 
   /* ========= Layout ========= */
 

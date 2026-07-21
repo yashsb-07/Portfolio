@@ -4,10 +4,26 @@ const NavbarLogo = () => {
   return (
     <a
       href="#home"
-      className={styles.logo}
-      aria-label="Go to Home section"
+      className={styles.logoWrapper}
+      aria-label="Go to Home"
     >
-      Yash
+      <div className={styles.logoBadge}>
+        Y
+      </div>
+
+      <h1 className={styles.logo}>
+        <span className={styles.logoBracket}>
+          {"<"}
+        </span>
+
+        <span className={styles.logoName}>
+          Yash.dev
+        </span>
+
+        <span className={styles.logoBracket}>
+          {" />"}
+        </span>
+      </h1>
     </a>
   );
 };
