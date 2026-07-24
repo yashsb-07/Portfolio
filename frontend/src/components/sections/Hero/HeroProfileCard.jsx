@@ -22,154 +22,221 @@ const HeroProfileCard = ({
       initial="hidden"
       animate="visible"
     >
-      <div className={styles.developerCard}>
-        <div className={styles.editorHeader}>
+      <div className={styles.developerCardWrapper}>
+        <div className={styles.developerCard}>
+          {/* Editor Header */}
+
+          <div className={styles.editorHeader}>
+            <div
+              className={styles.windowControls}
+              aria-hidden="true"
+            >
+              <span
+                className={`${styles.windowDot} ${styles.windowDotRed}`}
+              />
+
+              <span
+                className={`${styles.windowDot} ${styles.windowDotYellow}`}
+              />
+
+              <span
+                className={`${styles.windowDot} ${styles.windowDotGreen}`}
+              />
+            </div>
+
+            <span className={styles.fileName}>
+              {fileName}
+            </span>
+          </div>
+
+          {/* Editor Code */}
+
           <div
-            className={styles.windowControls}
-            aria-hidden="true"
+            className={styles.codeBlock}
+            aria-label="Developer profile code snippet"
           >
-            <span
-              className={`${styles.windowDot} ${styles.windowDotRed}`}
-            />
+            <div className={styles.codeLine}>
+              <span className={styles.codeKeyword}>
+                const
+              </span>
 
-            <span
-              className={`${styles.windowDot} ${styles.windowDotYellow}`}
-            />
+              {" "}
 
-            <span
-              className={`${styles.windowDot} ${styles.windowDotGreen}`}
-            />
-          </div>
+              <span className={styles.codeVariable}>
+                {variableName}
+              </span>
 
-          <span className={styles.fileName}>
-            {fileName}
-          </span>
-        </div>
+              <span className={styles.codeOperator}>
+                {" = "}
+              </span>
 
-        <div className={styles.codeBlock}>
-          <div className={styles.codeLine}>
-            <span className={styles.codeKeyword}>
-              const
-            </span>
+              <span className={styles.codePunctuation}>
+                {"{"}
+              </span>
+            </div>
 
-            {" "}
+            <div
+              className={`${styles.codeLine} ${styles.codeProperty}`}
+            >
+              <span className={styles.codeKey}>
+                role
+              </span>
 
-            <span className={styles.codeVariable}>
-              {variableName}
-            </span>
+              <span className={styles.codePunctuation}>
+                :
+              </span>
 
-            <span className={styles.codeText}>
-              {" = {"}
-            </span>
-          </div>
+              {" "}
 
-          <div className={styles.codeProperty}>
-            <span className={styles.codeKey}>
-              role:
-            </span>
+              <span className={styles.codeString}>
+                "{role}"
+              </span>
 
-            {" "}
+              <span className={styles.codePunctuation}>
+                ,
+              </span>
+            </div>
 
-            <span className={styles.codeString}>
-              "{role}",
-            </span>
-          </div>
+            <div
+              className={`${styles.codeLine} ${styles.codeProperty}`}
+            >
+              <span className={styles.codeKey}>
+                stack
+              </span>
 
-          <div className={styles.codeProperty}>
-            <span className={styles.codeKey}>
-              stack:
-            </span>
+              <span className={styles.codePunctuation}>
+                :
+              </span>
 
-            {" "}
+              {" "}
 
-            <span className={styles.codeArray}>
-              [
+              <span className={styles.codePunctuation}>
+                [
+              </span>
+
               {stack.map((technology, index) => (
                 <span key={technology}>
                   <span className={styles.codeString}>
                     "{technology}"
                   </span>
 
-                  {index < stack.length - 1
-                    ? ", "
-                    : ""}
+                  {index < stack.length - 1 && (
+                    <span className={styles.codePunctuation}>
+                      {", "}
+                    </span>
+                  )}
                 </span>
               ))}
-              ],
-            </span>
-          </div>
 
-          <div className={styles.codeProperty}>
-            <span className={styles.codeKey}>
-              learning:
-            </span>
+              <span className={styles.codePunctuation}>
+                ],
+              </span>
+            </div>
 
-            {" "}
+            <div
+              className={`${styles.codeLine} ${styles.codeProperty}`}
+            >
+              <span className={styles.codeKey}>
+                learning
+              </span>
 
-            <span className={styles.codeArray}>
-              [
+              <span className={styles.codePunctuation}>
+                :
+              </span>
+
+              {" "}
+
+              <span className={styles.codePunctuation}>
+                [
+              </span>
+
               {learning.map((item, index) => (
                 <span key={item}>
                   <span className={styles.codeString}>
                     "{item}"
                   </span>
 
-                  {index < learning.length - 1
-                    ? ", "
-                    : ""}
+                  {index < learning.length - 1 && (
+                    <span className={styles.codePunctuation}>
+                      {", "}
+                    </span>
+                  )}
                 </span>
               ))}
-              ],
-            </span>
+
+              <span className={styles.codePunctuation}>
+                ],
+              </span>
+            </div>
+
+            <div
+              className={`${styles.codeLine} ${styles.codeProperty}`}
+            >
+              <span className={styles.codeKey}>
+                mindset
+              </span>
+
+              <span className={styles.codePunctuation}>
+                :
+              </span>
+
+              {" "}
+
+              <span className={styles.codeString}>
+                "{mindset}"
+              </span>
+
+              <span className={styles.codePunctuation}>
+                ,
+              </span>
+            </div>
+
+            <div className={styles.codeLine}>
+              <span className={styles.codePunctuation}>
+                {"};"}
+              </span>
+            </div>
+
+            <div
+              className={`${styles.codeLine} ${styles.exportLine}`}
+            >
+              <span className={styles.codeKeyword}>
+                export
+              </span>
+
+              {" "}
+
+              <span className={styles.codeKeywordSecondary}>
+                default
+              </span>
+
+              {" "}
+
+              <span className={styles.codeVariable}>
+                {variableName}
+              </span>
+
+              <span className={styles.codePunctuation}>
+                ;
+              </span>
+            </div>
           </div>
 
-          <div className={styles.codeProperty}>
-            <span className={styles.codeKey}>
-              mindset:
-            </span>
+          {/* Technology Grid Foundation */}
 
-            {" "}
-
-            <span className={styles.codeString}>
-              "{mindset}",
-            </span>
+          <div
+            className={styles.techGridPlaceholder}
+            aria-hidden="true"
+          >
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
           </div>
-
-          <div className={styles.codeLine}>
-            <span className={styles.codeText}>
-              {"};"}
-            </span>
-          </div>
-
-          <div className={styles.exportLine}>
-            <span className={styles.codeKeyword}>
-              export default
-            </span>
-
-            {" "}
-
-            <span className={styles.codeVariable}>
-              {variableName}
-            </span>
-
-            <span className={styles.codeText}>
-              ;
-            </span>
-          </div>
-        </div>
-
-        <div
-          className={styles.techGridPlaceholder}
-          aria-hidden="true"
-        >
-          <span />
-          <span />
-          <span />
-          <span />
-          <span />
-          <span />
-          <span />
-          <span />
         </div>
       </div>
     </motion.div>
