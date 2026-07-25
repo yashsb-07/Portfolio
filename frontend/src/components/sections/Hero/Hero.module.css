@@ -1,13 +1,18 @@
 .hero {
+  position: relative;
+
   min-height: 100vh;
+
   display: flex;
   align-items: center;
-  position: relative;
+
   overflow: hidden;
   isolation: isolate;
 
-  padding-top: calc(var(--navbar-height) + 20px);
-  padding-bottom: 40px;
+  padding-top:
+    calc(var(--navbar-height) + 70px);
+
+  padding-bottom: 70px;
 }
 
 .glow {
@@ -40,15 +45,26 @@
 }
 
 .wrapper {
+  width: 100%;
+
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(420px, 0.95fr);
+
   align-items: center;
-  gap: 4rem;
+
+  gap: clamp(3rem, 5vw, 5.5rem);
 }
 
 .left {
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
+
+  align-items: flex-start;
 }
 
 .badge {
@@ -110,9 +126,13 @@
 }
 
 .right {
-  display: flex;
-  justify-content: center;
   width: 100%;
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
 }
 
 /* =========================================
@@ -124,6 +144,8 @@
 
   width: 100%;
   max-width: 520px;
+
+  min-width: 0;
 
   isolation: isolate;
 
@@ -545,18 +567,78 @@
   color: var(--color-text-light);
 }
 
+/* =========================================
+   Hero - Laptop
+========================================= */
+
+@media (max-width: 1180px) {
+  .wrapper {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(390px, 0.9fr);
+
+    gap: 2.75rem;
+  }
+
+  .developerCard {
+    padding: 26px;
+  }
+
+  .codeBlock {
+    font-size: 0.82rem;
+  }
+
+  .developerTechGrid {
+    gap: 10px;
+  }
+
+  .developerTechItem {
+    min-height: 82px;
+  }
+}
+
+/* =========================================
+   Hero - Tablet
+========================================= */
+
 @media (max-width: 992px) {
+  .hero {
+    min-height: auto;
+
+    padding-top:
+      calc(var(--navbar-height) + 80px);
+
+    padding-bottom: 80px;
+  }
+
   .wrapper {
     grid-template-columns: 1fr;
+
+    gap: 3.5rem;
+
     text-align: center;
   }
 
   .left {
     align-items: center;
+
+    max-width: 720px;
+
+    margin-inline: auto;
   }
 
   .badge {
     align-self: center;
+  }
+
+  .title {
+    margin-inline: auto;
+  }
+
+  .description {
+    margin-inline: auto;
+
+    max-width: 680px;
   }
 
   .buttonGroup {
@@ -567,14 +649,118 @@
     justify-content: center;
   }
 
+  .socialLinks {
+    justify-content: center;
+  }
+
   .right {
     order: -1;
-    margin-bottom: 40px;
+
+    justify-content: center;
+
+    margin-bottom: 0;
+  }
+
+  .developerCardWrapper {
+    max-width: 520px;
   }
 }
 
-@media (max-width: 576px) {
+/* =========================================
+   Hero - Small Tablet
+========================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top:
+      calc(var(--navbar-height) + 60px);
+
+    padding-bottom: 64px;
+  }
+
+  .wrapper {
+    gap: 3rem;
+  }
+
   .developerCardWrapper {
+    max-width: 500px;
+  }
+
+  .developerCard {
+    padding: 24px;
+  }
+
+  .codeBlock {
+    font-size: 0.8rem;
+  }
+
+  .developerTechItem {
+    min-height: 76px;
+  }
+
+  .developerTechIcon {
+    font-size: 1.55rem;
+  }
+
+  .scrollIndicator {
+    margin-top: 3rem;
+  }
+}
+
+/* =========================================
+   Hero - Mobile
+========================================= */
+
+@media (max-width: 576px) {
+  .hero {
+    padding-top:
+      calc(var(--navbar-height) + 45px);
+
+    padding-bottom: 52px;
+  }
+
+  .wrapper {
+    gap: 2.5rem;
+  }
+
+  .left {
+    width: 100%;
+  }
+
+  .title {
+    max-width: 100%;
+  }
+
+  .description {
+    max-width: 100%;
+
+    margin-bottom: 32px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 12px;
+
+    margin-bottom: 36px;
+  }
+
+  .buttonGroup button {
+    width: 100%;
+  }
+
+  .socialLinks {
+    margin-bottom: 32px;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .developerCardWrapper {
+    width: 100%;
     max-width: 100%;
   }
 
@@ -587,21 +773,26 @@
   }
 
   .developerCard {
-    padding: 22px;
+    padding: 20px;
 
     border-radius: var(--radius-lg);
   }
 
   .developerCardWrapper::after {
-    border-radius: calc(var(--radius-lg) + 2px);
+    border-radius:
+      calc(var(--radius-lg) + 2px);
   }
 
   .editorHeader {
-    gap: 16px;
+    gap: 14px;
 
-    padding-bottom: 18px;
+    padding-bottom: 16px;
 
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+  }
+
+  .windowControls {
+    gap: 6px;
   }
 
   .windowDot {
@@ -610,60 +801,145 @@
   }
 
   .fileName {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
   }
 
   .codeBlock {
-    font-size: 0.76rem;
+    font-size: 0.72rem;
 
-    line-height: 1.8;
+    line-height: 1.75;
   }
 
   .codeProperty {
-    padding-left: 10px;
+    padding-left: 8px;
   }
 
   .exportLine {
-    margin-top: 18px;
+    margin-top: 16px;
   }
 
-    .developerTechGrid {
+  .developerTechGrid {
     grid-template-columns:
       repeat(4, minmax(0, 1fr));
 
-    gap: 8px;
+    gap: 7px;
 
-    margin-top: 22px;
+    margin-top: 20px;
 
-    padding-top: 22px;
+    padding-top: 20px;
   }
 
   .developerTechItem {
-    min-height: 68px;
+    min-height: 66px;
 
     gap: 5px;
 
-    padding: 8px 4px;
+    padding: 7px 3px;
 
-    border-radius: 13px;
+    border-radius: 12px;
   }
 
   .developerTechIcon {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
 
   .developerTechName {
-    font-size: 0.56rem;
+    font-size: 0.52rem;
   }
 
-  .buttonGroup {
-    flex-direction: column;
+  .scrollIndicator {
+    margin-top: 2.5rem;
+  }
+}
 
-    width: 100%;
+/* =========================================
+   Hero - Small Mobile
+========================================= */
+
+@media (max-width: 390px) {
+  .hero {
+    padding-top:
+      calc(var(--navbar-height) + 36px);
   }
 
-  .buttonGroup button {
-    width: 100%;
+  .developerCard {
+    padding: 17px;
+  }
+
+  .editorHeader {
+    margin-bottom: 14px;
+
+    padding-bottom: 14px;
+  }
+
+  .codeBlock {
+    font-size: 0.67rem;
+
+    line-height: 1.7;
+  }
+
+  .codeProperty {
+    padding-left: 6px;
+  }
+
+  .developerTechGrid {
+    gap: 6px;
+
+    margin-top: 18px;
+
+    padding-top: 18px;
+  }
+
+  .developerTechItem {
+    min-height: 62px;
+
+    padding: 6px 2px;
+  }
+
+  .developerTechIcon {
+    font-size: 1.2rem;
+  }
+
+  .developerTechName {
+    font-size: 0.48rem;
+  }
+}
+
+/* =========================================
+   Hero - Extra Small Mobile
+========================================= */
+
+@media (max-width: 340px) {
+  .developerCard {
+    padding: 15px;
+  }
+
+  .codeBlock {
+    font-size: 0.62rem;
+  }
+
+  .codeProperty {
+    padding-left: 4px;
+  }
+
+  .developerTechGrid {
+    gap: 5px;
+  }
+
+  .developerTechItem {
+    min-height: 58px;
+
+    gap: 4px;
+
+    padding-inline: 1px;
+  }
+
+  .developerTechIcon {
+    font-size: 1.1rem;
+  }
+
+  .developerTechName {
+    font-size: 0.44rem;
   }
 }
 
