@@ -1,3 +1,17 @@
+import {
+  FaAws,
+  FaGitAlt,
+  FaPython,
+  FaReact,
+} from "react-icons/fa";
+
+import {
+  SiDjango,
+  SiJavascript,
+  SiPostgresql,
+  SiTailwindcss,
+} from "react-icons/si";
+
 import resumeFile from "../assets/documents/resume.pdf";
 
 const heroData = {
@@ -32,6 +46,41 @@ const heroData = {
     ],
 
     mindset: "Ship. Learn. Repeat.",
+
+    technologies: [
+      {
+        name: "React",
+        icon: FaReact,
+      },
+      {
+        name: "Django",
+        icon: SiDjango,
+      },
+      {
+        name: "PostgreSQL",
+        icon: SiPostgresql,
+      },
+      {
+        name: "Python",
+        icon: FaPython,
+      },
+      {
+        name: "JavaScript",
+        icon: SiJavascript,
+      },
+      {
+        name: "AWS",
+        icon: FaAws,
+      },
+      {
+        name: "Git",
+        icon: FaGitAlt,
+      },
+      {
+        name: "Tailwind CSS",
+        icon: SiTailwindcss,
+      },
+    ],
   },
 
   cta: {

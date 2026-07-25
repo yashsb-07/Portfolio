@@ -13,6 +13,7 @@ const HeroProfileCard = ({
     stack,
     learning,
     mindset,
+    technologies,
   } = profile;
 
   return (
@@ -49,7 +50,7 @@ const HeroProfileCard = ({
             </span>
           </div>
 
-          {/* Editor Code */}
+          {/* Developer Code */}
 
           <div
             className={styles.codeBlock}
@@ -222,20 +223,32 @@ const HeroProfileCard = ({
             </div>
           </div>
 
-          {/* Technology Grid Foundation */}
+          {/* Technology Grid */}
 
           <div
-            className={styles.techGridPlaceholder}
-            aria-hidden="true"
+            className={styles.developerTechGrid}
+            aria-label="Core technologies"
           >
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
+            {technologies.map((technology) => {
+              const Icon = technology.icon;
+
+              return (
+                <div
+                  key={technology.name}
+                  className={styles.developerTechItem}
+                  title={technology.name}
+                >
+                  <Icon
+                    className={styles.developerTechIcon}
+                    aria-hidden="true"
+                  />
+
+                  <span className={styles.developerTechName}>
+                    {technology.name}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
