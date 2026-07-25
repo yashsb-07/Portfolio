@@ -1,4 +1,7 @@
-import { motion } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+} from "framer-motion";
 
 import styles from "./Hero.module.css";
 
@@ -6,6 +9,9 @@ const HeroProfileCard = ({
   profile,
   profileVariants,
 }) => {
+  const shouldReduceMotion =
+    useReducedMotion();
+
   const {
     fileName,
     variableName,
@@ -16,6 +22,80 @@ const HeroProfileCard = ({
     technologies,
   } = profile;
 
+  const codeContainerVariants = {
+    hidden: {},
+
+    visible: {
+      transition: {
+        staggerChildren: shouldReduceMotion
+          ? 0
+          : 0.08,
+
+        delayChildren: shouldReduceMotion
+          ? 0
+          : 0.25,
+      },
+    },
+  };
+
+  const codeLineVariants = {
+    hidden: {
+      opacity: shouldReduceMotion ? 1 : 0,
+      y: shouldReduceMotion ? 0 : 10,
+    },
+
+    visible: {
+      opacity: 1,
+      y: 0,
+
+      transition: {
+        duration: shouldReduceMotion
+          ? 0
+          : 0.4,
+
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const techGridVariants = {
+    hidden: {},
+
+    visible: {
+      transition: {
+        staggerChildren: shouldReduceMotion
+          ? 0
+          : 0.06,
+
+        delayChildren: shouldReduceMotion
+          ? 0
+          : 0.65,
+      },
+    },
+  };
+
+  const techItemVariants = {
+    hidden: {
+      opacity: shouldReduceMotion ? 1 : 0,
+      y: shouldReduceMotion ? 0 : 14,
+      scale: shouldReduceMotion ? 1 : 0.96,
+    },
+
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+
+      transition: {
+        duration: shouldReduceMotion
+          ? 0
+          : 0.4,
+
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
     <motion.div
       className={styles.right}
@@ -23,7 +103,20 @@ const HeroProfileCard = ({
       initial="hidden"
       animate="visible"
     >
-      <div className={styles.developerCardWrapper}>
+      <motion.div
+        className={styles.developerCardWrapper}
+        whileHover={
+          shouldReduceMotion
+            ? undefined
+            : {
+                y: -6,
+              }
+        }
+        transition={{
+          duration: 0.3,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
         <div className={styles.developerCard}>
           {/* Editor Header */}
 
@@ -52,11 +145,17 @@ const HeroProfileCard = ({
 
           {/* Developer Code */}
 
-          <div
+          <motion.div
             className={styles.codeBlock}
             aria-label="Developer profile code snippet"
+            variants={codeContainerVariants}
+            initial="hidden"
+            animate="visible"
           >
-            <div className={styles.codeLine}>
+            <motion.div
+              className={styles.codeLine}
+              variants={codeLineVariants}
+            >
               <span className={styles.codeKeyword}>
                 const
               </span>
@@ -74,10 +173,11 @@ const HeroProfileCard = ({
               <span className={styles.codePunctuation}>
                 {"{"}
               </span>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
               className={`${styles.codeLine} ${styles.codeProperty}`}
+              variants={codeLineVariants}
             >
               <span className={styles.codeKey}>
                 role
@@ -96,10 +196,11 @@ const HeroProfileCard = ({
               <span className={styles.codePunctuation}>
                 ,
               </span>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
               className={`${styles.codeLine} ${styles.codeProperty}`}
+              variants={codeLineVariants}
             >
               <span className={styles.codeKey}>
                 stack
@@ -132,10 +233,11 @@ const HeroProfileCard = ({
               <span className={styles.codePunctuation}>
                 ],
               </span>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
               className={`${styles.codeLine} ${styles.codeProperty}`}
+              variants={codeLineVariants}
             >
               <span className={styles.codeKey}>
                 learning
@@ -168,10 +270,11 @@ const HeroProfileCard = ({
               <span className={styles.codePunctuation}>
                 ],
               </span>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
               className={`${styles.codeLine} ${styles.codeProperty}`}
+              variants={codeLineVariants}
             >
               <span className={styles.codeKey}>
                 mindset
@@ -190,16 +293,20 @@ const HeroProfileCard = ({
               <span className={styles.codePunctuation}>
                 ,
               </span>
-            </div>
+            </motion.div>
 
-            <div className={styles.codeLine}>
+            <motion.div
+              className={styles.codeLine}
+              variants={codeLineVariants}
+            >
               <span className={styles.codePunctuation}>
                 {"};"}
               </span>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
               className={`${styles.codeLine} ${styles.exportLine}`}
+              variants={codeLineVariants}
             >
               <span className={styles.codeKeyword}>
                 export
@@ -220,23 +327,42 @@ const HeroProfileCard = ({
               <span className={styles.codePunctuation}>
                 ;
               </span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Technology Grid */}
 
-          <div
+          <motion.div
             className={styles.developerTechGrid}
             aria-label="Core technologies"
+            variants={techGridVariants}
+            initial="hidden"
+            animate="visible"
           >
             {technologies.map((technology) => {
               const Icon = technology.icon;
 
               return (
-                <div
+                <motion.div
                   key={technology.name}
                   className={styles.developerTechItem}
                   title={technology.name}
+                  variants={techItemVariants}
+                  whileHover={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          y: -5,
+                          scale: 1.03,
+                        }
+                  }
+                  whileTap={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          scale: 0.98,
+                        }
+                  }
                 >
                   <Icon
                     className={styles.developerTechIcon}
@@ -246,12 +372,12 @@ const HeroProfileCard = ({
                   <span className={styles.developerTechName}>
                     {technology.name}
                   </span>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 };
