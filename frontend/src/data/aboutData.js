@@ -9,6 +9,7 @@ import {
   LuBriefcase,
   LuCode,
   LuCloud,
+  LuTrendingUp,
 } from "react-icons/lu";
 
 const aboutData = {
@@ -102,7 +103,7 @@ const aboutData = {
     {
       icon: LuGraduationCap,
       title: "Education",
-      value: "BCA",
+      value: "BCA Graduate",
       description:
         "Strengthening computer science foundations",
     },
@@ -133,7 +134,7 @@ const aboutData = {
 
     location: "India",
 
-    education: "BCA",
+    education: "BCA Graduate",
 
     focus: [
       "Full Stack",
@@ -161,39 +162,63 @@ const aboutData = {
 
   stats: [
     {
-      id: 1,
+      id: "projects",
+      type: "metric",
+
       number: 10,
       suffix: "+",
+
       label: "Projects Built",
+
       description:
-        "Hands-on applications across frontend and backend",
+        "Hands-on applications across frontend and backend development.",
     },
 
     {
-      id: 2,
+      id: "technologies",
+      type: "metric",
+
       number: 15,
       suffix: "+",
-      label: "Technologies",
+
+      label: "Technologies Explored",
+
       description:
-        "Tools explored across full stack and cloud",
+        "Tools and technologies across frontend, backend, databases, and cloud.",
     },
 
     {
-      id: 3,
-      number: 3,
-      suffix: "",
-      label: "Core Focus Areas",
-      description:
-        "Full Stack, Cloud & Problem Solving",
+      id: "focus",
+      type: "insight",
+
+      icon: LuCode,
+
+      eyebrow: "Core Focus",
+
+      title: "What I'm building toward",
+
+      items: [
+        "Full Stack Development",
+        "Cloud Engineering",
+        "Problem Solving",
+      ],
     },
 
     {
-      id: 4,
-      number: 1,
-      suffix: "",
-      label: "Developer Mindset",
-      description:
-        "Build, learn, improve, and repeat",
+      id: "mindset",
+      type: "insight",
+
+      icon: LuTrendingUp,
+
+      eyebrow: "Engineering Mindset",
+
+      title: "How I approach growth",
+
+      items: [
+        "Build with purpose",
+        "Learn continuously",
+        "Improve every iteration",
+      ],
     },
   ],
 };
