@@ -870,3 +870,546 @@ grid-template-columns:1fr;
     transition: none;
   }
 }
+
+/* ========================================
+   STEP 40B - DEVELOPER PROFILE CARD
+======================================== */
+
+.profileCard {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  width: 100%;
+
+  padding: 2rem;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 41, 59, 0.72),
+      rgba(15, 23, 42, 0.82)
+    );
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.22);
+
+  text-align: center;
+}
+
+.profileAccent {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 65%;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--primary-color),
+      #7c3aed,
+      transparent
+    );
+
+  opacity: 0.9;
+
+  pointer-events: none;
+}
+
+
+/* ---------- Developer Visual ---------- */
+
+.profileVisual {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 190px;
+}
+
+.profileGlow {
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary-color),
+      #7c3aed
+    );
+
+  filter: blur(55px);
+
+  opacity: 0.2;
+
+  pointer-events: none;
+}
+
+.profileImage {
+  position: relative;
+  z-index: 1;
+
+  width: 164px;
+  height: 164px;
+
+  margin: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(59, 130, 246, 0.18),
+      rgba(124, 58, 237, 0.16)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 50px rgba(0, 0, 0, 0.24);
+}
+
+.profileImage::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 8px;
+
+  border-radius: inherit;
+
+  border:
+    1px dashed rgba(255, 255, 255, 0.1);
+
+  pointer-events: none;
+}
+
+.profileInitials {
+  position: relative;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 2.8rem;
+  font-weight: 700;
+
+  letter-spacing: -0.06em;
+
+  color: var(--color-text);
+}
+
+.profileCodeMark {
+  position: absolute;
+
+  right: 16px;
+  bottom: 17px;
+
+  display: grid;
+  place-items: center;
+
+  min-width: 43px;
+  height: 32px;
+
+  padding-inline: 0.45rem;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary-color),
+      #7c3aed
+    );
+
+  color: white;
+
+  font-family: monospace;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(59, 130, 246, 0.28);
+}
+
+
+/* ---------- Identity ---------- */
+
+.profileContent {
+  margin-top: 1.25rem;
+}
+
+.profileEyebrow {
+  display: inline-block;
+
+  margin-bottom: 0.6rem;
+
+  color: var(--primary-color);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.profileContent h3 {
+  margin: 0;
+
+  font-size: 1.55rem;
+
+  line-height: 1.25;
+}
+
+.profileRole {
+  margin-top: 0.45rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.95rem;
+
+  line-height: 1.6;
+}
+
+
+/* ---------- Availability ---------- */
+
+.availabilityBadge {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.55rem;
+
+  margin-top: 1rem;
+
+  padding: 0.55rem 0.9rem;
+
+  border:
+    1px solid rgba(34, 197, 94, 0.14);
+
+  border-radius: 999px;
+
+  background:
+    rgba(34, 197, 94, 0.07);
+
+  color: #bbf7d0;
+
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+
+/* ---------- Divider ---------- */
+
+.profileDivider {
+  width: 100%;
+  height: 1px;
+
+  margin: 1.6rem 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+}
+
+
+/* ---------- Profile Details ---------- */
+
+.profileDetails {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 0.8rem;
+
+  text-align: left;
+}
+
+.profileDetail {
+  display: flex;
+  align-items: center;
+
+  gap: 0.75rem;
+
+  min-width: 0;
+
+  padding: 0.9rem;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+}
+
+.profileDetailIcon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  background:
+    rgba(59, 130, 246, 0.1);
+
+  color: var(--primary-color);
+
+  font-size: 1rem;
+}
+
+.profileDetail > div:last-child {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.15rem;
+}
+
+.profileDetailLabel {
+  color: var(--text-secondary);
+
+  font-size: 0.7rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+.profileDetail strong {
+  overflow: hidden;
+
+  color: var(--color-text);
+
+  font-size: 0.83rem;
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* ---------- Current Focus ---------- */
+
+.profileFocus {
+  margin-top: 1.3rem;
+
+  padding: 1rem;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.03);
+
+  text-align: left;
+}
+
+.profileFocusHeading {
+  display: flex;
+  align-items: center;
+
+  gap: 0.55rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.profileFocusHeading svg {
+  color: var(--primary-color);
+
+  font-size: 1rem;
+}
+
+.profileFocusList {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.5rem;
+
+  margin-top: 0.85rem;
+}
+
+.profileFocusItem {
+  padding: 0.45rem 0.7rem;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  color: var(--color-text-light);
+
+  font-size: 0.76rem;
+}
+
+
+/* ---------- Technology Stack ---------- */
+
+.profileCard .techStack {
+  margin-top: 0;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 0.6rem;
+}
+
+.profileCard .techItem {
+  padding: 0.6rem 0.85rem;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  font-size: 0.8rem;
+}
+
+
+/* ---------- Card Micro-interactions ---------- */
+
+.profileDetail,
+.profileFocus,
+.profileFocusItem {
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.profileDetail:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(59, 130, 246, 0.2);
+
+  background:
+    rgba(59, 130, 246, 0.055);
+}
+
+.profileFocusItem:hover {
+  border-color:
+    rgba(59, 130, 246, 0.2);
+
+  background:
+    rgba(59, 130, 246, 0.07);
+}
+
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 992px) {
+  .profileCard {
+    max-width: 520px;
+
+    margin-inline: auto;
+  }
+}
+
+
+/* ---------- Small Mobile ---------- */
+
+@media (max-width: 576px) {
+  .profileCard {
+    padding: 1.25rem;
+  }
+
+  .profileVisual {
+    min-height: 160px;
+  }
+
+  .profileGlow {
+    width: 155px;
+    height: 155px;
+  }
+
+  .profileImage {
+    width: 140px;
+    height: 140px;
+  }
+
+  .profileInitials {
+    font-size: 2.35rem;
+  }
+
+  .profileCodeMark {
+    right: 10px;
+    bottom: 12px;
+
+    min-width: 39px;
+    height: 29px;
+  }
+
+  .profileDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .profileDetail strong {
+    white-space: normal;
+  }
+
+  .profileDivider {
+    margin: 1.35rem 0;
+  }
+}
+
+
+/* ---------- Reduced Motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .profileDetail,
+  .profileFocus,
+  .profileFocusItem {
+    transition: none;
+  }
+}
