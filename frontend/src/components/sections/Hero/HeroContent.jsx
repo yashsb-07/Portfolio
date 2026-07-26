@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 
 import Button from "../../ui/Button/Button";
-import HeroTechStack from "./HeroTechStack";
 import HeroSocialLinks from "./HeroSocialLinks";
 
 import styles from "./Hero.module.css";
@@ -17,9 +16,27 @@ const HeroContent = ({
     subtitle,
     description,
     cta,
-    technologies,
     socialLinks,
   } = heroData;
+
+  const handleProjectsClick = () => {
+    const section =
+      document.getElementById("projects");
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleResumeClick = () => {
+    window.open(
+      cta.secondary.href,
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
 
   return (
     <motion.div
@@ -65,23 +82,13 @@ const HeroContent = ({
         className={styles.buttonGroup}
         variants={itemVariants}
       >
-        <Button
-          onClick={() => {
-            const section = document.getElementById("projects");
-
-            if (section) {
-              section.scrollIntoView({
-                behavior: "smooth",
-              });
-            }
-          }}
-        >
+        <Button onClick={handleProjectsClick}>
           {cta.primary.text}
         </Button>
 
         <Button
           variant="secondary"
-          onClick={() => window.open(cta.secondary.href, "_blank")}
+          onClick={handleResumeClick}
         >
           {cta.secondary.text}
         </Button>
@@ -89,12 +96,6 @@ const HeroContent = ({
 
       <HeroSocialLinks
         socialLinks={socialLinks}
-        itemVariants={itemVariants}
-      />
-
-      <HeroTechStack
-        technologies={technologies}
-        containerVariants={containerVariants}
         itemVariants={itemVariants}
       />
     </motion.div>

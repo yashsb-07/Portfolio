@@ -95,15 +95,6 @@ const heroData = {
     },
   },
 
-  technologies: [
-    "React",
-    "JavaScript",
-    "Python",
-    "Django",
-    "PostgreSQL",
-    "AWS",
-  ],
-
   socialLinks: [
     {
       name: "GitHub",
