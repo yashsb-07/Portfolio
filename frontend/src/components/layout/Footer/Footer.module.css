@@ -3,31 +3,9 @@
 
   width: 100%;
 
-  padding:
-    1rem 1.5rem 2rem;
+  padding: 0 1.5rem 1.5rem;
 
   overflow: hidden;
-}
-
-.backgroundGlow {
-  position: absolute;
-
-  width: 420px;
-  height: 420px;
-
-  bottom: -330px;
-  left: 15%;
-
-  border-radius: 50%;
-
-  background:
-    var(--primary-color);
-
-  filter: blur(160px);
-
-  opacity: 0.05;
-
-  pointer-events: none;
 }
 
 .container {
@@ -43,534 +21,34 @@
 
 
 /* ========================================
-   FOOTER MAIN
+   AMBIENT BACKGROUND
 ======================================== */
 
-.footerMain {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.2fr)
-    minmax(360px, 0.8fr);
-
-  gap: 5rem;
-
-  padding:
-    4rem 0;
-
-  border-top:
-    1px solid
-    rgba(255, 255, 255, 0.08);
-}
-
-
-/* ========================================
-   BRAND SECTION
-======================================== */
-
-.brandSection {
-  max-width: 500px;
-}
-
-.brand {
-  display: inline-block;
-
-  color: inherit;
-
-  font-size: 2rem;
-  font-weight: 800;
-
-  letter-spacing: -0.04em;
-
-  line-height: 1;
-
-  text-decoration: none;
-}
-
-.brand span {
-  color:
-    var(--primary-color);
-}
-
-.tagline {
-  max-width: 480px;
-
-  margin-top: 1.5rem;
-
-  color:
-    var(--text-secondary);
-
-  font-size: 0.95rem;
-
-  line-height: 1.8;
-}
-
-
-/* ========================================
-   EMAIL
-======================================== */
-
-.emailLink {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 0.6rem;
-
-  max-width: 100%;
-
-  margin-top: 1.5rem;
-
-  color:
-    var(--text-secondary);
-
-  font-size: 0.88rem;
-  font-weight: 600;
-
-  text-decoration: none;
-
-  transition:
-    color 0.3s ease;
-}
-
-.emailLink span {
-  overflow: hidden;
-
-  text-overflow: ellipsis;
-
-  white-space: nowrap;
-}
-
-.emailLink svg {
-  flex-shrink: 0;
-
-  color:
-    var(--primary-color);
-}
-
-.emailLink:hover {
-  color:
-    var(--primary-color);
-}
-
-
-/* ========================================
-   FOOTER COLUMNS
-======================================== */
-
-.footerColumns {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(0, 1fr)
-    );
-
-  gap: 3rem;
-}
-
-.columnTitle {
-  margin-bottom: 1.25rem;
-
-  color: inherit;
-
-  font-size: 0.78rem;
-  font-weight: 700;
-
-  letter-spacing: 0.1em;
-
-  text-transform: uppercase;
-}
-
-
-/* ========================================
-   NAVIGATION
-======================================== */
-
-.navigationList {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 0.8rem;
-
-  margin: 0;
-
-  padding: 0;
-
-  list-style: none;
-}
-
-.navigationList a {
-  position: relative;
-
-  display: inline-block;
-
-  width: fit-content;
-
-  color:
-    var(--text-secondary);
-
-  font-size: 0.88rem;
-
-  text-decoration: none;
-
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.navigationList a:hover {
-  color:
-    var(--primary-color);
-
-  transform:
-    translateX(3px);
-}
-
-
-/* ========================================
-   SOCIAL LINKS
-======================================== */
-
-.socialLinks {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 0.75rem;
-}
-
-.socialLink {
-  display: flex;
-
-  align-items: center;
-
-  gap: 0.65rem;
-
-  width: fit-content;
-
-  color:
-    var(--text-secondary);
-
-  font-size: 0.88rem;
-  font-weight: 500;
-
-  text-decoration: none;
-
-  transition:
-    color 0.3s ease;
-}
-
-.socialIcon {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  color:
-    var(--primary-color);
-
-  font-size: 1rem;
-}
-
-.socialArrow {
-  font-size: 0.85rem;
-
-  opacity: 0.55;
-
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-}
-
-.socialLink:hover {
-  color:
-    var(--primary-color);
-}
-
-.socialLink:hover
-.socialArrow {
-  transform:
-    translate(
-      2px,
-      -2px
-    );
-
-  opacity: 1;
-}
-
-
-/* ========================================
-   FOOTER BOTTOM
-======================================== */
-
-.footerBottom {
-  display: grid;
-
-  grid-template-columns:
-    1fr auto 1fr;
-
-  align-items: center;
-
-  gap: 2rem;
-
-  padding-top: 2rem;
-
-  border-top:
-    1px solid
-    rgba(255, 255, 255, 0.07);
-}
-
-.copyright,
-.builtWith {
-  margin: 0;
-
-  color:
-    var(--text-secondary);
-
-  font-size: 0.78rem;
-}
-
-.builtWith {
-  text-align: center;
-}
-
-
-/* ========================================
-   BACK TO TOP
-======================================== */
-
-.backToTop {
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: flex-end;
-
-  gap: 0.5rem;
-
-  justify-self: end;
-
-  padding: 0;
-
-  border: 0;
-
-  background: transparent;
-
-  color:
-    var(--text-secondary);
-
-  font-family: inherit;
-
-  font-size: 0.78rem;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition:
-    color 0.3s ease;
-}
-
-.backToTop svg {
-  transition:
-    transform 0.3s ease;
-}
-
-.backToTop:hover {
-  color:
-    var(--primary-color);
-}
-
-.backToTop:hover svg {
-  transform:
-    translateY(-3px);
-}
-
-
-/* ========================================
-   KEYBOARD ACCESSIBILITY
-======================================== */
-
-.brand:focus-visible,
-.emailLink:focus-visible,
-.navigationList a:focus-visible,
-.socialLink:focus-visible,
-.backToTop:focus-visible {
-  outline:
-    2px solid
-    var(--primary-color);
-
-  outline-offset: 4px;
-
-  border-radius: 4px;
-}
-
-
-/* ========================================
-   TABLET
-======================================== */
-
-@media (max-width: 992px) {
-  .footerMain {
-    grid-template-columns:
-      1fr;
-
-    gap: 3.5rem;
-  }
-
-  .brandSection {
-    max-width: 600px;
-  }
-
-  .footerColumns {
-    max-width: 500px;
-  }
-}
-
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 576px) {
-  .footer {
-    padding:
-      1rem 1rem 1.5rem;
-  }
-
-  .footerMain {
-    gap: 3rem;
-
-    padding:
-      3rem 0;
-  }
-
-  .brand {
-    font-size: 1.75rem;
-  }
-
-  .tagline {
-    font-size: 0.9rem;
-  }
-
-  .footerColumns {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
-
-    gap: 2rem;
-  }
-
-  .footerBottom {
-    grid-template-columns:
-      1fr;
-
-    gap: 1rem;
-  }
-
-  .builtWith {
-    text-align: left;
-  }
-
-  .backToTop {
-    justify-self: start;
-
-    justify-content:
-      flex-start;
-  }
-}
-
-
-/* ========================================
-   SMALL MOBILE
-======================================== */
-
-@media (max-width: 380px) {
-  .footerColumns {
-    grid-template-columns:
-      1fr;
-
-    gap: 2.5rem;
-  }
-}
-
-
-/* ========================================
-   TOUCH DEVICES
-======================================== */
-
-@media (hover: none) {
-  .navigationList a:hover,
-  .socialLink:hover
-  .socialArrow,
-  .backToTop:hover svg {
-    transform: none;
-  }
-}
-
-
-/* ========================================
-   REDUCED MOTION
-======================================== */
-
-@media (
-  prefers-reduced-motion: reduce
-) {
-  .emailLink,
-  .navigationList a,
-  .socialLink,
-  .socialArrow,
-  .backToTop,
-  .backToTop svg {
-    transition: none;
-  }
-}
-
-/* ========================================
-   STEP 36 - PREMIUM UI & MOTION POLISH
-======================================== */
-
-
-/* ========================================
-   SECONDARY AMBIENT GLOW
-======================================== */
-
+.backgroundGlow,
 .backgroundGlowSecondary {
   position: absolute;
-
-  width: 320px;
-  height: 320px;
-
-  top: 10%;
-  right: -220px;
 
   border-radius: 50%;
 
   background:
     var(--primary-color);
 
-  filter: blur(150px);
-
-  opacity: 0.04;
-
   pointer-events: none;
-}
 
-
-/* ========================================
-   AMBIENT GLOW MOTION
-======================================== */
-
-.backgroundGlow,
-.backgroundGlowSecondary {
   will-change: transform;
 }
 
 .backgroundGlow {
+  width: 380px;
+  height: 380px;
+
+  bottom: -320px;
+  left: 15%;
+
+  filter: blur(150px);
+
+  opacity: 0.045;
+
   animation:
     footerGlowOne
     18s
@@ -579,6 +57,16 @@
 }
 
 .backgroundGlowSecondary {
+  width: 280px;
+  height: 280px;
+
+  top: 5%;
+  right: -210px;
+
+  filter: blur(140px);
+
+  opacity: 0.035;
+
   animation:
     footerGlowTwo
     20s
@@ -596,8 +84,8 @@
   50% {
     transform:
       translate3d(
-        45px,
-        -25px,
+        40px,
+        -20px,
         0
       );
   }
@@ -613,8 +101,8 @@
   50% {
     transform:
       translate3d(
-        -35px,
-        25px,
+        -30px,
+        20px,
         0
       );
   }
@@ -622,26 +110,25 @@
 
 
 /* ========================================
-   MOTION WRAPPERS
-======================================== */
-
-.brandMotionWrapper {
-  min-width: 0;
-}
-
-.columnMotionWrapper {
-  min-width: 0;
-
-  height: 100%;
-}
-
-
-/* ========================================
-   PREMIUM FOOTER TOP BORDER
+   FOOTER MAIN
 ======================================== */
 
 .footerMain {
   position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(340px, 0.75fr);
+
+  gap: 4rem;
+
+  padding: 2.75rem 0 2.5rem;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.08);
 }
 
 .footerMain::before {
@@ -652,7 +139,7 @@
   top: -1px;
   left: 0;
 
-  width: 120px;
+  width: 110px;
   height: 1px;
 
   background:
@@ -667,27 +154,52 @@
 
 
 /* ========================================
-   PREMIUM BRAND
+   MOTION WRAPPERS
 ======================================== */
+
+.brandMotionWrapper,
+.columnMotionWrapper {
+  min-width: 0;
+}
+
+
+/* ========================================
+   BRAND
+======================================== */
+
+.brandSection {
+  max-width: 500px;
+}
 
 .brand {
   position: relative;
 
+  display: inline-block;
+
   overflow: visible;
+
+  color: inherit;
+
+  font-size: 1.8rem;
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+
+  line-height: 1;
+
+  text-decoration: none;
 }
 
 .brandText,
 .brandDot {
   display: inline-block;
 
+  color:
+    var(--primary-color);
+
   transition:
     transform 0.35s ease,
     color 0.35s ease;
-}
-
-.brandDot {
-  color:
-    var(--primary-color);
 }
 
 .brand:hover
@@ -699,8 +211,8 @@
 .brand:hover
 .brandDot {
   transform:
-    translateY(-4px)
-    scale(1.2);
+    translateY(-3px)
+    scale(1.15);
 }
 
 
@@ -709,22 +221,60 @@
 ======================================== */
 
 .tagline {
-  transition:
-    color 0.3s ease;
+  max-width: 460px;
+
+  margin:
+    1.1rem 0 0;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.92rem;
+
+  line-height: 1.7;
 }
 
 
 /* ========================================
-   PREMIUM EMAIL LINK
+   CONTACT DETAILS
 ======================================== */
 
-.emailLink {
-  position: relative;
+.contactLinks {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 0.65rem;
+
+  margin-top: 1.25rem;
 }
 
-.emailIcon {
-  width: 34px;
-  height: 34px;
+.contactLink {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.65rem;
+
+  max-width: 100%;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease;
+}
+
+.contactIcon {
+  width: 32px;
+  height: 32px;
 
   flex-shrink: 0;
 
@@ -737,7 +287,7 @@
     1px solid
     rgba(255, 255, 255, 0.07);
 
-  border-radius: 10px;
+  border-radius: 9px;
 
   background:
     rgba(255, 255, 255, 0.035);
@@ -751,22 +301,28 @@
     background 0.3s ease;
 }
 
-.emailIcon svg {
+.contactIcon svg {
   transition:
     transform 0.3s ease;
 }
 
-.emailValue {
+.contactValue {
   position: relative;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
 }
 
-.emailValue::after {
+.contactValue::after {
   content: "";
 
   position: absolute;
 
   left: 0;
-  bottom: -4px;
+  bottom: -3px;
 
   width: 100%;
   height: 1px;
@@ -777,15 +333,19 @@
   transform:
     scaleX(0);
 
-  transform-origin:
-    right;
+  transform-origin: right;
 
   transition:
     transform 0.3s ease;
 }
 
-.emailLink:hover
-.emailIcon {
+.contactLink:hover {
+  color:
+    var(--primary-color);
+}
+
+.contactLink:hover
+.contactIcon {
   transform:
     translateY(-2px);
 
@@ -796,31 +356,57 @@
     rgba(255, 255, 255, 0.06);
 }
 
-.emailLink:hover
-.emailIcon svg {
+.contactLink:hover
+.contactIcon svg {
   transform:
-    rotate(-5deg)
     scale(1.08);
 }
 
-.emailLink:hover
-.emailValue::after {
+.contactLink:hover
+.contactValue::after {
   transform:
     scaleX(1);
 
-  transform-origin:
-    left;
+  transform-origin: left;
 }
 
 
 /* ========================================
-   COLUMN TITLE ACCENT
+   FOOTER COLUMNS
 ======================================== */
+
+.footerColumns {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 2.5rem;
+}
+
+.columnMotionWrapper {
+  height: 100%;
+}
 
 .columnTitle {
   position: relative;
 
   width: fit-content;
+
+  margin:
+    0 0 1rem;
+
+  color: inherit;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
 }
 
 .columnTitle::after {
@@ -831,7 +417,7 @@
   width: 20px;
   height: 1px;
 
-  margin-top: 0.5rem;
+  margin-top: 0.45rem;
 
   background:
     var(--primary-color);
@@ -841,17 +427,42 @@
 
 
 /* ========================================
-   PREMIUM NAVIGATION LINKS
+   NAVIGATION
 ======================================== */
+
+.navigationList {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.6rem;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
 
 .navigationList a {
   display: inline-flex;
 
   align-items: center;
 
-  gap: 0;
+  width: fit-content;
 
   overflow: hidden;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.84rem;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .navigationIndicator {
@@ -873,38 +484,80 @@
     opacity 0.3s ease;
 }
 
+.navigationList a:hover {
+  color:
+    var(--primary-color);
+}
+
 .navigationList a:hover
 .navigationIndicator {
-  width: 14px;
+  width: 12px;
 
-  margin-right: 0.5rem;
+  margin-right: 0.45rem;
 
   opacity: 1;
 }
 
 
 /* ========================================
-   PREMIUM SOCIAL LINKS
+   SOCIAL LINKS
 ======================================== */
+
+.socialLinks {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.6rem;
+}
 
 .socialLink {
   position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+
+  width: fit-content;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.84rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease;
 }
 
 .socialIcon {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
 
   flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
 
   border:
     1px solid
     rgba(255, 255, 255, 0.07);
 
-  border-radius: 9px;
+  border-radius: 8px;
 
   background:
     rgba(255, 255, 255, 0.035);
+
+  color:
+    var(--primary-color);
+
+  font-size: 0.95rem;
 
   transition:
     transform 0.3s ease,
@@ -923,8 +576,8 @@
 }
 
 .socialArrowWrapper {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 
   display: inline-flex;
 
@@ -936,6 +589,17 @@
   transition:
     background 0.3s ease,
     transform 0.3s ease;
+}
+
+.socialArrow {
+  font-size: 0.8rem;
+
+  opacity: 0.55;
+}
+
+.socialLink:hover {
+  color:
+    var(--primary-color);
 }
 
 .socialLink:hover
@@ -953,7 +617,7 @@
 .socialLink:hover
 .socialIcon svg {
   transform:
-    scale(1.1);
+    scale(1.08);
 }
 
 .socialLink:hover
@@ -970,11 +634,26 @@
 
 
 /* ========================================
-   FOOTER BOTTOM PREMIUM DIVIDER
+   FOOTER BOTTOM
 ======================================== */
 
 .footerBottom {
   position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 2rem;
+
+  padding-top: 1.35rem;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.07);
 }
 
 .footerBottom::before {
@@ -985,7 +664,7 @@
   top: -1px;
   right: 0;
 
-  width: 100px;
+  width: 90px;
   height: 1px;
 
   background:
@@ -998,18 +677,58 @@
   opacity: 0.45;
 }
 
+.copyright,
+.builtWith {
+  margin: 0;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.75rem;
+}
+
+.builtWith {
+  text-align: center;
+}
+
 
 /* ========================================
-   PREMIUM BACK TO TOP
+   BACK TO TOP
 ======================================== */
 
 .backToTop {
-  gap: 0.65rem;
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 0.6rem;
+
+  justify-self: end;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color:
+    var(--text-secondary);
+
+  font-family: inherit;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease;
 }
 
 .backToTopIcon {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
 
   display: inline-flex;
 
@@ -1040,6 +759,11 @@
     transform 0.3s ease;
 }
 
+.backToTop:hover {
+  color:
+    var(--primary-color);
+}
+
 .backToTop:hover
 .backToTopIcon {
   transform:
@@ -1064,11 +788,11 @@
 
 
 /* ========================================
-   REFINED FOCUS STATES
+   ACCESSIBILITY
 ======================================== */
 
 .brand:focus-visible,
-.emailLink:focus-visible,
+.contactLink:focus-visible,
 .navigationList a:focus-visible,
 .socialLink:focus-visible,
 .backToTop:focus-visible {
@@ -1083,41 +807,109 @@
 
 
 /* ========================================
-   MOBILE REFINEMENTS
+   TABLET
 ======================================== */
 
-@media (max-width: 576px) {
-  .footerMain::before {
-    width: 80px;
+@media (max-width: 992px) {
+  .footerMain {
+    grid-template-columns:
+      1fr;
+
+    gap: 2.5rem;
+
+    padding:
+      2.5rem 0 2.25rem;
   }
 
-  .footerBottom::before {
-    width: 70px;
+  .brandSection {
+    max-width: 600px;
   }
 
-  .emailIcon {
-    width: 32px;
-    height: 32px;
-  }
-
-  .socialIcon {
-    width: 30px;
-    height: 30px;
-  }
-
-  .backToTop {
-    min-height: 44px;
-  }
-
-  .backToTopIcon {
-    width: 36px;
-    height: 36px;
+  .footerColumns {
+    max-width: 500px;
   }
 }
 
 
 /* ========================================
-   TOUCH DEVICE OPTIMIZATION
+   MOBILE
+======================================== */
+
+@media (max-width: 576px) {
+  .footer {
+    padding:
+      0 1rem 1.25rem;
+  }
+
+  .footerMain {
+    gap: 2.25rem;
+
+    padding:
+      2.25rem 0 2rem;
+  }
+
+  .brand {
+    font-size: 1.65rem;
+  }
+
+  .tagline {
+    font-size: 0.88rem;
+  }
+
+  .footerColumns {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 1.75rem;
+  }
+
+  .footerBottom {
+    grid-template-columns:
+      1fr;
+
+    gap: 0.85rem;
+
+    padding-top: 1.25rem;
+  }
+
+  .builtWith {
+    text-align: left;
+  }
+
+  .backToTop {
+    justify-self: start;
+
+    justify-content:
+      flex-start;
+
+    min-height: 44px;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .footerColumns {
+    grid-template-columns:
+      1fr;
+
+    gap: 2rem;
+  }
+
+  .contactLink {
+    font-size: 0.8rem;
+  }
+}
+
+
+/* ========================================
+   TOUCH DEVICES
 ======================================== */
 
 @media (hover: none) {
@@ -1125,11 +917,10 @@
   .brandText,
   .brand:hover
   .brandDot,
-  .emailLink:hover
-  .emailIcon,
-  .emailLink:hover
-  .emailIcon svg,
-  .navigationList a:hover,
+  .contactLink:hover
+  .contactIcon,
+  .contactLink:hover
+  .contactIcon svg,
   .socialLink:hover
   .socialIcon,
   .socialLink:hover
@@ -1152,8 +943,8 @@
     opacity: 0;
   }
 
-  .emailLink:hover
-  .emailValue::after {
+  .contactLink:hover
+  .contactValue::after {
     transform:
       scaleX(0);
   }
@@ -1161,7 +952,7 @@
 
 
 /* ========================================
-   REDUCED MOTION ACCESSIBILITY
+   REDUCED MOTION
 ======================================== */
 
 @media (
@@ -1174,15 +965,18 @@
 
   .brandText,
   .brandDot,
-  .emailIcon,
-  .emailIcon svg,
-  .emailValue::after,
+  .contactLink,
+  .contactIcon,
+  .contactIcon svg,
+  .contactValue::after,
+  .navigationList a,
   .navigationIndicator,
+  .socialLink,
   .socialIcon,
   .socialIcon svg,
   .socialLabel,
   .socialArrowWrapper,
-  .socialArrow,
+  .backToTop,
   .backToTopIcon,
   .backToTopIcon svg {
     transition: none;

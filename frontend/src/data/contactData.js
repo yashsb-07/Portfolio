@@ -2,6 +2,8 @@ import {
   LuGithub,
   LuLinkedin,
   LuMail,
+  LuInstagram,
+  LuPhone,
 } from "react-icons/lu";
 
 const contactData = {
@@ -68,6 +70,30 @@ const contactData = {
       icon: LuGithub,
 
       external: true,
+    },
+
+    {
+      id: "instagram",
+
+      label: "Instagram",
+
+      value: "Instagram",
+
+      href: "https://www.instagram.com/yashsb07",
+
+      icon: LuInstagram,
+    },
+
+    {
+      id: "phone",
+
+      label: "Phone",
+
+      value: "+91 7038929807",
+
+      href: "tel:+917038929807",
+      
+      icon: LuPhone,
     },
   ],
 };

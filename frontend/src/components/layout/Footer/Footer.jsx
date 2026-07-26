@@ -1,6 +1,5 @@
 import {
   LuArrowUp,
-  LuMail,
 } from "react-icons/lu";
 
 import contactData from "../../../data/contactData";
@@ -16,9 +15,11 @@ const Footer = () => {
   const currentYear =
     new Date().getFullYear();
 
-  const emailLink =
-    contactData.links.find(
-      (link) => link.id === "email"
+  const contactLinks =
+    contactData.links.filter(
+      (link) =>
+        link.id === "email" ||
+        link.id === "phone"
     );
 
   const handleBackToTop = () => {
@@ -45,7 +46,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className={styles.footer}>
+    <footer
+      id="footer"
+      className={styles.footer}
+    >
       <div
         className={styles.backgroundGlow}
         aria-hidden="true"
@@ -62,8 +66,8 @@ const Footer = () => {
         <div className={styles.footerMain}>
           <MotionFade
             direction="up"
-            distance={30}
-            duration={0.65}
+            distance={24}
+            duration={0.6}
             className={
               styles.brandMotionWrapper
             }
@@ -79,17 +83,13 @@ const Footer = () => {
                 aria-label="Go back to home"
               >
                 <span
-                  className={
-                    styles.brandText
-                  }
+                  className={styles.brandText}
                 >
                   Yash
                 </span>
 
                 <span
-                  className={
-                    styles.brandDot
-                  }
+                  className={styles.brandDot}
                   aria-hidden="true"
                 >
                   .
@@ -103,38 +103,51 @@ const Footer = () => {
                 as a developer.
               </p>
 
-              {emailLink && (
-                <a
-                  href={emailLink.href}
-                  className={styles.emailLink}
-                >
-                  <span
-                    className={
-                      styles.emailIcon
-                    }
-                    aria-hidden="true"
-                  >
-                    <LuMail />
-                  </span>
+              <div
+                className={
+                  styles.contactLinks
+                }
+              >
+                {contactLinks.map((link) => {
+                  const Icon = link.icon;
 
-                  <span
-                    className={
-                      styles.emailValue
-                    }
-                  >
-                    {emailLink.value}
-                  </span>
-                </a>
-              )}
+                  return (
+                    <a
+                      key={link.id}
+                      href={link.href}
+                      className={
+                        styles.contactLink
+                      }
+                    >
+                      <span
+                        className={
+                          styles.contactIcon
+                        }
+                        aria-hidden="true"
+                      >
+                        <Icon />
+                      </span>
+
+                      <span
+                        className={
+                          styles.contactValue
+                        }
+                      >
+                        {link.value}
+                      </span>
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </MotionFade>
 
           <div className={styles.footerColumns}>
             <MotionFade
               direction="up"
-              distance={25}
+              distance={22}
               delay={0.1}
-              duration={0.6}
+              duration={0.55}
               className={
                 styles.columnMotionWrapper
               }
@@ -144,9 +157,9 @@ const Footer = () => {
 
             <MotionFade
               direction="up"
-              distance={25}
-              delay={0.18}
-              duration={0.6}
+              distance={22}
+              delay={0.16}
+              duration={0.55}
               className={
                 styles.columnMotionWrapper
               }
@@ -158,9 +171,9 @@ const Footer = () => {
 
         <MotionFade
           direction="up"
-          distance={20}
-          delay={0.2}
-          duration={0.55}
+          distance={18}
+          delay={0.18}
+          duration={0.5}
         >
           <div className={styles.footerBottom}>
             <p className={styles.copyright}>

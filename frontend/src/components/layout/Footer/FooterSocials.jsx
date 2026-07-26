@@ -11,7 +11,8 @@ const FooterSocials = () => {
     contactData.links.filter(
       (link) =>
         link.id === "linkedin" ||
-        link.id === "github"
+        link.id === "github" ||
+        link.id === "instagram"
     );
 
   return (
