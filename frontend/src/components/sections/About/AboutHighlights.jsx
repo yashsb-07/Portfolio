@@ -6,7 +6,10 @@ import styles from "./About.module.css";
 
 const AboutHighlights = () => {
   return (
-    <div className={styles.highlights}>
+    <div
+      className={styles.highlights}
+      aria-label="Developer highlights"
+    >
       {aboutData.highlights.map(
         (item, index) => {
           const Icon = item.icon;
@@ -18,7 +21,9 @@ const AboutHighlights = () => {
               distance={25}
               delay={index * 0.1}
               duration={0.55}
-              className={styles.highlightMotionWrapper}
+              className={
+                styles.highlightMotionWrapper
+              }
             >
               <article
                 className={styles.highlightCard}
@@ -31,13 +36,21 @@ const AboutHighlights = () => {
                 </div>
 
                 <div
-                  className={
-                    styles.highlightContent
-                  }
+                  className={styles.highlightContent}
                 >
-                  <h4>{item.title}</h4>
+                  <span
+                    className={
+                      styles.highlightLabel
+                    }
+                  >
+                    {item.title}
+                  </span>
 
-                  <p>{item.value}</p>
+                  <h4>{item.value}</h4>
+
+                  <p>
+                    {item.description}
+                  </p>
                 </div>
               </article>
             </MotionFade>

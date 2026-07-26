@@ -23,10 +23,71 @@ const aboutData = {
   },
 
   journey: {
-    heading: "My Journey",
+    eyebrow: "MY JOURNEY",
 
-    description:
-      "My development journey has grown through hands-on projects and backend development experience, where I've worked with APIs, application logic, testing, and documentation. Today, I'm focused on writing cleaner code, understanding scalable architecture, and building production-ready applications that solve meaningful problems.",
+    heading:
+      "Learning by building, improving by solving.",
+
+    paragraphs: [
+      {
+        id: 1,
+
+        parts: [
+          {
+            text:
+              "My development journey has grown through ",
+          },
+
+          {
+            text: "hands-on projects",
+            highlight: true,
+          },
+
+          {
+            text:
+              " and backend development experience, where I've worked with APIs, application logic, testing, and documentation.",
+          },
+        ],
+      },
+
+      {
+        id: 2,
+
+        parts: [
+          {
+            text:
+              "Today, I'm focused on writing ",
+          },
+
+          {
+            text: "cleaner code",
+            highlight: true,
+          },
+
+          {
+            text:
+              ", understanding scalable architecture, and building ",
+          },
+
+          {
+            text: "production-ready applications",
+            highlight: true,
+          },
+
+          {
+            text:
+              " that solve meaningful problems.",
+          },
+        ],
+      },
+    ],
+
+    philosophy: {
+      label: "Developer Philosophy",
+
+      quote:
+        "Build with purpose. Learn continuously. Improve with every iteration.",
+    },
   },
 
   highlights: [
@@ -34,24 +95,32 @@ const aboutData = {
       icon: LuBriefcase,
       title: "Developer Focus",
       value: "Python Full Stack",
+      description:
+        "Building across frontend and backend",
     },
 
     {
       icon: LuGraduationCap,
       title: "Education",
-      value: "Pursuing MCA",
+      value: "BCA",
+      description:
+        "Strengthening computer science foundations",
     },
 
     {
       icon: LuCloud,
       title: "Growing Into",
       value: "Cloud Engineering",
+      description:
+        "Expanding toward scalable cloud systems",
     },
 
     {
       icon: LuCode,
       title: "Core Stack",
       value: "React + Django",
+      description:
+        "Creating modern full-stack applications",
     },
   ],
 
@@ -64,7 +133,7 @@ const aboutData = {
 
     location: "India",
 
-    education: "MCA Student",
+    education: "BCA",
 
     focus: [
       "Full Stack",
