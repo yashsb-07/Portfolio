@@ -78,9 +78,18 @@
 }
 
 .title {
-  line-height: 1.1;
-  margin-bottom: 18px;
-  max-width: 700px;
+  max-width: 680px;
+
+  margin-bottom: 20px;
+
+  font-size:
+    clamp(3rem, 4.7vw, 4.9rem);
+
+  line-height: 1.05;
+
+  letter-spacing: -0.045em;
+
+  text-wrap: balance;
 }
 
 .highlight {
@@ -88,14 +97,46 @@
 }
 
 .subtitle {
+  margin-bottom: 24px;
+
   color: var(--color-text-light);
+
+  font-size:
+    clamp(1.35rem, 2vw, 2rem);
+
   font-weight: 600;
-  margin-bottom: 28px;
+
+  line-height: 1.35;
+
+  letter-spacing: -0.02em;
+}
+
+.subtitle::after {
+  content: "React • Django • PostgreSQL";
+
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--color-primary);
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.02em;
 }
 
 .description {
-  max-width: 650px;
-  margin-bottom: 40px;
+  max-width: 620px;
+
+  margin-bottom: 36px;
+
+  color: var(--color-text-light);
+
+  font-size: 1.05rem;
+
+  line-height: 1.8;
 }
 
 .buttonGroup {
@@ -849,6 +890,32 @@
 
   .scrollIndicator {
     margin-top: 2.5rem;
+  }
+
+  .title {
+    font-size:
+      clamp(2.5rem, 12vw, 3.5rem);
+
+    line-height: 1.06;
+
+    letter-spacing: -0.04em;
+  }
+
+  .subtitle {
+    font-size:
+      clamp(1.2rem, 6vw, 1.55rem);
+  }
+
+  .subtitle::after {
+    font-size: 0.78rem;
+
+    margin-top: 7px;
+  }
+
+  .description {
+    font-size: 0.98rem;
+
+    line-height: 1.75;
   }
 }
 

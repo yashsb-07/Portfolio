@@ -18,14 +18,14 @@ const heroData = {
   badge: "👋 Welcome to my portfolio",
 
   title: {
-    first: "Building Modern",
+    first: "Building Scalable",
     highlight: "Web Experiences",
   },
 
-  subtitle: "Python Full Stack Developer • Cloud Learner",
+  subtitle: "Python Full Stack Developer",
 
   description:
-    "I'm Yash, a BCA graduate passionate about building scalable web applications using React, Django, and PostgreSQL while continuously improving my skills in AWS Cloud Engineering and Data Structures & Algorithms.",
+  "I build responsive, full-stack web applications with React, Django, and PostgreSQL, with a focus on clean architecture, practical problem-solving, and reliable user experiences. Currently expanding my skills in AWS and DSA.",
 
   profile: {
     fileName: "yash.tsx",
