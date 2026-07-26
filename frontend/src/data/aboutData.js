@@ -7,60 +7,83 @@ import {
 import {
   LuGraduationCap,
   LuBriefcase,
+  LuCode,
+  LuCloud,
 } from "react-icons/lu";
 
 const aboutData = {
   hero: {
     tag: "ABOUT ME",
 
-    title: "Building software that solves real-world problems.",
+    title:
+      "Turning ideas into reliable, real-world software.",
 
     subtitle:
-      "I'm Yash, a Full Stack Developer passionate about building scalable web applications, learning modern technologies, and creating software that delivers real value.",
+      "I'm Yash, a Python Full Stack Developer focused on building reliable, user-focused web applications. I enjoy working across the stack with React, Django, REST APIs, and PostgreSQL while continuously strengthening my cloud and problem-solving skills.",
   },
 
   journey: {
     heading: "My Journey",
 
     description:
-      "My journey into software development started with curiosity and has grown into a passion for solving real-world problems through technology. Every project I build strengthens my understanding of clean architecture, modern development practices, and cloud technologies.",
+      "My development journey has grown through hands-on projects and backend development experience, where I've worked with APIs, application logic, testing, and documentation. Today, I'm focused on writing cleaner code, understanding scalable architecture, and building production-ready applications that solve meaningful problems.",
   },
 
   highlights: [
     {
       icon: LuBriefcase,
-      title: "Current Role",
-      value: "Full Stack Developer",
+      title: "Developer Focus",
+      value: "Python Full Stack",
     },
 
     {
       icon: LuGraduationCap,
       title: "Education",
-      value: "BCA Student",
+      value: "Pursuing MCA",
     },
 
     {
-      icon: FaAws,
-      title: "Learning",
-      value: "AWS Cloud",
+      icon: LuCloud,
+      title: "Growing Into",
+      value: "Cloud Engineering",
     },
 
     {
-      icon: FaReact,
-      title: "Frontend",
-      value: "React Ecosystem",
+      icon: LuCode,
+      title: "Core Stack",
+      value: "React + Django",
     },
   ],
+
+  profile: {
+    name: "Yash Bansode",
+
+    role: "Python Full Stack Developer",
+
+    availability: "Open to Opportunities",
+
+    location: "India",
+
+    education: "MCA Student",
+
+    focus: [
+      "Full Stack",
+      "Cloud",
+      "Problem Solving",
+    ],
+  },
 
   technologies: [
     {
       name: "React",
       icon: FaReact,
     },
+
     {
       name: "Python",
       icon: FaPython,
     },
+
     {
       name: "AWS",
       icon: FaAws,
@@ -73,7 +96,8 @@ const aboutData = {
       number: 10,
       suffix: "+",
       label: "Projects Built",
-      description: "Production-ready applications"
+      description:
+        "Hands-on applications across frontend and backend",
     },
 
     {
@@ -81,24 +105,27 @@ const aboutData = {
       number: 15,
       suffix: "+",
       label: "Technologies",
-      description: "Frontend, Backend & Cloud"
+      description:
+        "Tools explored across full stack and cloud",
     },
 
     {
       id: 3,
-      number: 100,
-      suffix: "%",
-      label: "Commitment",
-      description: "Continuous learning mindset"
+      number: 3,
+      suffix: "",
+      label: "Core Focus Areas",
+      description:
+        "Full Stack, Cloud & Problem Solving",
     },
 
     {
       id: 4,
       number: 1,
       suffix: "",
-      label: "Mission",
-      description: "Become an exceptional engineer"
-    }
+      label: "Developer Mindset",
+      description:
+        "Build, learn, improve, and repeat",
+    },
   ],
 };
 

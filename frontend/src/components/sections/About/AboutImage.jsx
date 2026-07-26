@@ -3,10 +3,18 @@ import aboutData from "../../../data/aboutData";
 import styles from "./About.module.css";
 
 const AboutImage = () => {
+  const {
+    profile,
+    technologies,
+  } = aboutData;
+
   return (
     <div className={styles.profileCard}>
       <div className={styles.profileVisual}>
-        <div className={styles.profileGlow} />
+        <div
+          className={styles.profileGlow}
+          aria-hidden="true"
+        />
 
         <div className={styles.profileImage}>
           <span>Your Photo</span>
@@ -14,9 +22,9 @@ const AboutImage = () => {
       </div>
 
       <div className={styles.profileContent}>
-        <h3>Yash Bansode</h3>
+        <h3>{profile.name}</h3>
 
-        <p>Full Stack Developer</p>
+        <p>{profile.role}</p>
 
         <div className={styles.availabilityBadge}>
           <span
@@ -24,7 +32,9 @@ const AboutImage = () => {
             aria-hidden="true"
           />
 
-          <span>Open to Opportunities</span>
+          <span>
+            {profile.availability}
+          </span>
         </div>
       </div>
 
@@ -32,7 +42,7 @@ const AboutImage = () => {
         className={styles.techStack}
         aria-label="Primary technologies"
       >
-        {aboutData.technologies.map((tech) => {
+        {technologies.map((tech) => {
           const Icon = tech.icon;
 
           return (
