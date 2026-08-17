@@ -36,7 +36,7 @@ const aboutData = {
         parts: [
           {
             text:
-              "My development journey has grown through ",
+              "My development journey has grown through.",
           },
 
           {
@@ -57,7 +57,7 @@ const aboutData = {
         parts: [
           {
             text:
-              "Today, I'm focused on writing ",
+              "Today, I'm focused on writing",
           },
 
           {
