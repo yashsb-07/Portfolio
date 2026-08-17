@@ -1,16 +1,6 @@
-import {
-  FaAws,
-  FaGitAlt,
-  FaPython,
-  FaReact,
-} from "react-icons/fa";
+import { FaAws, FaGitAlt, FaPython, FaReact, } from "react-icons/fa";
 
-import {
-  SiDjango,
-  SiJavascript,
-  SiPostgresql,
-  SiTailwindcss,
-} from "react-icons/si";
+import { SiDjango, SiJavascript, SiPostgresql, SiTailwindcss, } from "react-icons/si";
 
 import resumeFile from "../assets/documents/resume.pdf";
 
