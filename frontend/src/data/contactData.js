@@ -65,7 +65,7 @@ const contactData = {
 
       value: "Explore my work",
 
-      href: "https://github.com/yashsb-07",
+      href: "https://github.com/yashsb-07/",
 
       icon: LuGithub,
 
@@ -79,7 +79,7 @@ const contactData = {
 
       value: "Instagram",
 
-      href: "https://www.instagram.com/yashsb07",
+      href: "https://www.instagram.com/yashsb07/",
 
       icon: LuInstagram,
     },
