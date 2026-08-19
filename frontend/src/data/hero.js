@@ -22,7 +22,7 @@ const heroData = {
 
     variableName: "yash",
 
-    role: "Python Full Stack Dev",
+    role: "Python Full-Stack Dev",
 
     stack: [
       "React",
