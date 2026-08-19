@@ -67,7 +67,7 @@ const aboutData = {
 
           {
             text:
-              ", understanding scalable architecture, and building ",
+              ", understanding scalable architecture, and building",
           },
 
           {
