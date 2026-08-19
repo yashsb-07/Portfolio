@@ -12,7 +12,7 @@ const heroData = {
     highlight: "Web Experiences",
   },
 
-  subtitle: "Python Full Stack Developer",
+  subtitle: "Python Full-Stack Developer",
 
   description:
   "I build responsive, full-stack web applications with React, Django, and PostgreSQL, with a focus on clean architecture, practical problem-solving, and reliable user experiences. Currently expanding my skills in AWS and DSA.",
