@@ -20,7 +20,7 @@ const aboutData = {
       "Turning ideas into reliable, real-world software.",
 
     subtitle:
-      "I'm Yash, a Python Full Stack Developer focused on building reliable, user-focused web applications. I enjoy working across the stack with React, Django, REST APIs, and PostgreSQL while continuously strengthening my cloud and problem-solving skills.",
+      "I'm Yash, a Python Full-Stack Developer focused on building reliable, user-focused web applications. I enjoy working across the stack with React, Django, REST APIs, and PostgreSQL while continuously strengthening my cloud and problem-solving skills.",
   },
 
   journey: {
